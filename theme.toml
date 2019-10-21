@@ -3,19 +3,13 @@
 
 name = "Github Style"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
-description = ""
+licenselink = "https://github.com/MeiK2333/github-style/blob/master/LICENSE"
+description = "github-style hugo theme"
 homepage = "http://example.com/"
-tags = []
-features = []
+tags = ["blog"]
+features = ["github-style"]
 min_version = "0.41"
 
 [author]
-  name = ""
-  homepage = ""
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "MeiK"
+  homepage = "https://github.com/MeiK2333"

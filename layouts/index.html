@@ -1,6 +1,7 @@
-{{ partial "head.html" }}
-
-<body class="logged-in env-production emoji-size-boost page-responsive page-profile">
-    {{ partial "header.html" }}
-    {{ partial "footer.html" }}
-</body>
+{{ define "content" }}
+{{ if eq .Site.Params.home_mode "post" }}
+{{ partial "post.html" . }}
+{{ else }}
+{{ partial "home.html" . }}
+{{ end }}
+{{ end }}
