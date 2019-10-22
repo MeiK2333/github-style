@@ -1,0 +1,39 @@
+{{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
+{{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
+{{ $section_count := len $section }}
+{{ $n_posts := $.Param "recent_posts_number" | default 6 }}
+<div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
+    <div class="UnderlineNav width-full user-profile-nav top-0 is-placeholder"
+        style="visibility: hidden; display: none; height: 56px;"></div>
+    <div class="UnderlineNav width-full user-profile-nav js-sticky top-0"
+        style="position: static; top: 0px; left: 330.5px; width: 911.5px;">
+        <nav class="UnderlineNav-body" data-pjax aria-label="User profile">
+            <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ .Site.BaseURL }}">
+                Overview
+            </a>
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ .Site.BaseURL }}posts/">
+                Posts
+                <span class="Counter hide-lg hide-md hide-sm">
+                    {{ $section_count}}
+                </span>
+            </a>
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ .Site.BaseURL }}about/">
+                About
+            </a>
+        </nav>
+    </div>
+
+    <div class="position-relative">
+        <div class="container-lg clearfix new-discussion-timeline experiment-repo-nav  p-responsive">
+            <div class="repository-content ">
+                <div class="Box mt-3 position-relative">
+                    <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
+                        <article class="markdown-body entry-content p-3 p-md-6" itemprop="text">
+                            {{- .Content -}}
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
