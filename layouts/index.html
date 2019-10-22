@@ -1,7 +1,3 @@
 {{ define "content" }}
-{{ if eq .Site.Params.home_mode "post" }}
-{{ partial "post.html" . }}
-{{ else }}
 {{ partial "home.html" . }}
-{{ end }}
 {{ end }}
