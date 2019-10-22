@@ -11,13 +11,13 @@
             <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ .Site.BaseURL }}">
                 Overview
             </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ .Site.BaseURL }}/posts">
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ .Site.BaseURL }}posts/">
                 Posts
                 <span class="Counter hide-lg hide-md hide-sm">
                     {{ $section_count}}
                 </span>
             </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ .Site.BaseURL }}/about">
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ .Site.BaseURL }}about/">
                 About
             </a>
         </nav>
@@ -49,7 +49,7 @@
                                 </svg>MIT License
                             </span>
                             Updated <relative-time datetime="{{ .PublishDate.Format "2006-01-02" }}" class="no-wrap"
-                                title="Modify at {{ .Lastmod.Format "2006/01/02" }}">
+                                title="Modifyd at {{ .Lastmod.Format "2006/01/02" }}">
                                 {{ .PublishDate.Format "January 2, 2006" }}</relative-time>
                         </div>
                     </div>

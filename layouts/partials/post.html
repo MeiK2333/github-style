@@ -1,0 +1,54 @@
+<div class="application-main " data-commit-hovercards-enabled="">
+    <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
+        <main id="js-repo-pjax-container" data-pjax-container="">
+            <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav pt-0 pt-lg-4 ">
+                <div class="repohead-details-container clearfix container-lg p-responsive d-none d-lg-block">
+                    <div class="mb-3 d-flex">
+                        <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
+                            <a class="avatar mr-1" href="{{ .Site.BaseURL }}about/"><img
+                                    src="{{ "images/avatar.png" | absURL }}" width="26" height="26"></a>
+                            <span class="author"><a
+                                    href="{{ .Site.BaseURL }}about/">{{ .Site.Params.author }}</a></span>
+                            <span class="path-divider">/</span>
+                            <strong itemprop="name" class="css-truncate-target" style="max-width: 410px"><a
+                                    href="{{ .URL }}">{{ .Title }}</a></strong>
+
+                            <div class="d-block text-small text-gray">
+                                Created <time-ago datetime="{{ .PublishDate.Format "2006-01-02" }}" class="no-wrap"
+                                    title="Created at {{ .PublishDate.Format "2006/01/02" }}">
+                                    {{ .PublishDate.Format "2006-01-02" }}</time-ago>
+                                <span class="file-info-divider"></span>
+                                Modifyd <time-ago datetime="{{ .Lastmod.Format "2006-01-02" }}" class="no-wrap"
+                                    title="Modifyd at {{ .Lastmod.Format "2006/01/02" }}">
+                                    {{ .Lastmod.Format "2006-01-02" }}</time-ago>
+                            </div>
+                        </h1>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="container-lg clearfix new-discussion-timeline experiment-repo-nav  p-responsive">
+                <div class="repository-content ">
+                    <div class="Box mt-3 position-relative">
+                        <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
+                            <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                                {{ countwords .Content }} Words
+                                <span class="file-info-divider"></span>
+                                {{ .ReadingTime }} min
+                            </div>
+                        </div>
+
+                        <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
+                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text">
+                                {{- .Content -}}
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
