@@ -10,14 +10,18 @@
     const pinned_posts = document.getElementsByName('pinned-post');
     for (let i = 0; i < pinned_posts.length; i++) {
         for (let j = 0; j < classs.length; j++) {
-            pinned_posts[i].getElementsByTagName('p')[0].classList.add(classs[j]);
+            try {
+                pinned_posts[i].getElementsByTagName('p')[0].classList.add(classs[j]);
+            } catch {}
         }
     }
     classs = [/*'col-9', */'d-inline-block', 'text-gray', 'mb-2', 'pr-4'];
     const posts_posts = document.getElementsByName('posts-post');
     for (let i = 0; i < posts_posts.length; i++) {
         for (let j = 0; j < classs.length; j++) {
-            posts_posts[i].getElementsByTagName('p')[0].classList.add(classs[j]);
+            try {
+                posts_posts[i].getElementsByTagName('p')[0].classList.add(classs[j]);
+            } catch {}
         }
     }
 </script>
