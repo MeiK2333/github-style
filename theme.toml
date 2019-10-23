@@ -6,8 +6,8 @@ license = "MIT"
 licenselink = "https://github.com/MeiK2333/github-style/blob/master/LICENSE"
 description = "github-style hugo theme"
 homepage = "http://example.com/"
-tags = ["blog"]
-features = ["github-style"]
+tags = ["blog", "google analytics"]
+features = ["google analytics"]
 min_version = "0.41"
 
 [author]
