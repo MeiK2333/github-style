@@ -10,18 +10,20 @@
     const pinned_posts = document.getElementsByName('pinned-post');
     for (let i = 0; i < pinned_posts.length; i++) {
         for (let j = 0; j < classs.length; j++) {
-            try {
-                pinned_posts[i].getElementsByTagName('p')[0].classList.add(classs[j]);
-            } catch {}
+            const ps = pinned_posts[i].getElementsByTagName('p');
+            for (let k = 0; k < ps.length; k++) {
+                ps[k].classList.add(classs[j]);
+            }
         }
     }
     classs = [/*'col-9', */'d-inline-block', 'text-gray', 'mb-2', 'pr-4'];
     const posts_posts = document.getElementsByName('posts-post');
     for (let i = 0; i < posts_posts.length; i++) {
         for (let j = 0; j < classs.length; j++) {
-            try {
-                posts_posts[i].getElementsByTagName('p')[0].classList.add(classs[j]);
-            } catch {}
+            const ps = posts_posts[i].getElementsByTagName('p');
+            for (let k = 0; k < ps.length; k++) {
+                ps[k].classList.add(classs[j]);
+            }
         }
     }
 </script>

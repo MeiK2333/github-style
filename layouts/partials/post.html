@@ -8,10 +8,10 @@
                             <a class="avatar mr-1" href="{{ .Site.BaseURL }}about/"><img
                                     src="{{ "images/avatar.png" | absURL }}" width="26" height="26"></a>
                             <span class="author"><a
-                                    href="{{ .Site.BaseURL }}about/">{{ .Site.Params.author }}</a></span>
+                                    href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span>
                             <span class="path-divider">/</span>
                             <strong itemprop="name" class="css-truncate-target" style="max-width: 410px"><a
-                                    href="{{ .URL }}">{{ .Title }}</a></strong>
+                                    href="{{ .Permalink }}">{{ .Title }}</a></strong>
 
                             <div class="d-block text-small text-gray">
                                 Created <time-ago datetime="{{ .PublishDate.Format "2006-01-02" }}" class="no-wrap"
@@ -36,8 +36,8 @@
                         <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
                             <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
                                 {{ countwords .Content }} Words
-                                <span class="file-info-divider"></span>
-                                {{ .ReadingTime }} min
+                                <!-- <span class="file-info-divider"></span>
+                                {{ .ReadingTime }} min -->
                             </div>
                         </div>
 
