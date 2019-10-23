@@ -1,19 +1,14 @@
 <head>
     <meta charset="utf-8">
     <link crossorigin="anonymous" media="all"
-        integrity="sha512-4bmhxCob3U2WoK8HVl7UacoDdNejo+50BlGN9SdGtjXbsCQwp7uLtntLkL9a9CmgLPZ8L9lsOZL0ieINT9yHeA=="
         rel="stylesheet"
-        href="https://github.githubassets.com/assets/frameworks-2fd1891c9e6292401a1a3de8bc3f747f.css" />
+        href="{{ "css/frameworks.css" | absURL }}" />
     <link crossorigin="anonymous" media="all"
-        integrity="sha512-oF4BPgLoJ4I8H6vdTzR4cGdwAF4bC/bdeI7zsQ/xzUbUWc+JU6xeSbOxIgOyelZP+1ESc5qfwDKzYQfdDNlX5Q=="
-        rel="stylesheet" href="https://github.githubassets.com/assets/github-5238587550334d8b43fd71226c6de55c.css" />
+        rel="stylesheet" href="{{ "css/github.css" | absURL }}" />
     <meta name="viewport" content="width=device-width">
 
     <title>{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 
-    <meta name="description" content="">
-    <link rel="assets" href="https://github.githubassets.com/">
-    <link rel="mask-icon" href="https://github.githubassets.com/pinned-octocat.svg" color="#000000">
     <link rel="icon" type="image/x-icon" class="js-site-favicon" href="{{ "images/favicon.ico" | absURL }}">
     <meta name="theme-color" content="#1e2327">
 </head>
