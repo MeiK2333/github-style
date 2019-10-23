@@ -9,7 +9,7 @@
         rel="stylesheet" href="https://github.githubassets.com/assets/github-5238587550334d8b43fd71226c6de55c.css" />
     <meta name="viewport" content="width=device-width">
 
-    <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+    <title>{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 
     <meta name="description" content="">
     <link rel="assets" href="https://github.githubassets.com/">
