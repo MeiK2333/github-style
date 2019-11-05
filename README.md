@@ -46,4 +46,5 @@ theme = "github-style"
   github = "example"
   twitter = "example"
   email = "example@domain.com"
+  utterances = "example/example.github.io"
 ```

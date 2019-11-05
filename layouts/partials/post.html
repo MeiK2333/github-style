@@ -52,3 +52,13 @@
         </main>
     </div>
 </div>
+{{ if .Site.Params.utterances }}
+<div class="utterances"></div>
+<script src="https://utteranc.es/client.js"
+        repo="{{ .Site.Params.utterances }}"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+{{ end }}
