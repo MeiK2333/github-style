@@ -5,8 +5,16 @@
                 <div class="repohead-details-container clearfix container-lg p-responsive d-none d-lg-block">
                     <div class="mb-3 d-flex">
                         <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
-                            <a class="avatar mr-1" href="{{ .Site.BaseURL }}about/"><img
-                                    src="{{ "images/avatar.png" | absURL }}" width="26" height="26"></a>
+                            <a class="avatar mr-1" href="{{ .Site.BaseURL }}about/">
+                            {{ with $.Site.Params.avatar }}
+
+                                <img
+                                    src="{{  $.Site.Params.avatar  }}" width="26" height="26">
+                            {{ else }}
+                                <img
+                                    src="{{ "images/avatar.png" | absURL }}" width="26" height="26">
+                            {{ end }}
+                            </a>
                             <span class="author"><a
                                     href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span>
                             <span class="path-divider">/</span>
