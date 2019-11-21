@@ -50,6 +50,8 @@
                         <div>{{ .Site.Params.Description }}</div>
                     </div>
                     <ul class="vcard-details mb-3">
+
+                        {{ if .Site.Params.email }}
                         <li itemprop="email" aria-label="Email: jxn1024@icloud.com"
                             class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-mail"
                                 viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
@@ -58,6 +60,8 @@
                             </svg>
                             <a class="u-email " href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a>
                         </li>
+                        {{ end }}
+
                         <li itemprop="url" data-test-selector="profile-website-url"
                             class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-link"
                                 viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
