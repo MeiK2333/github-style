@@ -6,9 +6,7 @@
     <link crossorigin="anonymous" media="all"
         rel="stylesheet" href="{{ "css/github.css" | absURL }}" />
     <meta name="viewport" content="width=device-width">
-
     <title>{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
-
     <!-- OGP -->
     <meta property="og:url" content="{{ .URL | absURL }}"/>
     <meta property="og:site_name" content="{{ .Site.Title }}"/>
@@ -17,12 +15,16 @@
     <meta property="og:title" content="{{ .Site.Title }}" />
     <meta property="og:description" content="{{ .Site.Params.Description }}"/>
     <meta property="og:image" content="{{ $.Site.Params.avatar }}"/>
+    <meta name="description" content="{{ .Site.Params.Description }}"/>
     {{ else }}
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ .Title }}" />
     <meta property="og:description" content="{{ .Params.Description }}"/>
+    <meta name="description" content="{{ .Params.Description }}"/>
+    {{ with .Params.Keyword }}
+    <meta name="keywords" content="{{ . }}"/>
     {{ end }}
-
+    {{ end }}
     <link rel="icon" type="image/x-icon" class="js-site-favicon" href="{{ "images/favicon.ico" | absURL }}">
     <meta name="theme-color" content="#1e2327">
     {{ template "_internal/google_analytics_async.html" . }}
