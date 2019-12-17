@@ -94,6 +94,18 @@
                     <img src="{{ "images/twitter.png" | absURL }}" class="avatar" width="35" height="35">
                 </a>
                 {{ end }}
+                {{ if .Site.Params.Mastodon}}
+                <a class="avatar-group-item" data-hovercard-type="organization"
+                    href="{{ .Site.Params.Mastodon }}">
+                    <img src="{{ "images/mastodon.png" | absURL }}" class="avatar" width="35" height="35">
+                </a>
+                {{ end }}
+                {{ if .Site.Params.Hatena}}
+                <a class="avatar-group-item" data-hovercard-type="organization"
+                    href="https://b.hatena.ne.jp/{{ .Site.Params.Hatena }}">
+                    <img src="{{ "images/hatena.png" | absURL }}" class="avatar" width="35" height="35">
+                </a>
+                {{ end }}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                                              href="{{ "posts/index.xml" | absURL }}">
                     <img src="{{ "images/rss.png" | absURL }}" class="avatar" width="38" height="38">
