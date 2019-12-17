@@ -5,18 +5,15 @@
     <div class="clearfix mb-2">
         <div class="float-left col-3 col-md-12 pr-3 pr-md-0">
             {{ with $.Site.Params.avatar }}
-            <a itemprop="image" class="u-photo d-block position-relative" aria-hidden="true"
-                href="{{ $.Site.Params.avatar  }}">
+            <span itemprop="image" class="u-photo d-block position-relative" aria-hidden="true">
                 <img alt="" width="260" height="260"
                     class="avatar width-full height-full rounded-2" src="{{ $.Site.Params.avatar  }}" />
-            </a>
+            </span>
             {{ else }}
-            <a itemprop="image" class="u-photo d-block position-relative" aria-hidden="true"
-                href="{{ "images/avatar.png" | absURL }}">
-
+            <span itemprop="image" class="u-photo d-block position-relative" aria-hidden="true">
                 <img alt="" width="260" height="260"
                     class="avatar width-full height-full rounded-2" src="{{ "images/avatar.png" | absURL }}" />
-            </a>
+            </span>
            {{ end }}
         </div>
         <div class="float-left col-9 col-md-12 pl-2 pl-md-0">
