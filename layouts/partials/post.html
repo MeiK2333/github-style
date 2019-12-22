@@ -18,7 +18,7 @@
                             <span class="author"><a
                                     href="{{ absURL "about/" }}">{{ .Site.Params.author }}</a></span>
                             <span class="path-divider">/</span>
-                            <strong itemprop="name" class="css-truncate-target" style="max-width: 410px"><a
+                            <strong itemprop="name"><a
                                     href="{{ .Permalink }}">{{ .Title }}</a></strong>
 
                             {{ with .Params.description }}<div class="text-small text-gray">{{ . }}</div>{{ end }}
