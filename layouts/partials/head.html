@@ -27,5 +27,17 @@
     {{ end }}
     <link rel="icon" type="image/x-icon" class="js-site-favicon" href="{{ "images/favicon.ico" | absURL }}">
     <meta name="theme-color" content="#1e2327">
-    {{ template "_internal/google_analytics_async.html" . }}
+
+    {{ if not .Site.IsServer }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{ .Site.GoogleAnalytics }}');
+    </script>
+<!-- {{ template "_internal/google_analytics_async.html" . }} -->
+    {{ end }}
 </head>
