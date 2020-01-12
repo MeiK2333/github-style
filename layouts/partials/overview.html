@@ -72,7 +72,61 @@
                 </ol>
             </div>
         </div>
-        <div id="pinned-items-modal-wrapper"></div>
+
+        <div class="mt-4 position-relative">
+            <div class="js-yearly-contributions">
+                <div class="position-relative">
+                    <h2 class="f4 mb-2 text-normal">
+                        Contributions in 2020
+                    </h2>
+
+                <div class="border border-gray-dark py-2 graph-before-activity-overview">
+                    <div class="js-calendar-graph mx-3 d-flex flex-column pt-1 is-graph-loading graph-canvas calendar-graph height-full text-center" data-from="2019-01-06 00:00:00 +0900" data-to="2020-01-12 23:59:59 +0900" data-org="">
+                        {{ $posts := .Site.RegularPages.GroupByPublishDate "2006-01-02" }}
+                        <svg width="860" height="128" class="js-calendar-graph-svg">
+                            <g transform="translate(0, 20)">
+                                {{ range $x, $_ := seq 53 }}
+                                <g transform="translate({{ mul $x 16 }}, 0)">
+                                    {{ range $y, $_ := seq 7 }}
+                                        {{ $date := (time "2020-01-01").AddDate 0 0 (int (add $y (mul $x 7))) }}
+                                        {{ $dateText := $date.Format "2006-01-02" }}
+                                        {{ if (le $date (time "2020-12-31")) }}
+                                            {{ with (where $posts "Key" "eq" $dateText) }}
+                                                {{ $t := (index . 0) }}
+                                                {{ $postCount := (len $t.Pages) }}
+                                                {{ if (eq $postCount 1) }}
+                                                    <rect class="day" width="12" height="12" x="16" y="{{ mul $y 15 }}" fill="#7bc96f" data-count="{{ len $t.Pages }}" data-date="{{ $date }}"></rect>
+                                                {{ else if (eq $postCount 2) }}
+                                                    <rect class="day" width="12" height="12" x="16" y="{{ mul $y 15 }}" fill="#239a3b" data-count="{{ len $t.Pages }}" data-date="{{ $date }}"></rect>
+                                                {{ else }}
+                                                    <rect class="day" width="12" height="12" x="16" y="{{ mul $y 15 }}" fill="#196127" data-count="{{ len $t.Pages }}" data-date="{{ $date }}"></rect>
+                                                {{ end }}
+                                            {{ else }}
+                                                <rect class="day" width="12" height="12" x="16" y="{{ mul $y 15 }}" fill="#ebedf0" data-count="0" data-date="{{ $date }}"></rect>
+                                            {{ end }}
+                                        {{ end }}
+                                    {{ end }}
+                                </g>
+                                {{ end }}
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="contrib-footer clearfix mt-1 mx-3 px-3 pb-1">
+                        <div class="contrib-legend text-gray" title="A summary of pull requests, issues opened, and commits to the default and gh-pages branches.">
+                        Less
+                        <ul class="legend">
+                            <li style="background-color: #ebedf0"></li>
+                            <!--<li style="background-color: #c6e48b"></li>-->
+                            <li style="background-color: #7bc96f"></li>
+                            <li style="background-color: #239a3b"></li>
+                            <li style="background-color: #196127"></li>
+                        </ul>
+                        More
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </div>
