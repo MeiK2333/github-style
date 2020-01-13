@@ -1,6 +1,6 @@
 # github-style
 
-## Customization points by suihan74
+## Customized points by suihan74
 
 https://suihan74.github.io/posts/2019/12_26_00_theme_customize/
 
