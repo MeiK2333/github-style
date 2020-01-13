@@ -2,6 +2,7 @@
 {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
 {{ $section_count := len $section }}
 {{ $n_posts := $.Param "recent_posts_number" | default 6 }}
+{{ $paginator := .Paginate (where .Pages "Type" "tags").ByTitle }}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
     <div class="UnderlineNav width-full user-profile-nav top-0 is-placeholder"
         style="visibility: hidden; display: none; height: 56px;"></div>
@@ -32,34 +33,32 @@
     <div class="position-relative">
         <div id="user-repositories-list">
             <ul data-filterable-for="your-repos-filter" data-filterable-type="substring">
-                {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
-                {{ range $key, $value := $taxonomy }}
+                {{ range $paginator.Pages }}
                 <li class="col-12 d-flex width-full py-4 border-bottom public fork">
                     <div class="col-12 col-lg-12 d-inline-block">
                         <div class="d-inline-block mb-1">
                             <h3>
-                                <a href="/{{ $taxonomyname | urlize }}/{{ $key | urlize }}">{{ $key }}</a>
+                                <a href="/tags/{{ .Title | urlize }}">{{ .Title }}</a>
                                 <span class="Counter">
-                                    {{ $value.Count }}
+                                    {{ len .Pages }}
                                 </span>
                             </h3>
                         </div>
                     </div>
                 </li>
                 {{ end }}
-                {{ end }}
             </ul>
-            {{ if gt .Paginator.TotalPages 1}}
+            {{ if gt $paginator.TotalPages 1}}
             <div class="paginate-container">
                 <div class="BtnGroup" data-test-selector="pagination">
-                    {{ if .Paginator.HasPrev }}
+                    {{ if $paginator.HasPrev }}
                     <a rel="nofollow" class="btn btn-outline BtnGroup-item"
-                        href="{{ .Paginator.Prev.URL }}">Previous</a>
+                        href="{{ $paginator.Prev.URL }}">Previous</a>
                     {{ else }}
                     <button class="btn btn-outline BtnGroup-item" disabled="disabled">Previous</button>
                     {{ end }}
-                    {{ if .Paginator.HasNext }}
-                    <a rel="nofollow" class="btn btn-outline BtnGroup-item" href="{{ .Paginator.Next.URL }}">Next</a>
+                    {{ if $paginator.HasNext }}
+                    <a rel="nofollow" class="btn btn-outline BtnGroup-item" href="{{ $paginator.Next.URL }}">Next</a>
                     {{ else }}
                     <button class="btn btn-outline BtnGroup-item" disabled="disabled">Next</button>
                     {{ end }}
