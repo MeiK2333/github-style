@@ -22,7 +22,7 @@
                                     href="{{ .Permalink }}">{{ .Title }}</a></strong>
 
                             <div class="d-block text-small text-gray">
-                                Created <time-ago datetime="{{ .PublishDate.Format "2006-01-02" }}" class="no-wrap"
+                                Created <time-ago datetime="{{ .Date.Format "2006-01-02" }}" class="no-wrap"
                                     title="Created at {{ .PublishDate.Format "2006/01/02" }}">
                                     {{ .PublishDate.Format "2006-01-02" }}</time-ago>
                                 <span class="file-info-divider"></span>
