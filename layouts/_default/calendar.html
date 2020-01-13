@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <link crossorigin="anonymous" media="all"
+        rel="stylesheet"
+        href="{{ "css/frameworks.css" | absURL }}" />
+    <link crossorigin="anonymous" media="all"
+        rel="stylesheet" href="{{ "css/github.css" | absURL }}" />
+    <link crossorigin="anonymous" media="all"
+        rel="stylesheet" href="{{ "css/user.css" | absURL }}"/>
+</head>
+<body>
+    {{ if ne .Title "Calendars" }}
+    {{ $year := string .Title }}
+    <div class="js-yearly-contributions">
+        <div class="position-relative">
+            {{ $postsPerYear := .Site.RegularPages.GroupByPublishDate "2006" }}
+            <h2 class="f4 mb-2 text-normal">
+                {{ len (index (where $postsPerYear "Key" "eq" $year) 0).Pages }} posts in {{ $year }}
+            </h2>
+
+        <div class="border border-gray-dark py-2 graph-before-activity-overview">
+            <div class="js-calendar-graph mx-3 d-flex flex-column pt-1 is-graph-loading graph-canvas calendar-graph height-full text-center" data-from="" data-to="" data-url="" data-org="">
+                {{ $posts := .Site.RegularPages.GroupByPublishDate "2006-01-02" }}
+                <svg width="860" height="128" class="js-calendar-graph-svg">
+                    <g transform="translate(0, 20)">
+                        {{ range $x, $_ := seq 53 }}
+                        <g transform="translate({{ mul $x 16 }}, 0)">
+                            {{ range $y, $_ := seq 7 }}
+                                {{ $date := (time (printf "%s-01-01" $year)).AddDate 0 0 (int (add $y (mul $x 7))) }}
+                                {{ $dateText := $date.Format "2006-01-02" }}
+                                {{ if le $date (time (printf "%s%s" $year "-12-31")) }}
+                                    {{ with (where $posts "Key" "eq" $dateText) }}
+                                        {{ $t := (index . 0) }}
+                                        {{ $postCount := len $t.Pages }}
+                                        <rect class="day" width="12" height="12" x="16" y="{{ mul $y 15 }}"
+                                                fill="{{ if (eq $postCount 1) }}#7bc96f
+                                                {{ else if eq $postCount 2 }}#239a3b
+                                                {{ else }}#196127
+                                                {{ end }}
+                                                "
+                                                data-count="{{ $postCount }}"
+                                                data-date="{{ $date }}">
+<!--                                            <title>{{ $postCount }} posts on {{ $date.Format "2006-01-02" }}</title>-->
+                                        </rect>
+                                    {{ else }}
+                                        <rect class="day" width="12" height="12" x="16" y="{{ mul $y 15 }}" fill="#ebedf0" data-count="0" data-date="{{ $date }}"></rect>
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                        </g>
+                        {{ end }}
+                    </g>
+                </svg>
+            </div>
+            <div class="contrib-footer clearfix mt-1 mx-3 px-3 pb-1">
+                <div class="contrib-legend text-gray">
+                Less
+                <ul class="legend">
+                    <li style="background-color: #ebedf0" title="no posts"></li>
+                    <!--<li style="background-color: #c6e48b"></li>-->
+                    <li style="background-color: #7bc96f" title="1 post"></li>
+                    <li style="background-color: #239a3b" title="2 posts"></li>
+                    <li style="background-color: #196127" title="3 posts or more"></li>
+                </ul>
+                More
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+
+{{ partial "script.html" . }}
+</body>
+</html>

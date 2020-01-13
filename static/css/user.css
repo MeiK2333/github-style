@@ -5,6 +5,13 @@
     white-space: nowrap;
 }
 
+.calendar {
+    position: relative;
+    width: auto;
+    height: 256px;
+}
+
+
 /* アプリの紹介ブログパーツ */
 .appreach {
   text-align: left;
