@@ -35,13 +35,13 @@
 
                             <!-- display timestamp -->
                             <div class="d-block text-small text-gray">
-                                Created <time-ago datetime="{{ .PublishDate.Format "2006-01-02 15:04" }}" class="no-wrap"
-                                    title="Created at {{ .PublishDate.Format "2006/01/02 15:04" }}">
-                                    {{ .PublishDate.Format "2006-01-02 15:04" }}</time-ago>
+                                Created at <time datetime="{{ .PublishDate.Format "2006-01-02 15:04" }}" class="no-wrap">
+                                    {{ .PublishDate.Format "2006/01/02 15:04" }}</time>
+                            {{ if ne .PublishDate .Lastmod }}
                                 <span class="file-info-divider"></span>
-                                Updated <time-ago datetime="{{ .Lastmod.Format "2006-01-02 15:04" }}" class="no-wrap"
-                                    title="Modified  at {{ .Lastmod.Format "2006/01/02 15:04" }}">
-                                    {{ .Lastmod.Format "2006-01-02 15:04" }}</time-ago>
+                                Updated at <time datetime="{{ .Lastmod.Format "2006-01-02 15:04" }}" class="no-wrap">
+                                    {{ .Lastmod.Format "2006/01/02 15:04" }}</time>
+                            {{ end }}
                             </div>
                         </h1>
                     </div>
@@ -59,6 +59,13 @@
                                 {{ countwords .Content }} Words
                                 <!-- <span class="file-info-divider"></span>
                                 {{ .ReadingTime }} min -->
+                            </div>
+
+                            <div class="d-flex py-1 py-md-0 flex-auto flex-order-1 flex-md-order-2 flex-sm-grow-0 flex-justify-between">
+                                <div class="BtnGroup">
+                                {{ $historyUrl := add (substr (printf "https://github.com/%s/hugo_files/commits/master/content%s" .Site.Params.github .RelPermalink) 0 -1) ".md" }}
+                                <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="{{ $historyUrl }}">History</a>
+                                </div>
                             </div>
                         </div>
 
