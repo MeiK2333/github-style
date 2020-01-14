@@ -33,7 +33,7 @@
                 </h2>
 
                 <ol class="d-flex flex-wrap list-style-none gutter-condensed mb-4 js-pinned-items-reorder-list">
-                    {{ range (first $n_posts $section) }}
+                    {{ range (first $n_posts $section.ByLastmod.Reverse ) }}
                     <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
                         <div
                             class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source  sortable-button-item">
