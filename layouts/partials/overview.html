@@ -79,13 +79,12 @@
         <div class="calendar">
             <iframe
                 id="calendar"
+                src="/calendar/2020/"
                 width="100%"
                 height="100%"
                 scrolling="no"
                 frameborder="0"
-                sandbox="allow-same-origin allow-scripts"
-                src="/calendar/2020/">
-            </iframe>
+                sandbox="allow-same-origin allow-scripts allow-top-navigation"></iframe>
         </div>
 
         <div class="profile-timeline-year-list js-profile-timeline-year-list bg-white js-sticky float-right">
@@ -106,6 +105,8 @@
 
 <script type="text/javascript">
     function load_calendar(year) {
-        document.getElementById('calendar').src = "/calendar/"+year+"/"
+        document.getElementById('calendar').contentWindow.location.replace("/calendar/"+year+"/");
     }
+
+    load_calendar($lastYear);
 </script>

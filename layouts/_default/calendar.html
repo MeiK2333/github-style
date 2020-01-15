@@ -11,46 +11,100 @@
         rel="stylesheet" href="{{ "css/user.css" | absURL }}"/>
 </head>
 <body>
-    {{ if ne .Title "Calendars" }}
-    {{ $year := string .Title }}
+    {{- if ne .Title "Calendars" }}
+    {{- $year := string .Title }}
+    {{- $isLastYear := eq now.Year (int $year) }}
+    {{- $mainSections := .Site.Params.mainSections | default (slice "post") }}
+    {{- $section := where .Site.RegularPages "Section" "in" $mainSections }}
+    {{- $allPosts := (where $section ".Parent.Parent.Title" "Posts") }}
+    {{- if $isLastYear }}
+        {{- $wd := now.Weekday }}
+        {{- $today := now }}
+        {{- $lastSunday := $today.AddDate 0 0 (int (sub 0 $wd)) }}
+        {{- $.Scratch.Set "firstDay" ($lastSunday.AddDate 0 0 (int (mul -7 52))) }}
+        {{- $.Scratch.Set "limit" $today }}
+    {{- else }}
+        {{- $lastDay := time (printf "%s-12-31" $year) }}
+        {{- $lastSunday := $lastDay.AddDate 0 0 (int (sub 0 $lastDay.Weekday)) }}
+        {{- $.Scratch.Set "firstDay" ($lastSunday.AddDate 0 0 (int (mul -7 52))) }}
+        {{- $.Scratch.Set "limit" $lastDay }}
+    {{- end }}
+    {{- $firstDay := $.Scratch.Get "firstDay" }}
+    {{- $limit := $.Scratch.Get "limit" }}
     <div class="js-yearly-contributions">
         <div class="position-relative">
-            {{ $postsPerYear := .Site.RegularPages.GroupByPublishDate "2006" }}
+            {{ $postsPerYear := $allPosts.GroupByPublishDate "2006" }}
             <h2 class="f4 mb-2 text-normal">
-                {{ len (index (where $postsPerYear "Key" "eq" $year) 0).Pages }} posts in {{ $year }}
+                {{ if $isLastYear }}
+                    {{ $.Scratch.Set "postsCount" (len (where $allPosts "PublishDate" "ge" $firstDay)) }}
+                {{ else }}
+                    {{ $.Scratch.Set "postsCount" (len (index (where $postsPerYear "Key" "eq" $year) 0).Pages) }}
+                {{ end }}
+                {{ $postsCount := $.Scratch.Get "postsCount" }}
+                {{ $postsCount }} post{{ if ne $postsCount 1 }}s{{ end }} in {{ if $isLastYear }} the last year {{ else }} {{ $year }} {{ end }}
             </h2>
 
+        {{ $posts := $allPosts.GroupByPublishDate "2006-01-02" }}
         <div class="border border-gray-dark py-2 graph-before-activity-overview">
             <div class="js-calendar-graph mx-3 d-flex flex-column pt-1 is-graph-loading graph-canvas calendar-graph height-full text-center" data-from="" data-to="" data-url="" data-org="">
-                {{ $posts := .Site.RegularPages.GroupByPublishDate "2006-01-02" }}
-                <svg width="860" height="128" class="js-calendar-graph-svg">
-                    <g transform="translate(0, 20)">
-                        {{ range $x, $_ := seq 53 }}
+                <svg width="880" height="128" class="js-calendar-graph-svg">
+                    <g transform="translate(10, 20)">
+                        {{- $.Scratch.Set "months" 0 }}
+                        {{- range $x, $_ := seq 53 }}
                         <g transform="translate({{ mul $x 16 }}, 0)">
-                            {{ range $y, $_ := seq 7 }}
-                                {{ $date := (time (printf "%s-01-01" $year)).AddDate 0 0 (int (add $y (mul $x 7))) }}
-                                {{ $dateText := $date.Format "2006-01-02" }}
-                                {{ if le $date (time (printf "%s%s" $year "-12-31")) }}
-                                    {{ with (where $posts "Key" "eq" $dateText) }}
-                                        {{ $t := (index . 0) }}
-                                        {{ $postCount := len $t.Pages }}
+                            {{- range $y, $_ := seq 7 }}
+                                {{- $date := $firstDay.AddDate 0 0 (int (add $y (mul $x 7))) }}
+                                {{- $dateText := $date.Format "2006-01-02" }}
+                                {{- if and (le $date $limit) (or $isLastYear (ge $date (time (printf "%s-01-01" $year)))) }}
+                                    {{- if eq $y 0 }}
+                                    {{- $prev := $date.AddDate 0 0 -7 }}
+                                    {{- if or (lt $prev $firstDay) (ne $date.Month $prev.Month) }}
+                                        {{- $idx := $.Scratch.Get "months" }}
+                                        {{- $.Scratch.Set "months" (add $idx 1) }}
+                                        {{- if eq $idx 0 }}
+                                            {{- $.Scratch.Set "start-month" $date }}
+                                        {{- end }}
+                                        {{- $.Scratch.Set (printf "month-idx-%d" $idx) (mul $x 16) }}
+                                    {{- end }}
+                                    {{- end }}
+                                    {{- with (where $posts "Key" "eq" $dateText) }}
+                                        {{- $t := (index . 0) }}
+                                        {{- $postCount := len $t.Pages }}
                                         <rect class="day" width="12" height="12" x="16" y="{{ mul $y 15 }}"
-                                                fill="{{ if (eq $postCount 1) }}#7bc96f
-                                                {{ else if eq $postCount 2 }}#239a3b
-                                                {{ else }}#196127
-                                                {{ end }}
-                                                "
-                                                data-count="{{ $postCount }}"
-                                                data-date="{{ $date }}">
-<!--                                            <title>{{ $postCount }} posts on {{ $date.Format "2006-01-02" }}</title>-->
+                                              fill="{{ if (eq $postCount 1) }}#7bc96f
+                                              {{ else if eq $postCount 2 }}#239a3b
+                                              {{ else }}#196127
+                                              {{ end }}"
+                                              data-count="{{ $postCount }}"
+                                              data-date="{{ $date }}"
+                                              onclick="onClickDay('{{ $date.Year }}', '{{ printf `%04d-%02d-%02d` $date.Year $date.Month $date.Day }}');">
+                                            <title>{{ $postCount }} post{{ if ne $postCount 1 }}s{{ end }} on {{ $date.Format "2006-01-02" }}</title>
                                         </rect>
-                                    {{ else }}
-                                        <rect class="day" width="12" height="12" x="16" y="{{ mul $y 15 }}" fill="#ebedf0" data-count="0" data-date="{{ $date }}"></rect>
-                                    {{ end }}
-                                {{ end }}
-                            {{ end }}
+                                    {{- else }}
+                                        <rect class="day" width="12" height="12" x="16" y="{{ mul $y 15 }}" fill="#ebedf0" data-count="0" data-date="{{ $date }}">
+                                            <title>no posts on {{ $date.Format "2006-01-02" }}</title>
+                                        </rect>
+                                    {{- end }}
+                                {{- end }}
+                            {{- end }}
                         </g>
-                        {{ end }}
+                        {{- end }}
+
+                        {{- $startMonth := $.Scratch.Get "start-month" }}
+                        {{- $months := $.Scratch.Get "months" }}
+                        {{- range $idx, $_ := seq $months }}
+                            {{- $x := $.Scratch.Get (printf "month-idx-%d" $idx) }}
+                            {{- $month := $startMonth.AddDate 0 $idx 0 }}
+                            <text x="{{ (add 15 $x) }}" y="-9" class="month">{{ (substr (string $month.Month) 0 3) }}</text>
+                        {{- end }}
+
+                        <text text-anchor="start" class="wday" dx="-10" dy="8" style="display: none;">Sun</text>
+                        <text text-anchor="start" class="wday" dx="-10" dy="25">Mon</text>
+                        <text text-anchor="start" class="wday" dx="-10" dy="32" style="display: none;">Tue</text>
+                        <text text-anchor="start" class="wday" dx="-10" dy="56">Wed</text>
+                        <text text-anchor="start" class="wday" dx="-10" dy="57" style="display: none;">Thu</text>
+                        <text text-anchor="start" class="wday" dx="-10" dy="85">Fri</text>
+                        <text text-anchor="start" class="wday" dx="-10" dy="81" style="display: none;">Sat</text>
                     </g>
                 </svg>
             </div>
@@ -60,7 +114,7 @@
                 <ul class="legend">
                     <li style="background-color: #ebedf0" title="no posts"></li>
                     <!--<li style="background-color: #c6e48b"></li>-->
-                    <li style="background-color: #7bc96f" title="1 post"></li>
+                    <li style="background-color: #7bc96f" title="a post"></li>
                     <li style="background-color: #239a3b" title="2 posts"></li>
                     <li style="background-color: #196127" title="3 posts or more"></li>
                 </ul>
@@ -71,6 +125,12 @@
     </div>
     {{ end }}
 
-{{ partial "script.html" . }}
+<script type="text/javascript">
+    function onClickDay(year, date) {
+        console.log("/posts/" + year + "/?date=" + date);
+        window.open("/posts/" + year + "/?date=" + date, "_parent")
+    }
+</script>
+
 </body>
 </html>
