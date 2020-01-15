@@ -25,6 +25,7 @@
             </a>
         </nav>
     </div>
+
     <div class="position-relative">
         <div class="mt-4">
             <div class="js-pinned-items-reorder-container">
@@ -72,7 +73,40 @@
                 </ol>
             </div>
         </div>
-        <div id="pinned-items-modal-wrapper"></div>
+    </div>
+
+    <div class="mt-4 position-relative">
+        <div class="calendar">
+            <iframe
+                id="calendar"
+                src="/calendar/2020/"
+                width="100%"
+                height="100%"
+                scrolling="no"
+                frameborder="0"
+                sandbox="allow-same-origin allow-scripts allow-top-navigation"></iframe>
+        </div>
+
+        <div class="profile-timeline-year-list js-profile-timeline-year-list bg-white js-sticky float-right">
+            <ul class="filter-list small">
+                {{ range .Site.RegularPages.GroupByPublishDate "2006" }}
+                {{ $year := .Key }}
+                <li>
+                <a id="year-link-{{ $year }}"
+                    class="js-year-link filter-item px-3 mb-2 py-2 {{ if eq $year `2020` }}selected{{ end }}"
+                    aria-label="Contribution activity in {{ $year }}"
+                    onclick="load_calendar({{ $year }});">{{ $year }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
     </div>
 </div>
-</div>
+
+<script type="text/javascript">
+    function load_calendar(year) {
+        document.getElementById('calendar').contentWindow.location.replace("/calendar/"+year+"/");
+    }
+
+    load_calendar($lastYear);
+</script>
