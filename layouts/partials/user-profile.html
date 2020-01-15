@@ -4,17 +4,17 @@
     </div>
     <div class="clearfix mb-2">
         <div class="float-left col-3 col-md-12 pr-3 pr-md-0">
-            {{ with $.Site.Params.avatar }}
+            {{- with $.Site.Params.avatar }}
             <span itemprop="image" class="u-photo d-block position-relative" aria-hidden="true">
                 <img alt="" width="260" height="260"
                     class="avatar width-full height-full rounded-2" src="{{ $.Site.Params.avatar  }}" />
             </span>
-            {{ else }}
+            {{- else }}
             <span itemprop="image" class="u-photo d-block position-relative" aria-hidden="true">
                 <img alt="" width="260" height="260"
                     class="avatar width-full height-full rounded-2" src="{{ "images/avatar.png" | absURL }}" />
             </span>
-           {{ end }}
+           {{- end }}
         </div>
         <div class="float-left col-9 col-md-12 pl-2 pl-md-0">
 
@@ -27,7 +27,7 @@
                 </h1>
             </div>
 
-            {{ if .Site.Params.github }}
+            {{- if .Site.Params.github }}
             <div class="user-profile-following-container js-user-profile-following-toggle mb-3">
                 <span class="user-following-container js-toggler-container js-social-container">
                     <span class="follow">
@@ -42,7 +42,7 @@
                     </span>
                 </span>
             </div>
-            {{ end }}
+            {{- end }}
 
             <div class="d-none d-md-block">
                 <div class="js-profile-editable-area">
@@ -51,7 +51,7 @@
                     </div>
                     <ul class="vcard-details mb-3">
 
-                        {{ if .Site.Params.email }}
+                        {{- if .Site.Params.email }}
                         <li itemprop="email" aria-label="Email: jxn1024@icloud.com"
                             class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-mail"
                                 viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
@@ -60,7 +60,7 @@
                             </svg>
                             <a class="u-email " href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a>
                         </li>
-                        {{ end }}
+                        {{- end }}
 
                         <li itemprop="url" data-test-selector="profile-website-url"
                             class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-link"
@@ -69,11 +69,11 @@
                                     d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
                                 </path>
                             </svg>
-                            {{ if .Site.Params.url }}
+                            {{- if .Site.Params.url }}
                             <a rel="nofollow me" href="{{ .Site.Params.url }}">{{ .Site.Params.url }}</a>
-                            {{ else }}
+                            {{- else }}
                             <a rel="nofollow me" href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
-                            {{ end }}
+                            {{- end }}
                         </li>
                     </ul>
                 </div>
@@ -82,30 +82,30 @@
             <div class="border-top py-3 clearfix hide-sm hide-md">
                 <h2 class="mb-1 h4">Organizations</h2>
 
-                {{ if .Site.Params.github}}
+                {{- if .Site.Params.github}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="https://github.com/{{ .Site.Params.github }}">
                     <img src="{{ "images/github.png" | absURL }}" class="avatar" width="35" height="35">
                 </a>
-                {{ end }}
-                {{ if .Site.Params.Twitter}}
+                {{- end }}
+                {{- if .Site.Params.Twitter}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="https://twitter.com/{{ .Site.Params.Twitter }}">
                     <img src="{{ "images/twitter.png" | absURL }}" class="avatar" width="35" height="35">
                 </a>
-                {{ end }}
-                {{ if .Site.Params.Mastodon}}
+                {{- end }}
+                {{- if .Site.Params.Mastodon}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="{{ .Site.Params.Mastodon }}">
                     <img src="{{ "images/mastodon.png" | absURL }}" class="avatar" width="35" height="35">
                 </a>
-                {{ end }}
-                {{ if .Site.Params.Hatena}}
+                {{- end }}
+                {{- if .Site.Params.Hatena}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="https://b.hatena.ne.jp/{{ .Site.Params.Hatena }}">
                     <img src="{{ "images/hatena.png" | absURL }}" class="avatar" width="35" height="35">
                 </a>
-                {{ end }}
+                {{- end }}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                                              href="{{ "posts/index.xml" | absURL }}">
                     <img src="{{ "images/rss.png" | absURL }}" class="avatar" width="38" height="38">
