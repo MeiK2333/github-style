@@ -1,7 +1,8 @@
-{{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
-{{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
-{{ $section_count := len $section }}
-{{ $n_posts := $.Param "recent_posts_number" | default 6 }}
+{{- $lastYear := 2020}}
+{{- $mainSections := .Site.Params.mainSections | default (slice "post") }}
+{{- $section := where .Site.RegularPages "Section" "in" $mainSections }}
+{{- $section_count := len $section }}
+{{- $n_posts := $.Param "recent_posts_number" | default 6 }}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
     <div class="UnderlineNav width-full user-profile-nav js-sticky top-0">
         <nav class="UnderlineNav-body" data-pjax aria-label="User profile">
@@ -79,7 +80,7 @@
         <div class="calendar">
             <iframe
                 id="calendar"
-                src="/calendar/2020/"
+                src="/calendar/{{ $lastYear }}/"
                 width="100%"
                 height="100%"
                 scrolling="no"
@@ -107,6 +108,5 @@
     function load_calendar(year) {
         document.getElementById('calendar').contentWindow.location.replace("/calendar/"+year+"/");
     }
-
-    load_calendar($lastYear);
+    load_calendar({{ $lastYear }});
 </script>
