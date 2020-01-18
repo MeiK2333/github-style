@@ -77,7 +77,7 @@
                                               {{ end }}"
                                               data-count="{{ $postCount }}"
                                               data-date="{{ $date }}"
-                                              onclick="onClickDay('{{ $date.Year }}', '{{ printf `%04d-%02d-%02d` $date.Year $date.Month $date.Day }}');">
+                                              onclick="onClickDay('{{ $date.Format "2006/01/02" }}');">
                                             <title>{{ $postCount }} post{{ if ne $postCount 1 }}s{{ end }} on {{ $date.Format "2006-01-02" }}</title>
                                         </rect>
                                     {{- else }}
@@ -126,9 +126,9 @@
     {{ end }}
 
 <script type="text/javascript">
-    function onClickDay(year, date) {
-        console.log("/posts/" + year + "/?date=" + date);
-        window.open("/posts/" + year + "/?date=" + date, "_parent")
+    function onClickDay(date) {
+        console.log("/archives/" + date);
+        window.open("/archives/" + date + "/", "_parent")
     }
 </script>
 
