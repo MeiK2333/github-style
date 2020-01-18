@@ -1,4 +1,4 @@
-{{- $lastYear := 2020}}
+{{- $lastYear := "2020"}}
 {{- $mainSections := .Site.Params.mainSections | default (slice "post") }}
 {{- $section := where .Site.RegularPages "Section" "in" $mainSections }}
 {{- $section_count := len $section }}
@@ -95,9 +95,9 @@
                 {{ $year := .Key }}
                 <li>
                 <a id="year-link-{{ $year }}"
-                    class="js-year-link filter-item px-3 mb-2 py-2 {{ if eq $year `2020` }}selected{{ end }}"
+                    class="js-year-link filter-item px-3 mb-2 py-2 {{ if eq $year $lastYear }}selected{{ end }}"
                     aria-label="Contribution activity in {{ $year }}"
-                    onclick="load_calendar({{ $year }});">{{ $year }}</a>
+                    onclick="load_calendar('{{ $year }}');">{{ $year }}</a>
                 </li>
                 {{ end }}
             </ul>
@@ -109,5 +109,5 @@
     function load_calendar(year) {
         document.getElementById('calendar').contentWindow.location.replace("/calendar/"+year+"/");
     }
-    load_calendar({{ $lastYear }});
+    load_calendar('{{ $lastYear }}');
 </script>
