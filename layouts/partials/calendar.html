@@ -16,7 +16,7 @@
     {{- $isLastYear := eq now.Year (int $year) }}
     {{- $mainSections := .Site.Params.mainSections | default (slice "post") }}
     {{- $section := where .Site.RegularPages "Section" "in" $mainSections }}
-    {{- $allPosts := (where $section ".Parent.Parent.Title" "Posts") }}
+    {{- $allPosts := (where $section ".Parent.Title" "Posts") }}
     {{- if $isLastYear }}
         {{- $wd := now.Weekday }}
         {{- $today := now }}
@@ -77,7 +77,7 @@
                                               {{ end }}"
                                               data-count="{{ $postCount }}"
                                               data-date="{{ $date }}"
-                                              onclick="onClickDay('{{ $date.Format "2006/01/02" }}');">
+                                              onclick="onClickDay('{{ $date.Format `2006/01/02` }}');">
                                             <title>{{ $postCount }} post{{ if ne $postCount 1 }}s{{ end }} on {{ $date.Format "2006-01-02" }}</title>
                                         </rect>
                                     {{- else }}
@@ -128,7 +128,7 @@
 <script type="text/javascript">
     function onClickDay(date) {
         console.log("/archives/" + date);
-        window.open("/archives/" + date + "/", "_parent")
+        window.open("/archives/" + date + "/", "_parent");
     }
 </script>
 
