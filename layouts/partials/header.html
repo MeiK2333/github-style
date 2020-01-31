@@ -2,7 +2,7 @@
     <span class="Progress progress-pjax-loader position-fixed width-full js-pjax-loader-bar">
         <span class="progress-pjax-loader-bar top-0 left-0" style="width: 0%;"></span>
     </span>
-    <header class="Header js-details-container Details flex-wrap flex-lg-nowrap p-responsive" role="banner">
+    <div class="Header js-details-container Details flex-wrap flex-lg-nowrap p-responsive" role="banner">
         <div class="Header-item d-none d-lg-flex">
             <a class="Header-link" href="{{ .Site.BaseURL }}" aria-label="Homepage" data-ga-click="Header, go to dashboard, icon:logo">
                 <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
@@ -49,6 +49,41 @@
             </details>
         </div>
         -->
+        <!-- Google Custom Search -->
+        {{- with $.Site.Params.googleCSE }}
+        <div class="Header-item position-relative mr-0 d-none d-lg-flex Details-content--hidden">
+            <div class="header-search flex-self-stretch flex-lg-self-auto mr-0 mr-lg-3 mb-3 mb-lg-0 position-relative js-jump-to">
+                <div class="position-relative">
+                    <form
+                        class="js-site-search-form"
+                        role="search"
+                        action="https://cse.google.com/cse"
+                        method="get">
+                        <input type="hidden" name="cx" value="{{ . }}" />
+                        <label class="form-control input-sm header-search-wrapper p-0 header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
+                            <input
+                                type="text"
+                                class="form-control input-sm header-search-input"
+                                name="q"
+                                value=""
+                                placeholder="Search"
+                                autocapitalize="off"
+                                aria-label="Search"
+                                spellcheck="false"
+                                onkeydown="if(event.keyCode==13){if(this.value.length){document.getElementById('header-search-submit').click();return false}else{return false}};"
+                                autocomplete="off">
+                            <button id="header-search-submit" class="mr-1 ml-1 header-search-button" type="submit">
+                                <svg class="header-search-button-icon" width="13" height="13" viewBox="0 0 13 13">
+                                    <title>サイト内検索</title>
+                                    <path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path>
+                                </svg>
+                            </button>
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{- end }}
     </header>
 </div>
 

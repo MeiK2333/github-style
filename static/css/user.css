@@ -12,6 +12,17 @@
 }
 
 
+/* 検索ボタン */
+
+.header-search-button {
+  background-color: transparent;
+  border: none;
+}
+
+svg.header-search-button-icon {
+  fill: hsla(0, 0%, 100%, 0.55);
+}
+
 /* アプリの紹介ブログパーツ */
 .appreach {
   text-align: left;
