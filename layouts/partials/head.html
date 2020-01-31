@@ -2,11 +2,11 @@
     <meta charset="utf-8">
     <link crossorigin="anonymous" media="all"
         rel="stylesheet"
-        href="{{ printf "%s?%s" ("css/frameworks.css" | absURL) (now.Format "20060102150405") }}" />
+        href='{{ printf "%s?%s" ("css/frameworks.css" | absURL) (now.Format "20060102150405") }}' />
     <link crossorigin="anonymous" media="all"
-        rel="stylesheet" href="{{ printf "%s?%s" ("css/github.css" | absURL) (now.Format "20060102150405") }}" />
+        rel="stylesheet" href='{{ printf "%s?%s" ("css/github.css" | absURL) (now.Format "20060102150405") }}' />
     <link crossorigin="anonymous" media="all"
-        rel="stylesheet" href="{{ printf "%s?%s" ("css/user.css" | absURL) (now.Format "20060102150405") }}"/>
+        rel="stylesheet" href='{{ printf "%s?%s" ("css/user.css" | absURL) (now.Format "20060102150405") }}'/>
     <meta name="viewport" content="width=device-width">
     <title>{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 <!-- OGP -->
@@ -27,7 +27,7 @@
     <meta name="keywords" content="{{ . }}"/>
     {{- end }}
     {{- end }}
-    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="{{ "images/favicon.ico" | absURL }}">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href='{{ "images/favicon.ico" | absURL }}'>
     <meta name="theme-color" content="#1e2327">
 
     {{- if not .Site.IsServer }}
