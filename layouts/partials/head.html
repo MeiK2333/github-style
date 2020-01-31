@@ -2,11 +2,11 @@
     <meta charset="utf-8">
     <link crossorigin="anonymous" media="all"
         rel="stylesheet"
-        href="{{ "css/frameworks.css" | absURL }}" />
+        href="{{ printf "%s?%s" ("css/frameworks.css" | absURL) (now.Format "20060102") }}" />
     <link crossorigin="anonymous" media="all"
-        rel="stylesheet" href="{{ "css/github.css" | absURL }}" />
+        rel="stylesheet" href="{{ printf "%s?%s" ("css/github.css" | absURL) (now.Format "20060102") }}" />
     <link crossorigin="anonymous" media="all"
-        rel="stylesheet" href="{{ "css/user.css" | absURL }}"/>
+        rel="stylesheet" href="{{ printf "%s?%s" ("css/user.css" | absURL) (now.Format "20060102") }}"/>
     <meta name="viewport" content="width=device-width">
     <title>{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 <!-- OGP -->
