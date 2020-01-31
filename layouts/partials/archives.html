@@ -2,7 +2,7 @@
 {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
 {{ $section_count := len $section }}
 {{ $n_posts := $.Param "recent_posts_number" | default 6 }}
-{{ $paginator := .Paginate (where .Pages "Type" "tags").ByTitle }}
+{{ $paginator := .Paginate (where .Pages "Type" "archives").ByTitle.Reverse }}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
     {{- partial "menu.html" . }}
 
@@ -14,7 +14,7 @@
                     <div class="col-12 col-lg-12 d-inline-block">
                         <div class="d-inline-block mb-1">
                             <h3>
-                                <a href="/tags/{{ .Title | urlize }}">{{ .Title }}</a>
+                                <a href="/archives/{{ .Title | urlize }}">{{ .Title }}</a>
                                 <span class="Counter">
                                     {{ len .Pages }}
                                 </span>
