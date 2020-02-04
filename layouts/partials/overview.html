@@ -1,7 +1,6 @@
 {{- $lastYear := "2020"}}
 {{- $mainSections := .Site.Params.mainSections | default (slice "post") }}
-{{- $section := where .Site.RegularPages "Section" "in" $mainSections }}
-{{- $section_count := len $section }}
+{{- $section := where (where .Site.RegularPages "Section" "in" $mainSections) "Params.hide_overview" "!=" true }}
 {{- $n_posts := $.Param "recent_posts_number" | default 6 }}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
     {{- partial "menu.html" . }}
