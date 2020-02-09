@@ -39,6 +39,7 @@ baseURL = "https://example.com/"
 title = "GitHub Style"
 googleAnalytics = "UA-123-456-789"
 theme = "github-style"
+copyright = "© 2019. Theme by <a href=\"https://github.com/MeiK2333/github-style\"><span>github-style</span></a>"
 
 [params]
   author = "example"

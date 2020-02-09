@@ -3,7 +3,7 @@
         class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
         <ul
             class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
-            <li class="mr-3 mr-lg-0">© 2019. Theme by <a href="https://github.com/MeiK2333/github-style"><span>github-style</span></a></li>
+            <li class="mr-3 mr-lg-0">{{ .Site.Copyright | safeHTML }}</a></li>
         </ul>
 
         <a aria-label="Homepage" title="{{ .Site.Title }}" class="footer-octicon d-none d-lg-block mx-lg-4"
