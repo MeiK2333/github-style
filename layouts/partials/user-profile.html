@@ -93,7 +93,7 @@
                 {{ end }}
                 {{ if .Site.Params.misskey}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
-                    href="https://meow.zarchbox.fr/@{{ .Site.Params.misskey }}">
+                    href="{{ .Site.Params.misskey }}">
                     <img src="{{ "images/Mi.png" | absURL }}" class="avatar" width="35" height="35">
                 </a>
                 {{ end }}
