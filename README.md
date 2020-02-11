@@ -47,6 +47,8 @@ copyright = "© 2019. Theme by <a href=\"https://github.com/MeiK2333/github-styl
   github = "example"
   facebook = "example"
   twitter = "example"
+  misskey = "user profile url"
+  mastodon = "user profile url"
   email = "example@domain.com"
   utterances = "example/example.github.io"
   avatar = "https://example.com/images/avatar.png"
