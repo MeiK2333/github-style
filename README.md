@@ -1,5 +1,11 @@
 # github-style
 
+## Customized points by suihan74
+
+https://suihan74.github.io/posts/2019/12_26_00_theme_customize/
+
+---
+
 ## Install the theme
 
 ```bash
@@ -39,16 +45,12 @@ baseURL = "https://example.com/"
 title = "GitHub Style"
 googleAnalytics = "UA-123-456-789"
 theme = "github-style"
-copyright = "© 2019. Theme by <a href=\"https://github.com/MeiK2333/github-style\"><span>github-style</span></a>"
 
 [params]
   author = "example"
   description = "example"
   github = "example"
-  facebook = "example"
   twitter = "example"
-  misskey = "user profile url"
-  mastodon = "user profile url"
   email = "example@domain.com"
   utterances = "example/example.github.io"
   avatar = "https://example.com/images/avatar.png"

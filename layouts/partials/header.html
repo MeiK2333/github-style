@@ -2,15 +2,20 @@
     <span class="Progress progress-pjax-loader position-fixed width-full js-pjax-loader-bar">
         <span class="progress-pjax-loader-bar top-0 left-0" style="width: 0%;"></span>
     </span>
-    <header class="Header js-details-container Details flex-wrap flex-lg-nowrap p-responsive" role="banner">
+    <div class="Header js-details-container Details flex-wrap flex-lg-nowrap p-responsive" role="banner">
         <div class="Header-item d-none d-lg-flex">
-            <a class="Header-link" href="{{ .Site.BaseURL }}" aria-label="Homepage"
-                data-ga-click="Header, go to dashboard, icon:logo">
-                <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
-                    width="32" aria-hidden="true">
+            <a class="Header-link" href="{{ .Site.BaseURL }}" aria-label="Homepage" data-ga-click="Header, go to dashboard, icon:logo">
+                <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
+                    <path style="fill-rule:evenodd" d="M 8,0 C 3.58,0 0,3.58 0,8 c 0,3.54 2.29,6.53 5.47,7.59 0.4,0.07 0.55,-0.17 0.55,-0.38 0,-0.19 -0.077797,-1.481017 -0.077797,-2.151017 C 5.9433346,12.597005 6.1160655,11.824118 6.56,11.53 4.78,11.33 3.8013559,10.978983 3.5810169,7.6647458 3.9355372,4.6446549 5.3653277,3.8240736 8.0538984,3.639661 10.967753,3.8102868 12.141357,4.4459308 12.425085,7.6477967 12.255593,10.378813 11.25,11.33 9.47,11.53 c 0.29,0.25 0.54,0.73 0.54,1.48 0,1.07 -0.01,1.93 -0.01,2.2 0,0.21 0.15,0.46 0.55,0.38 C 13.806446,14.490656 15.999121,11.437004 16,8 16,3.58 12.42,0 8,0 Z" />
+                    <rect style="fill-rule:evenodd" ry="0.23728813" y="6.3898306" x="6.0169492" height="1.0847455" width="3.9830508"/>
+                    <!--
                     <path fill-rule="evenodd"
                         d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                    -->
                 </svg>
+                <span style="margin-left: 8px;">
+                    {{ .Site.Title }}
+                </span>
             </a>
         </div>
         <div
@@ -27,11 +32,17 @@
                 data-ga-click="Header, go to dashboard, icon:logo">
                 <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
                     width="32" aria-hidden="true">
+                    <path style="fill-rule:evenodd" d="M 8,0 C 3.58,0 0,3.58 0,8 c 0,3.54 2.29,6.53 5.47,7.59 0.4,0.07 0.55,-0.17 0.55,-0.38 0,-0.19 -0.077797,-1.481017 -0.077797,-2.151017 C 5.9433346,12.597005 6.1160655,11.824118 6.56,11.53 4.78,11.33 3.8013559,10.978983 3.5810169,7.6647458 3.9355372,4.6446549 5.3653277,3.8240736 8.0538984,3.639661 10.967753,3.8102868 12.141357,4.4459308 12.425085,7.6477967 12.255593,10.378813 11.25,11.33 9.47,11.53 c 0.29,0.25 0.54,0.73 0.54,1.48 0,1.07 -0.01,1.93 -0.01,2.2 0,0.21 0.15,0.46 0.55,0.38 C 13.806446,14.490656 15.999121,11.437004 16,8 16,3.58 12.42,0 8,0 Z" />
+                    <rect style="fill-rule:evenodd" ry="0.23728813" y="6.3898306" x="6.0169492" height="1.0847455" width="3.9830508"/>
+                    <!--
                     <path fill-rule="evenodd"
                         d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                    -->
                 </svg>
+                {{ .Site.Title }}
             </a>
         </div>
+        <!--
         <div class="Header-item position-relative mr-0 d-none d-lg-flex">
             <details class="details-overlay details-reset">
                 <summary class="Header-link" aria-label="View profile and more"
@@ -44,6 +55,42 @@
                 </summary>
             </details>
         </div>
+        -->
+        <!-- Google Custom Search -->
+        {{- with $.Site.Params.googleCSE }}
+        <div class="Header-item position-relative mr-0 d-none d-lg-flex Details-content--hidden">
+            <div class="header-search flex-self-stretch flex-lg-self-auto mr-0 mr-lg-3 mb-3 mb-lg-0 position-relative js-jump-to">
+                <div class="position-relative">
+                    <form
+                        class="js-site-search-form"
+                        role="search"
+                        action="https://cse.google.com/cse"
+                        method="get">
+                        <input type="hidden" name="cx" value="{{ . }}" />
+                        <label class="form-control input-sm header-search-wrapper p-0 header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
+                            <input
+                                type="text"
+                                class="form-control input-sm header-search-input"
+                                name="q"
+                                value=""
+                                placeholder="Search"
+                                autocapitalize="off"
+                                aria-label="Search"
+                                spellcheck="false"
+                                onkeydown="if(event.keyCode==13){if(this.value.length){document.getElementById('header-search-submit').click();return false}else{return false}};"
+                                autocomplete="off">
+                            <button id="header-search-submit" class="mr-1 ml-1 header-search-button" type="submit">
+                                <svg class="header-search-button-icon" width="13" height="13" viewBox="0 0 13 13">
+                                    <title>サイト内検索</title>
+                                    <path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path>
+                                </svg>
+                            </button>
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{- end }}
     </header>
 </div>
 

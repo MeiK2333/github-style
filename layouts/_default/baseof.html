@@ -1,3 +1,6 @@
+{{- if eq .Section "calendar" }}
+  {{- partial "calendar.html" . }}
+{{- else }}
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 {{ partial "head.html" . }}
@@ -9,3 +12,4 @@
 </body>
 
 </html>
+{{- end }}
