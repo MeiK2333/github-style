@@ -1,0 +1,28 @@
+<!-- ページ上部メニュー部分 -->
+<div class="UnderlineNav width-full user-profile-nav js-sticky top-0">
+    <nav class="UnderlineNav-body">
+        <a class='UnderlineNav-item mr-0 mr-md-1 mr-lg-3 {{ if eq .Path "" }}selected{{ end }}' href="{{ .Site.BaseURL }}">
+            Overview
+        </a>
+        <a class='UnderlineNav-item mr-0 mr-md-1 mr-lg-3 {{ if hasPrefix .Path "posts" }}selected{{ end }}' href='{{ absURL "posts/" }}'>
+            Posts
+            <span class="Counter hide-lg hide-md hide-sm">
+                {{- $mainSections := .Site.Params.mainSections | default (slice "post") }}
+                {{- $section := where .Site.RegularPages "Section" "in" $mainSections }}
+                {{- len $section }}
+            </span>
+        </a>
+        <a class='UnderlineNav-item mr-0 mr-md-1 mr-lg-3 {{ if hasPrefix .Path "tags" }}selected{{ end }}' href='{{ absURL "tags/" }}'>
+            Tags
+            <span class="Counter hide-lg hide-md hide-sm">
+                {{ len .Site.Taxonomies.tags }}
+            </span>
+        </a>
+        <a class='UnderlineNav-item mr-0 mr-md-1 mr-lg-3 {{ if hasPrefix .Path "archives" }}selected{{ end }}' href='{{ absURL "archives/" }}'>
+            Archives
+        </a>
+        <a class='UnderlineNav-item mr-0 mr-md-1 mr-lg-3 {{ if eq .Path "about.md" }}selected{{ end }}' href='{{ absURL "about/" }}'>
+            About
+        </a>
+    </nav>
+</div>
