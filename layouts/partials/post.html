@@ -1,0 +1,94 @@
+<div class="application-main " data-commit-hovercards-enabled="">
+    <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
+        <main id="js-repo-pjax-container" data-pjax-container="">
+            <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav pt-lg-4 "> <!-- pt-0を除去; 小画面でもタイトル表示するため -->
+                <div class="repohead-details-container clearfix container-lg p-responsive d-lg-block"> <!-- d-noneを除去 -->
+                    <div class="mb-3 d-flex">
+                        <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
+                            <a class="avatar mr-1" href="{{ absURL "about/" }}">
+                            {{ with $.Site.Params.avatar }}
+
+                                <img
+                                    src="{{  $.Site.Params.avatar  }}" width="26" height="26">
+                            {{ else }}
+                                <img
+                                    src="{{ "images/avatar.png" | absURL }}" width="26" height="26">
+                            {{ end }}
+                            </a>
+                            <span class="author"><a
+                                    href="{{ absURL "about/" }}">{{ .Site.Params.author }}</a></span>
+                            <span class="path-divider">/</span>
+                            <strong itemprop="name"><a
+                                    href="{{ .Permalink }}">{{ .Title }}</a></strong>
+
+                            {{ with .Params.description }}<div class="text-small text-gray">{{ . }}</div>{{ end }}
+
+                            <!-- display tags -->
+                            <div class="text-small text-gray">
+                                {{ with .Params.tags }}
+                                    <svg class="octicon octicon-tag" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M7.73 1.73C7.26 1.26 6.62 1 5.96 1H3.5C2.13 1 1 2.13 1 3.5v2.47c0 .66.27 1.3.73 1.77l6.06 6.06c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 000-1.41L7.73 1.73zM2.38 7.09c-.31-.3-.47-.7-.47-1.13V3.5c0-.88.72-1.59 1.59-1.59h2.47c.42 0 .83.16 1.13.47l6.14 6.13-4.73 4.73-6.13-6.15zM3.01 3h2v2H3V3h.01z" />
+                                    </svg>
+                                    {{ range . }} <a href="/tags/{{ lower . }}/">{{ . }}</a>{{ end }}
+                                {{ end }}
+                            </div>
+
+                            <!-- display timestamp -->
+                            <div class="d-block text-small text-gray">
+                                Created at <time datetime="{{ .PublishDate.Format "2006-01-02 15:04" }}" class="no-wrap">
+                                    {{ .PublishDate.Format "2006/01/02 15:04" }}</time>
+                            {{ if ne .PublishDate .Lastmod }}
+                                <span class="file-info-divider"></span>
+                                Updated at <time datetime="{{ .Lastmod.Format "2006-01-02 15:04" }}" class="no-wrap">
+                                    {{ .Lastmod.Format "2006/01/02 15:04" }}</time>
+                            {{ end }}
+                            </div>
+                        </h1>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="container-lg clearfix new-discussion-timeline experiment-repo-nav  p-responsive">
+                <div class="repository-content ">
+                    <div class="Box mt-3 position-relative">
+                        <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
+                            <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                                {{ countwords .Content }} Words
+                                <!-- <span class="file-info-divider"></span>
+                                {{ .ReadingTime }} min -->
+                            </div>
+
+                            {{- with .Site.Params.hugoRepository }}
+                            {{ $historyUrl := add (substr (printf "https://github.com/%s/%s/commits/master/content%s" $.Site.Params.github . $.RelPermalink) 0 -1) ".md" }}
+                            <div class="d-flex py-1 py-md-0 flex-auto flex-order-1 flex-md-order-2 flex-sm-grow-0 flex-justify-between">
+                                <div class="BtnGroup">
+                                <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="{{ $historyUrl }}">History</a>
+                                </div>
+                            </div>
+                            {{- end }}
+                        </div>
+
+                        <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
+                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text">
+                                {{- .Content | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" "${1}<a class=\"anchor\" aria-hidden=\"true\" href=\"#${2}\"><svg class=\"octicon octicon-link\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg></a> ${3}" | safeHTML -}}
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+{{ if .Site.Params.utterances }}
+<div class="utterances"></div>
+<script src="https://utteranc.es/client.js"
+        repo="{{ .Site.Params.utterances }}"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+{{ end }}
