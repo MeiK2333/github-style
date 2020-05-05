@@ -132,6 +132,12 @@ a {
   box-shadow: none;
 }
 
+.user-profile-sticky-bar::after {
+  background-color: rgb(24, 26, 27);
+  border-bottom-color: rgb(55, 61, 69);
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px;
+}
+
 .user-profile-nav {
   background-color: rgb(24, 26, 27);
   border-bottom-color: rgb(55, 61, 69);
@@ -224,4 +230,11 @@ a {
   border-right-color: initial;
   border-bottom-color: initial;
   border-left-color: initial;
+}
+
+/* custom */
+
+.github-octicon {
+  fill: currentColor;
+  color: #fff;
 }
