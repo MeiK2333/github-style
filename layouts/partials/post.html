@@ -62,11 +62,25 @@
 </div>
 {{ if .Site.Params.utterances }}
 <div class="utterances"></div>
-<script src="https://utteranc.es/client.js"
+<!-- <script src="https://utteranc.es/client.js"
         repo="{{ .Site.Params.utterances }}"
         issue-term="title"
         theme="github-light"
         crossorigin="anonymous"
         async>
+</script> -->
+<script>
+	this.systemThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    var systemTheme = this.systemThemeMediaQuery.matches ? 'dark' : 'light';
+	var utterancesTheme = systemTheme === 'dark' ? 'github-dark' : 'github-light';
+	var utterancesScript = document.createElement('script');
+	utterancesScript.src = 'https://utteranc.es/client.js';
+	utterancesScript.setAttribute('repo', '{{ .Site.Params.utterances }}');
+	utterancesScript.setAttribute('issue-term', 'title');
+	utterancesScript.setAttribute('theme', utterancesTheme);
+	utterancesScript.setAttribute('crossorigin', 'anonymous');
+	utterancesScript.setAttribute('async', '');
+	document.querySelector('.utterances').appendChild(utterancesScript);
 </script>
+<noscript>Please enable JavaScript to view the comments</noscript>
 {{ end }}

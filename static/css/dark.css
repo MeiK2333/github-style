@@ -1,0 +1,227 @@
+/* powered by DARK READER */
+
+body {
+  color: rgb(216, 214, 208);
+  background-color: rgb(24, 26, 27);
+}
+
+a {
+  color: rgb(77, 172, 253);
+}
+
+.UnderlineNav-item.selected {
+  color: rgb(216, 214, 208) !important;
+  border-bottom-color: rgb(196, 85, 8) !important;
+}
+
+.UnderlineNav-item {
+  color: rgb(196, 191, 183);
+  border-bottom-color: transparent;
+}
+
+.UnderlineNav-item:focus,
+.UnderlineNav-item:hover {
+  color: rgb(216, 214, 208);
+  text-decoration-color: initial;
+  border-bottom-color: rgb(55, 61, 69);
+}
+
+.Box {
+  background-color: rgb(24, 26, 27);
+  border-top-color: rgb(55, 61, 69);
+  border-right-color: rgb(55, 61, 69);
+  border-bottom-color: rgb(55, 61, 69);
+  border-left-color: rgb(55, 61, 69);
+}
+
+.Box-header {
+  background-color: rgb(27, 28, 30);
+  border-top-color: rgb(55, 61, 69);
+  border-right-color: rgb(55, 61, 69);
+  border-bottom-color: rgb(55, 61, 69);
+  border-left-color: rgb(55, 61, 69);
+}
+
+.Box-body {
+  border-bottom-color: rgb(52, 59, 68);
+}
+
+.Counter {
+  color: rgb(196, 191, 183);
+  background-color: rgba(27, 31, 35, 0.08);
+}
+
+.text-gray {
+  color: rgb(196, 191, 183) !important;
+}
+
+.btn {
+  color: rgb(216, 214, 208);
+  background-color: rgb(29, 31, 32);
+  background-image: linear-gradient(
+    -180deg,
+    rgb(26, 27, 28),
+    rgb(29, 31, 32) 90%
+  );
+}
+
+.btn.hover,
+.btn:hover {
+  background-color: rgb(31, 33, 35);
+  background-image: linear-gradient(
+    -180deg,
+    rgb(29, 30, 32),
+    rgb(31, 33, 35) 90%
+  );
+  border-top-color: rgba(86, 99, 112, 0.35);
+  border-right-color: rgba(86, 99, 112, 0.35);
+  border-bottom-color: rgba(86, 99, 112, 0.35);
+  border-left-color: rgba(86, 99, 112, 0.35);
+}
+
+.btn-outline.disabled,
+.btn-outline:disabled {
+  color: rgba(220, 218, 212, 0.3);
+  background-color: rgb(24, 26, 27);
+  border-top-color: rgba(86, 99, 112, 0.15);
+  border-right-color: rgba(86, 99, 112, 0.15);
+  border-bottom-color: rgba(86, 99, 112, 0.15);
+  border-left-color: rgba(86, 99, 112, 0.15);
+  box-shadow: none;
+}
+
+.btn.disabled,
+.btn:disabled {
+  color: rgba(216, 214, 208, 0.4);
+  background-color: rgb(29, 31, 32);
+  background-image: none;
+  border-top-color: rgba(86, 99, 112, 0.2);
+  border-right-color: rgba(86, 99, 112, 0.2);
+  border-bottom-color: rgba(86, 99, 112, 0.2);
+  border-left-color: rgba(86, 99, 112, 0.2);
+  box-shadow: none;
+}
+
+.btn-outline {
+  color: rgb(77, 172, 253);
+  background-color: rgb(24, 26, 27);
+  background-image: none;
+}
+
+.btn-outline.selected,
+.btn-outline:active,
+.btn-outline:hover,
+[open] > .btn-outline {
+  color: rgb(255, 255, 255);
+  background-color: rgb(3, 95, 199);
+  background-image: none;
+  border-top-color: rgb(3, 99, 207);
+  border-right-color: rgb(3, 99, 207);
+  border-bottom-color: rgb(3, 99, 207);
+  border-left-color: rgb(3, 99, 207);
+}
+
+.btn-outline.disabled,
+.btn-outline:disabled {
+  color: rgba(220, 218, 212, 0.3);
+  background-color: rgb(24, 26, 27);
+  border-top-color: rgba(86, 99, 112, 0.15);
+  border-right-color: rgba(86, 99, 112, 0.15);
+  border-bottom-color: rgba(86, 99, 112, 0.15);
+  border-left-color: rgba(86, 99, 112, 0.15);
+  box-shadow: none;
+}
+
+.user-profile-nav {
+  background-color: rgb(24, 26, 27);
+  border-bottom-color: rgb(55, 61, 69);
+}
+
+.vcard-username {
+  color: rgb(195, 191, 182);
+}
+
+.vcard-username {
+  color: rgb(195, 191, 182);
+}
+
+.vcard-detail .octicon {
+  color: rgb(189, 184, 174);
+}
+
+.border-top {
+  border-top-color: rgb(52, 59, 68) !important;
+}
+
+.border-bottom {
+  border-bottom-color: rgb(52, 59, 68) !important;
+}
+
+.repohead.experiment-repo-nav {
+  background-color: rgb(26, 27, 28);
+}
+
+.repohead h1 {
+  color: rgb(196, 191, 183);
+}
+
+.pagehead {
+  border-bottom-color: rgb(52, 59, 68);
+}
+
+.file-info-divider {
+  background-color: rgb(34, 36, 37);
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom-color: rgb(50, 57, 66);
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: rgb(27, 28, 30);
+}
+
+.markdown-body table tr {
+  background-color: rgb(24, 26, 27);
+  border-top-color: rgb(57, 63, 71);
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  border-top-color: rgb(53, 59, 66);
+  border-right-color: rgb(53, 59, 66);
+  border-bottom-color: rgb(53, 59, 66);
+  border-left-color: rgb(53, 59, 66);
+}
+
+.markdown-body table tr {
+  background-color: rgb(24, 26, 27);
+  border-top-color: rgb(57, 63, 71);
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: rgb(27, 28, 30);
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  border-top-color: rgb(53, 59, 66);
+  border-right-color: rgb(53, 59, 66);
+  border-bottom-color: rgb(53, 59, 66);
+  border-left-color: rgb(53, 59, 66);
+}
+
+.markdown-body blockquote {
+  color: rgb(189, 184, 174);
+  border-left-color: rgb(53, 59, 66);
+}
+
+.markdown-body hr {
+  background-color: rgb(33, 35, 36);
+  border-top-color: initial;
+  border-right-color: initial;
+  border-bottom-color: initial;
+  border-left-color: initial;
+}
