@@ -30,23 +30,6 @@
                 </h1>
             </div>
 
-            {{ if .Site.Params.github }}
-            <div class="user-profile-following-container js-user-profile-following-toggle mb-3">
-                <span class="user-following-container js-toggler-container js-social-container">
-                    <span class="follow">
-                        <input type="button" style="max-width: 100%" value="Follow"
-                            class="btn btn-block top-0 js-sticky js-user-profile-follow-button mb-2  js-toggler-target"
-                            title="Follow" onclick="window.location.href = 'https://github.com/{{ .Site.Params.github }}'" />
-                    </span>
-                    <span class="unfollow">
-                        <input type="button" style="max-width: 100%" value="Unfollow"
-                            class="btn btn-block top-0 js-sticky js-user-profile-follow-button mb-2  js-toggler-target"
-                            title="Unfollow" onclick="window.location.href = 'https://github.com/{{ .Site.Params.github }}'" />
-                    </span>
-                </span>
-            </div>
-            {{ end }}
-
             <div class="d-none d-md-block">
                 <div class="js-profile-editable-area">
                     <div class="p-note user-profile-bio js-user-profile-bio">
@@ -55,7 +38,7 @@
                     <ul class="vcard-details mb-3">
 
                         {{ if .Site.Params.email }}
-                        <li itemprop="email" aria-label="Email: jxn1024@icloud.com"
+                        <li itemprop="email" aria-label="Email: {{ .Site.Params.Email }}"
                             class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-mail"
                                 viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
                                 <path fill-rule="evenodd"
