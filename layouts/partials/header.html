@@ -2,7 +2,7 @@
     <span class="Progress progress-pjax-loader position-fixed width-full js-pjax-loader-bar">
         <span class="progress-pjax-loader-bar top-0 left-0" style="width: 0%;"></span>
     </span>
-    <header class="Header js-details-container Details flex-wrap flex-lg-nowrap p-responsive" role="banner">
+    <header class="Header py-lg-0 js-details-container Details flex-wrap flex-lg-nowrap p-responsive" role="banner">
         <div class="Header-item d-none d-lg-flex">
             <a class="Header-link" href="{{ .Site.BaseURL }}" aria-label="Homepage"
                 data-ga-click="Header, go to dashboard, icon:logo">
@@ -22,6 +22,9 @@
                 </div>
             </div>
         </div>
+        <nav class="d-flex" aria-label="Global">
+            <a class="js-selected-navigation-item Header-link py-lg-3">&nbsp;</a>
+        </nav>
         <div class="Header-item Header-item--full flex-justify-center d-lg-none position-relative" style="margin-right: auto;">
             <a class="Header-link" href="{{ .Site.BaseURL }}" aria-label="Homepage"
                 data-ga-click="Header, go to dashboard, icon:logo">
