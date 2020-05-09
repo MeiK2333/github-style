@@ -8,7 +8,7 @@
             <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected " href="{{ .Site.BaseURL }}">
                 Overview
             </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "posts/" }}">
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "post/" }}">
                 Posts
                 <span class="Counter hide-lg hide-md hide-sm">
                     {{ $section_count}}
@@ -42,7 +42,9 @@
                                         <span class="repo js-pinnable-item" title="{{ .Title }}">{{ .Title }}</span>
                                     </a>
                                 </div>
-                                {{ .Summary | safeHTML }}
+                                <div class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
+                                    {{ .Summary | safeHTML }}
+                                </div>
                                 <div class="f6 text-gray mt-2">
                                     Updated <relative-time datetime="{{ .PublishDate.Format "2006-01-02" }}"
                                         class="no-wrap" title="Modify at {{ .Lastmod.Format "2006/01/02" }}">
