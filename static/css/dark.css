@@ -163,6 +163,20 @@ a {
   border-bottom-color: rgb(52, 59, 68) !important;
 }
 
+.border {
+  border-top-color: rgb(52, 59, 68) !important;
+  border-right-color: rgb(52, 59, 68) !important;
+  border-bottom-color: rgb(52, 59, 68) !important;
+  border-left-color: rgb(52, 59, 68) !important;
+}
+
+.border-gray-dark {
+  border-top-color: rgb(55, 61, 69) !important;
+  border-right-color: rgb(55, 61, 69) !important;
+  border-bottom-color: rgb(55, 61, 69) !important;
+  border-left-color: rgb(55, 61, 69) !important;
+}
+
 .repohead.experiment-repo-nav {
   background-color: rgb(26, 27, 28);
 }
@@ -230,6 +244,53 @@ a {
   border-right-color: initial;
   border-bottom-color: initial;
   border-left-color: initial;
+}
+
+.text-gray {
+  color: rgb(196, 192, 183) !important;
+}
+
+.calendar-graph text.month {
+  fill: rgb(190, 185, 175);
+}
+
+.calendar-graph text.wday {
+  fill: rgb(190, 185, 175);
+}
+
+.day[fill='#ebedf0'],
+.legend li[style*='background-color: rgb(235, 237, 240)'],
+.legend li[style*='background-color: #ebedf0'] {
+  fill: #0f1114 !important;
+  background-color: #0f1114 !important;
+}
+
+.day[fill='#c6e48b'],
+.legend li[style*='background-color: rgb(198, 228, 139)'],
+.legend li[style*='background-color: #c6e48b'] {
+  fill: #2c3a31 !important;
+  background-color: #2c3a31 !important;
+}
+
+.day[fill='#7bc96f'],
+.legend li[style*='background-color: rgb(123, 201, 111)'],
+.legend li[style*='background-color: #7bc96f'] {
+  fill: #58965c !important;
+  background-color: #58965c !important;
+}
+
+.day[fill='#239a3b'],
+.legend li[style*='background-color: rgb(35, 154, 59)'],
+.legend li[style*='background-color: #239a3b'] {
+  fill: #87ee9f !important;
+  background-color: #87ee9f !important;
+}
+
+.day[fill='#196127'],
+.legend li[style*='background-color: rgb(25, 97, 39)'],
+.legend li[style*='background-color: #196127'] {
+  fill: #adf5bb !important;
+  background-color: #adf5bb !important;
 }
 
 /* custom */
