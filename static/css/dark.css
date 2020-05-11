@@ -55,6 +55,10 @@ a {
   color: rgb(196, 191, 183) !important;
 }
 
+.text-gray-light {
+  color: rgb(189, 184, 174) !important;
+}
+
 .btn {
   color: rgb(216, 214, 208);
   background-color: rgb(29, 31, 32);
@@ -291,6 +295,63 @@ a {
 .legend li[style*='background-color: #196127'] {
   fill: #adf5bb !important;
   background-color: #adf5bb !important;
+}
+
+.bg-white {
+  background-color: rgb(24, 26, 27) !important;
+}
+
+.filter-item {
+  color: rgb(196, 191, 183);
+  text-decoration-color: initial;
+}
+
+.filter-item.selected {
+  color: rgb(255, 255, 255);
+  background-color: rgb(3, 95, 199);
+}
+
+.filter-item:hover {
+  text-decoration-color: initial;
+  background-color: rgb(30, 32, 33);
+}
+
+.no-underline {
+  text-decoration-color: initial !important;
+}
+
+.muted-link {
+  color: rgb(196, 191, 183) !important;
+}
+
+.muted-link:hover {
+  text-decoration-color: initial;
+  color: rgb(77, 172, 253) !important;
+}
+
+.discussion-timeline::before {
+  background-color: rgb(33, 35, 36);
+}
+
+.profile-timeline.discussion-timeline::before {
+  background-color: rgb(30, 32, 33);
+}
+
+.profile-timeline.discussion-timeline .profile-timeline-month-heading::after {
+  background-color: rgb(30, 32, 33);
+}
+
+.discussion-item-icon {
+  color: rgb(216, 214, 208);
+  background-color: rgb(33, 35, 36);
+  border-top-color: rgb(51, 51, 51);
+  border-right-color: rgb(51, 51, 51);
+  border-bottom-color: rgb(51, 51, 51);
+  border-left-color: rgb(51, 51, 51);
+}
+
+.octicon {
+  fill: currentcolor;
 }
 
 /* custom */
