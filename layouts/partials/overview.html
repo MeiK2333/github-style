@@ -57,7 +57,6 @@
                 </ol>
             </div>
         </div>
-        {{ if eq .Site.Params.contributions "post" }}
         <div class="mt-4 position-relative">
             <div class="js-yearly-contributions">
                 <div class="position-relative">
@@ -114,12 +113,17 @@
                                         {{ range $j, $seq := (seq 7) }}
 
                                         {{ $date := $startDate.AddDate 0 0 (int (add (mul $i 7) $j)) }}
+                                        {{ if ge now $date }}
                                         {{ $color := newScratch }}
 
+                                        <!-- 获得月份标记的位置 -->
                                         {{ if eq $j 0 }}
                                         {{ if ne $startMonth $date.Month }}
+                                        <!-- 月份至少需要两格空间 -->
+                                        {{ if le $i (sub $weeks 2) }}
                                         {{ $monthPos = $monthPos | append $i}}
                                         {{ $startMonth = $date.Month }}
+                                        {{ end }}
                                         {{ end }}
                                         {{ end }}
 
@@ -143,9 +147,10 @@
                                             fill="{{ $color.Get "color" }}" data-count="{{ $dateCount }}"
                                             data-date="{{ $date.Format "2006-01-02" }}"></rect>
                                         {{ end }}
+                                        {{ end }}
                                     </g>
                                     {{ end }}
-                                    {{ range $index, $element := first 12 $monthPos }}
+                                    {{ range $index, $element := $monthPos }}
                                     <text x="{{ add (mul 15 $element) 16 }}" y="-9"
                                         class="month">{{ (now.AddDate 0 $index 0).Format "Jan" }}</text>
                                     {{ end }}
@@ -183,7 +188,6 @@
                 </div>
             </div>
         </div>
-        {{ end }}
         <div id="pinned-items-modal-wrapper"></div>
     </div>
 </div>
