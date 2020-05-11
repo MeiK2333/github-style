@@ -4,7 +4,7 @@
 {{ $n_posts := $.Param "recent_posts_number" | default 6 }}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
     <div class="UnderlineNav width-full user-profile-nav js-sticky top-0">
-        <nav class="UnderlineNav-body" data-pjax aria-label="User profile">
+        <nav class="UnderlineNav-body" aria-label="User profile">
             <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected " href="{{ .Site.BaseURL }}">
                 Overview
             </a>
@@ -57,134 +57,76 @@
                 </ol>
             </div>
         </div>
-        <div class="mt-4 position-relative">
-            <div class="js-yearly-contributions">
-                <div class="position-relative">
-                    <h2 class="f4 text-normal mb-2">
-                        {{ $scratch := newScratch }}
-                        {{ if eq now.Weekday.String "Monday" }}
-                        {{ $scratch.Set "dayOfWeek" 1 }}
-                        {{ else if eq now.Weekday.String "Tuesday"  }}
-                        {{ $scratch.Set "dayOfWeek" 2 }}
-                        {{ else if eq now.Weekday.String "Wednesday"  }}
-                        {{ $scratch.Set "dayOfWeek" 3 }}
-                        {{ else if eq now.Weekday.String "Thursday"  }}
-                        {{ $scratch.Set "dayOfWeek" 4 }}
-                        {{ else if eq now.Weekday.String "Friday"  }}
-                        {{ $scratch.Set "dayOfWeek" 5 }}
-                        {{ else if eq now.Weekday.String "Saturday"  }}
-                        {{ $scratch.Set "dayOfWeek" 6 }}
-                        {{ else if eq now.Weekday.String "Sunday"  }}
-                        {{ $scratch.Set "dayOfWeek" 7 }}
-                        {{ end }}
-                        {{ $dayOfWeek := $scratch.Get "dayOfWeek" }}
-
-                        {{ $allDays := add 364 $dayOfWeek }}
-                        {{ $startDate := (time (now.Format "2006-01-02")).AddDate 0 0 (int (sub 0 $allDays)) }}
-                        {{ $startMonth := 0 }}
-                        {{ $monthPos := slice }}
-                        {{ $weeks := 53 }}
-                        {{ $count := 0 }}
-
-                        {{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
-                        {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
-
-                        {{ range $section }}
-                        {{ $scratch.Add (.PublishDate.Format "2006-01-02") 1 }}
-                        {{ if le $startDate .PublishDate }}
-                        {{ $count = add $count 1 }}
-                        {{ end }}
-                        {{ end }}
-                        {{ $count }} posts in the last year
-                    </h2>
-                    <div class="js-profile-timeline-year-list">
-                        <a href="?tab=overview&from=from&to=to" class="js-year-link selected"></a>
-                    </div>
-                    <div class="border border-gray-dark py-2 graph-before-activity-overview">
-                        <div class="js-calendar-graph mx-3 d-flex flex-column flex-items-end flex-xl-items-center overflow-hidden pt-1 is-graph-loading graph-canvas calendar-graph height-full text-center"
-                            data-from="{{ $startDate.Format "2006-01-02" }} 00:00:00"
-                            data-to="{{ now.Format "2006-01-02" }} 00:00:00" data-org=""
-                            data-url="/{{ .Site.Params.github }}">
-
-                            <svg width="828" height="128" class="js-calendar-graph-svg">
-                                <g transform="translate(10, 20)">
-                                    {{ range $i, $sequence :=  (seq $weeks) }}
-                                    <g transform="translate({{mul $i 16}}, 0)">
-                                        {{ range $j, $seq := (seq 7) }}
-
-                                        {{ $date := $startDate.AddDate 0 0 (int (add (mul $i 7) $j)) }}
-                                        {{ if ge now $date }}
-                                        {{ $color := newScratch }}
-
-                                        <!-- 获得月份标记的位置 -->
-                                        {{ if eq $j 0 }}
-                                        {{ if ne $startMonth $date.Month }}
-                                        <!-- 月份至少需要两格空间 -->
-                                        {{ if le $i (sub $weeks 2) }}
-                                        {{ $monthPos = $monthPos | append $i}}
-                                        {{ $startMonth = $date.Month }}
-                                        {{ end }}
-                                        {{ end }}
-                                        {{ end }}
-
-                                        {{ $dateCount := $scratch.Get ($date.Format "2006-01-02") }}
-                                        {{ if eq $dateCount nil }}
-                                        {{ $dateCount = 0 }}
-                                        {{ end }}
-
-                                        {{ if eq $dateCount 0 }}
-                                        {{ $color.Set "color" "#ebedf0" }}
-                                        {{ else if eq $dateCount 1 }}
-                                        {{ $color.Set "color" "#c6e48b" }}
-                                        {{ else if eq $dateCount 2 }}
-                                        {{ $color.Set "color" "#7bc96f" }}
-                                        {{ else if eq $dateCount 3 }}
-                                        {{ $color.Set "color" "#239a3b" }}
-                                        {{ else }}
-                                        {{ $color.Set "color" "#196127" }}
-                                        {{ end }}
-                                        <rect class="day" width="12" height="12" x="{{sub 16 $i}}" y="{{mul 15 $j}}"
-                                            fill="{{ $color.Get "color" }}" data-count="{{ $dateCount }}"
-                                            data-date="{{ $date.Format "2006-01-02" }}"></rect>
-                                        {{ end }}
-                                        {{ end }}
-                                    </g>
-                                    {{ end }}
-                                    {{ range $index, $element := $monthPos }}
-                                    <text x="{{ add (mul 15 $element) 16 }}" y="-9"
-                                        class="month">{{ (now.AddDate 0 $index 0).Format "Jan" }}</text>
-                                    {{ end }}
-                                    <text text-anchor="start" class="wday" dx="-10" dy="8"
-                                        style="display: none;">Sun</text>
-                                    <text text-anchor="start" class="wday" dx="-10" dy="25">Mon</text>
-                                    <text text-anchor="start" class="wday" dx="-10" dy="32"
-                                        style="display: none;">Tue</text>
-                                    <text text-anchor="start" class="wday" dx="-10" dy="56">Wed</text>
-                                    <text text-anchor="start" class="wday" dx="-10" dy="57"
-                                        style="display: none;">Thu</text>
-                                    <text text-anchor="start" class="wday" dx="-10" dy="85">Fri</text>
-                                    <text text-anchor="start" class="wday" dx="-10" dy="81"
-                                        style="display: none;">Sat</text>
-                                </g>
-
-                            </svg>
-
+        {{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
+        {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
+        <div id="contributions" data='[{{ range $index, $elem := $section }}
+{
+    "title": "{{ .Title }}",
+    "link": "{{ .Permalink }}",
+    "publishDate": "{{ .PublishDate.Format "2006-01-02 15:04:05" }}"
+}{{ if ne $index (sub (len $section) 1) }},{{ end }}
+{{ end }}]'>
+            <div class="mt-4 position-relative">
+                <div class="js-yearly-contributions">
+                    <div class="position-relative">
+                        <h2 class="f4 text-normal mb-2" id="posts-count">
+                        </h2>
+                        <div class="js-profile-timeline-year-list">
+                            <a class="js-year-link selected"></a>
                         </div>
-                        <div class="contrib-footer clearfix mt-1 mx-3 px-3 pb-1">
-                            <div class="contrib-legend text-gray"
-                                title="A summary of pull requests, issues opened, and commits to the default and gh-pages branches.">
-                                Less
-                                <ul class="legend">
-                                    <li style="background-color: #ebedf0"></li>
-                                    <li style="background-color: #c6e48b"></li>
-                                    <li style="background-color: #7bc96f"></li>
-                                    <li style="background-color: #239a3b"></li>
-                                    <li style="background-color: #196127"></li>
-                                </ul>
-                                More
+                        <div class="border border-gray-dark py-2 graph-before-activity-overview">
+                            <div class="js-calendar-graph mx-3 d-flex flex-column flex-items-end flex-xl-items-center overflow-hidden pt-1 is-graph-loading graph-canvas calendar-graph height-full text-center">
+                                <svg width="828" height="128" class="js-calendar-graph-svg">
+                                    <g transform="translate(10, 20)" id="graph-svg">
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="contrib-footer clearfix mt-1 mx-3 px-3 pb-1">
+                                <div class="contrib-legend text-gray"
+                                    title="A summary of pull requests, issues opened, and commits to the default and gh-pages branches.">
+                                    Less
+                                    <ul class="legend">
+                                        <li style="background-color: #ebedf0"></li>
+                                        <li style="background-color: #c6e48b"></li>
+                                        <li style="background-color: #7bc96f"></li>
+                                        <li style="background-color: #239a3b"></li>
+                                        <li style="background-color: #196127"></li>
+                                    </ul>
+                                    More
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="activity-listing contribution-activity">
+                    <div class="d-none d-lg-block">
+                        <div class="profile-timeline-year-list js-profile-timeline-year-list bg-white float-right col-2 pl-5 is-placeholder"
+                            style="visibility: hidden; display: none; height: 210px;"></div>
+                        <div class="profile-timeline-year-list js-profile-timeline-year-list bg-white js-sticky float-right col-2 pl-5"
+                            data-original-top="74px" style="position: static;">
+                            <ul class="filter-list small" id="year-list">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h2 class="f4 text-normal mb-2">
+                        Post activity
+                    </h2>
+
+                    <div id="posts-activity">
+                    </div>
+
+                    <!-- TODO -->
+                    <!-- 默认只显示最新月的，点击按钮来显示全部数据 -->
+                    <!-- <div class="ajax-pagination-form js-ajax-pagination js-show-more-timeline-form col-lg-10 col-12">
+                        <img class="contribution-activity-spinner col-10 next" alt=""
+                            src="https://github.githubassets.com/images/spinners/octocat-spinner-128.gif">
+                        <button name="button"
+                            class="ajax-pagination-btn btn btn-outline border-gray-dark width-full f6 mt-0 py-2 contribution-activity-show-more ">Show
+                            more activity</button>
+                    </div> -->
+
+
                 </div>
             </div>
         </div>
