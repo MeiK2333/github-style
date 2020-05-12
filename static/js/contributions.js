@@ -35,6 +35,7 @@ function yearly(year) {
     startDate = new Date(endDate.getTime() - 364 * 24 * 60 * 60 * 1000 - endDate.getDay() * 24 * 60 * 60 * 1000);
   }
   startDate.setHours(0, 0, 0, 0);
+  endDate.setHours(23, 59, 59, 999);
   const posts = [];
   const ms = [];
   for (const item of contributions) {
@@ -157,7 +158,7 @@ function graph(year, posts, startDate, endDate) {
   let html = ``;
   const count = {};
   for (const post of posts) {
-    const date = post.date.toISOString().substr(0, 10);
+    const date = `${post.date.getFullYear()}-${(post.date.getMonth() + 1).toString().padStart(2, '0')}-${post.date.getDate().toString().padStart(2, '0')}`;
     if (count[date] == undefined) {
       count[date] = 1;
     } else {
@@ -170,7 +171,7 @@ function graph(year, posts, startDate, endDate) {
     html += `<g transform="translate(${i * 16}, 0)">`;
     for (let j = 0; j < 7; j++) {
       const date = new Date(startDate.getTime() + (i * 7 + j) * 24 * 60 * 60 * 1000);
-      const dataDate = date.toISOString().substr(0, 10);
+      const dataDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
       if (date > endDate) {
         continue;
       }
