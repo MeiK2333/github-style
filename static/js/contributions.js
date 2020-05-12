@@ -90,7 +90,7 @@ function monthly(year, month, posts) {
   <div class="contribution-activity-listing float-left col-12 col-lg-10">
     <div class="profile-timeline discussion-timeline width-full pb-4">
       <h3 class="profile-timeline-month-heading bg-white d-inline-block h6 pr-2 py-1">
-        ${months[month]} <span class="text-gray">${year}</span>
+        ${months[month]} <span class="text-gray">${monthPosts.length > 0 ? monthPosts[0].date.getFullYear() : year}</span>
       </h3>
       <div class="profile-rollup-wrapper py-4 pl-4 position-relative ml-3 js-details-container Details open">
         <span class="discussion-item-icon"><svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12"
