@@ -53,4 +53,5 @@ copyright = "© 2019. Theme by <a href=\"https://github.com/MeiK2333/github-styl
   utterances = "example/example.github.io"
   avatar = "https://example.com/images/avatar.png"
   url = "https://example.com"
+  keywords = "blog, google analytics"
 ```

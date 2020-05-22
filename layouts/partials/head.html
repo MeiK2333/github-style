@@ -1,17 +1,59 @@
 <head>
     <meta charset="utf-8">
-    <link crossorigin="anonymous" media="all"
-        rel="stylesheet"
-        href="{{ "css/frameworks.css" | absURL }}" />
-    <link crossorigin="anonymous" media="all"
-        rel="stylesheet" href="{{ "css/github.css" | absURL }}" />
-    <link crossorigin="anonymous" media="(prefers-color-scheme: dark)"
-        rel="stylesheet" href="{{ "css/dark.css" | absURL }}" />
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ "css/frameworks.css" | absURL }}" />
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ "css/github.css" | absURL }}" />
+    <link crossorigin="anonymous" media="(prefers-color-scheme: dark)" rel="stylesheet"
+        href="{{ "css/dark.css" | absURL }}" />
     <meta name="viewport" content="width=device-width">
+    <meta name="description"
+        content="{{ if .IsHome }}{{ .Site.Params.tagline }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+    <meta name="keywords"
+        content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}" />
+    <meta name="robots" content="noodp" />
+    <link rel="canonical" href="{{ .Permalink }}" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}" />
+    <meta name="twitter:description"
+        content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+    <meta name="twitter:site" content="{{ $.Site.BaseURL }}" />
+    <meta name="twitter:creator" content="{{ .Params.Author }}" />
+    <meta name="twitter:image"
+        content="{{ if .IsHome }}{{ $.Site.Params.avatar | absURL }}{{ else }}{{ .Params.Cover | absURL }}{{ end }}">
+
+    <!-- OG data -->
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+    <meta property="og:title" content="{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}">
+    <meta property="og:description"
+        content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:site_name" content="{{ .Title }}" />
+    <meta property="og:image"
+        content="{{ if .IsHome }}{{ $.Site.Params.avatar | absURL }}{{ else }}{{ .Params.Cover | absURL }}{{ end }}">
+    <meta property="og:image:width" content="2048">
+    <meta property="og:image:height" content="1024">
+    {{ if isset .Params "date" }}
+    <meta property="article:published_time" content="{{ time .Date }}" />
+    {{ end }}
+
+    <!-- RSS -->
+    {{ with .OutputFormats.Get "RSS" }}
+    <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    {{ end }}
+
+    <!-- JSON Feed -->
+    {{ with .OutputFormats.Get "json" }}
+    <link href="{{ .RelPermalink }}" rel="alternate" type="application/json" title="{{ $.Site.Title }}" />
+    {{ end }}
 
     <title>{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 
     <link rel="icon" type="image/x-icon" class="js-site-favicon" href="{{ "images/favicon.ico" | absURL }}">
     <meta name="theme-color" content="#1e2327">
+
+    <!-- Extended head section-->
+    {{ partial "extended_head.html" . }}
+
     {{ template "_internal/google_analytics_async.html" . }}
 </head>
