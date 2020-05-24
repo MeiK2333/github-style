@@ -2,8 +2,11 @@
     <meta charset="utf-8">
     <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ "css/frameworks.css" | absURL }}" />
     <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ "css/github.css" | absURL }}" />
+    {{ if $.Site.Params.disableDarkMode }}
+    {{ else }}
     <link crossorigin="anonymous" media="(prefers-color-scheme: dark)" rel="stylesheet"
         href="{{ "css/dark.css" | absURL }}" />
+    {{end}}
     <meta name="viewport" content="width=device-width">
     <meta name="description"
         content="{{ if .IsHome }}{{ .Site.Params.tagline }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
