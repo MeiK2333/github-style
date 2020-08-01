@@ -101,7 +101,7 @@ function monthly(year, month, posts) {
         <button type="button" class="btn-link f4 muted-link no-underline lh-condensed width-full js-details-target "
           aria-expanded="false">
           <span class="float-left ws-normal text-left">
-            Created ${monthPosts.length} post
+            Created ${monthPosts.length} post${monthPosts.length > 1 ? 's' : ''}
           </span>
           <span class="d-inline-block float-right">
             <span class="profile-rollup-toggle-closed float-right" aria_label="Collapse"><svg class="octicon octicon-fold"
@@ -147,10 +147,11 @@ function yearList() {
 }
 
 function graph(year, posts, startDate, endDate) {
+  const postsStr = posts.length === 1 ? "post" : "posts";
   if (year == now.getFullYear().toString()) {
-    document.querySelector('#posts-count').innerText = `${posts.length}  posts in the last year`;
+    document.querySelector('#posts-count').innerText = `${posts.length}  ${postsStr} in the last year`;
   } else {
-    document.querySelector('#posts-count').innerText = `${posts.length}  posts in ${year}`;
+    document.querySelector('#posts-count').innerText = `${posts.length}  ${postsStr} in ${year}`;
   }
 
   let html = ``;
