@@ -70,7 +70,7 @@ function monthly(year, month, posts) {
   const monthPosts = posts.filter(post => post.date.getMonth() === month);
   let liHtml = '';
   for (const post of monthPosts) {
-    liHtml += `<li class="d-block mt-1 py-1"><span class="css-truncate css-truncate-target">
+    liHtml += `<li class="d-flex mt-1 py-1 flex-row flex-nowrap flex-justify-between"><span class="flex-auto css-truncate css-truncate-target">
   <span class="profile-rollup-icon">
     <svg class="octicon octicon-repo v-align-middle text-gray-light mr-1" viewBox="0 0 12 16" version="1.1"
       width="12" height="16" aria-hidden="true">
@@ -81,9 +81,7 @@ function monthly(year, month, posts) {
   </span>
   <a class="mr-2 " data-hovercard-type="repository" href="${post.link}">${post.title}</a>
 </span>
-<span class="f6 text-gray d-block mt-1 d-lg-inline mt-lg-0">
-</span>
-<time title="This post was made on ${months[post.date.getMonth()]} ${post.date.getDate()}" class="float-right f6 text-gray-light pt-1">
+<time title="This post was made on ${months[post.date.getMonth()]} ${post.date.getDate()}" class="f6 text-gray-light pt-1">
   ${months[post.date.getMonth()]} ${post.date.getDate()}
 </time></li>`;
   }
@@ -103,7 +101,7 @@ function monthly(year, month, posts) {
         <button type="button" class="btn-link f4 muted-link no-underline lh-condensed width-full js-details-target "
           aria-expanded="false">
           <span class="float-left ws-normal text-left">
-            Created ${monthPosts.length} post
+            Created ${monthPosts.length} post${monthPosts.length > 1 ? 's' : ''}
           </span>
           <span class="d-inline-block float-right">
             <span class="profile-rollup-toggle-closed float-right" aria_label="Collapse"><svg class="octicon octicon-fold"
@@ -149,10 +147,11 @@ function yearList() {
 }
 
 function graph(year, posts, startDate, endDate) {
+  const postsStr = posts.length === 1 ? "post" : "posts";
   if (year == now.getFullYear().toString()) {
-    document.querySelector('#posts-count').innerText = `${posts.length}  posts in the last year`;
+    document.querySelector('#posts-count').innerText = `${posts.length}  ${postsStr} in the last year`;
   } else {
-    document.querySelector('#posts-count').innerText = `${posts.length}  posts in ${year}`;
+    document.querySelector('#posts-count').innerText = `${posts.length}  ${postsStr} in ${year}`;
   }
 
   let html = ``;
