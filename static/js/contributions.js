@@ -11,7 +11,7 @@ let contributions;
   contributions = JSON.parse(dom.getAttribute('data'));
   let year = 0;
   for (const item of contributions) {
-    item.publishDate = decodeURI(item.publishDate);
+    item.publishDate = decodeURI(item.publishDate).replace(' ','T');
     item.date = new Date(item.publishDate);
     if (item.date.getFullYear() > year) {
       year = item.date.getFullYear();
