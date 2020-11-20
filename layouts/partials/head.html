@@ -57,6 +57,8 @@
 
     <!-- Extended head section-->
     {{ partial "extended_head.html" . }}
-
-    {{ template "_internal/google_analytics_async.html" . }}
+    
+    {{ if eq (getenv "HUGO_ENV") "production"}}
+        {{ template "_internal/google_analytics_async.html" . }}
+    {{ end }}
 </head>
