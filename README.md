@@ -45,7 +45,19 @@ hugo new posts/title_of_the_post.md
 ```
 
 ## Limit display content
-Use `<!--more-->` to seperate content that will display in the posts page as abstraction and the rest of the content.
+
+### Approch 1: use summary
+```
+---
+title: "title"
+date: 2019-10-22T18:46:47+08:00
+draft: false
+summary: "The summary content"
+---
+```
+
+### Approch 2: use <!--more-->
+Use `<!--more-->` to seperate content that will display in the posts page as abstraction and the rest of the content. This is different from summary, as summary will not appear in the post.
 ```
 ---
 title: "title"
