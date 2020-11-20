@@ -56,7 +56,7 @@ summary: "The summary content"
 ---
 ```
 
-### Approch 2: use <!--more-->
+### Approch 2: use `<!--more-->`
 Use `<!--more-->` to seperate content that will display in the posts page as abstraction and the rest of the content. This is different from summary, as summary will not appear in the post.
 ```
 ---
@@ -68,6 +68,21 @@ abstraction show in the post page
 <!--more-->
 other content
 ```
+
+## Support LaTex
+In you post add `katex:true` to [front matter](https://gohugo.io/content-management/front-matter/)
+```
+---
+katex: true
+---
+```
+Then the [katex script](https://katex.org/docs/autorender.html) will auto render the string enclosed be delimiters. 
+```
+# replace ... with latex formula
+display inline \\( ... \\)
+display block $$ ... $$
+```
+![latex example](images/latex_example.png)
 
 ## config.toml example
 
