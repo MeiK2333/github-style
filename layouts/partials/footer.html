@@ -23,5 +23,7 @@
         <span class="f6 text-gray-light"></span>
     </div>
 </div>
-
+{{ if .Params.katex }}
+    {{ partial "katex.html" . }}
+{{ end }}
 {{ partial "script.html" . }}
