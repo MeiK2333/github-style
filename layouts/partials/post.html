@@ -7,10 +7,9 @@
                         <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
                             <a class="avatar mr-1" href="{{ absURL "about/" }}">
                                 {{ with $.Site.Params.avatar }}
-
-                                <img src="{{  $.Site.Params.avatar  }}" width="26" height="26">
+                                    <img src="{{  $.Site.Params.avatar  }}" width="26" height="26">
                                 {{ else }}
-                                <img src="{{ "images/avatar.png" | absURL }}" width="26" height="26">
+                                    <img src="{{ "images/avatar.png" | absURL }}" width="26" height="26">
                                 {{ end }}
                             </a>
                             <span class="author"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span>
@@ -19,21 +18,15 @@
                                     href="{{ .Permalink }}">{{ .Title }}</a></strong>
 
                             <div class="d-block text-small text-gray">
-                                Created <time-ago datetime="{{ .Date.Format "2006-01-02" }}" class="no-wrap"
-                                    title="Created at {{ .PublishDate.Format "2006/01/02" }}">
-                                    {{ .PublishDate.Format "2006-01-02" }}</time-ago>
+                                Created <time-ago datetime="{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap">
+                                    Mon, 02 Jan 2006 15:04:05 -0700</time-ago>
                                 <span class="file-info-divider"></span>
-                                Modified <time-ago datetime="{{ .Lastmod.Format "2006-01-02" }}" class="no-wrap"
-                                    title="Modified  at {{ .Lastmod.Format "2006/01/02" }}">
-                                    {{ .Lastmod.Format "2006-01-02" }}</time-ago>
+                                Modified <time-ago datetime="{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap">
+                                        Mon, 02 Jan 2006 15:04:05 -0700</time-ago>
                             </div>
                         </h1>
                     </div>
                 </div>
-
-
-
-
             </div>
             <div class="container-lg clearfix new-discussion-timeline experiment-repo-nav  p-responsive">
                 <div class="repository-content ">
