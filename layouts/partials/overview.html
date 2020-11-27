@@ -46,10 +46,9 @@
                                     {{ .Summary | safeHTML }}
                                 </div>
                                 <div class="f6 text-gray mt-2">
-                                    Updated <relative-time datetime="{{ .PublishDate.Format "2006-01-02" }}"
-                                        class="no-wrap" title="Modify at {{ .Lastmod.Format "2006/01/02" }}">
-                                        {{ .PublishDate.Format "January 2, 2006" }}</relative-time>
-                                </div>
+                                    Updated <time-ago datetime="{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap">
+                                        Mon, 02 Jan 2006 15:04:05 -0700</time-ago>
+                                </div>  
                             </div>
                         </div>
                     </li>

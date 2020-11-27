@@ -69,6 +69,14 @@ abstraction show in the post page
 other content
 ```
 
+## add last modified data
+Unfortunately, hugo cannot automaticlly get files' modified date, and it needs to be manually set in page as `lastmode`. 
+```
+---
+lastmode: 2019-10-22T18:46:47+08:00
+---
+```
+
 ## Support LaTex
 In you post add `katex:true` to [front matter](https://gohugo.io/content-management/front-matter/)
 ```
