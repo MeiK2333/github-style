@@ -67,7 +67,9 @@ function yearly(year) {
 }
 
 function monthly(year, month, posts) {
-  const monthPosts = posts.filter(post => post.date.getMonth() === month);
+  const monthPosts = posts.filter(post => 
+    post.date.getFullYear().toString() === year && post.date.getMonth() === month
+  );
   let liHtml = '';
   for (const post of monthPosts) {
     liHtml += `<li class="d-flex mt-1 py-1 flex-row flex-nowrap flex-justify-between"><span class="flex-auto css-truncate css-truncate-target">
