@@ -1,5 +1,12 @@
 # github-style
 
+像素级抄袭 GitHub。
+
+目前完成：
+
+- header 栏（还没有移动端的样式切换）
+- light/dark 模式切换
+
 ## Init hugo site
 
 ```bash
@@ -14,7 +21,9 @@ git submodule add git@github.com:MeiK2333/github-style.git themes/github-style
 ```
 
 ## Update the theme
-If you just installed the theme, it is already in the lattest version. If not, you can update using the below commands
+
+If you just installed the theme, it is already in the latest version. If not, you can update using the below commands
+
 ```bash
 cd themes/github-style
 git pull
@@ -57,6 +66,7 @@ summary: "The summary content"
 ```
 
 ### Approch 2: use `<!--more-->`
+
 Use `<!--more-->` to seperate content that will display in the posts page as abstraction and the rest of the content. This is different from summary, as summary will not appear in the post.
 ```
 ---
@@ -70,6 +80,7 @@ other content
 ```
 
 ## add last modified data
+
 Unfortunately, hugo cannot automaticlly get files' modified date, and it needs to be manually set in page as `lastmode`. 
 ```
 ---
@@ -78,18 +89,23 @@ lastmode: 2019-10-22T18:46:47+08:00
 ```
 
 ## Support LaTex
+
 In you post add `katex:true` to [front matter](https://gohugo.io/content-management/front-matter/)
+
 ```
 ---
 katex: true
 ---
 ```
-Then the [katex script](https://katex.org/docs/autorender.html) will auto render the string enclosed be delimiters. 
+
+Then the [katex script](https://katex.org/docs/autorender.html) will auto render the string enclosed be delimiters.
+
 ```
 # replace ... with latex formula
 display inline \\( ... \\)
 display block $$ ... $$
 ```
+
 ![latex example](images/latex_example.png)
 
 ## config.toml example
