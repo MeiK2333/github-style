@@ -1,4 +1,4 @@
-[data-theme=dark] {
+[data-color-mode=dark] {
   --body-background-color: #000;
   --color-actions-workflow-table-sticky-bg: rgba(13, 17, 23, 0.95);
   --color-alert-error-bg: rgba(248, 81, 73, 0.1);

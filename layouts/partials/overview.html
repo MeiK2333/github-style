@@ -3,121 +3,124 @@
 {{ $section_count := len $section }}
 {{ $n_posts := $.Param "recent_posts_number" | default 6 }}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
-    <div class="UnderlineNav width-full user-profile-nav js-sticky top-0">
-        <nav class="UnderlineNav-body" aria-label="User profile">
-            <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected " href="{{ .Site.BaseURL }}">
-                Overview
-            </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "posts/" }}">
-                Posts
-                <span class="Counter hide-lg hide-md hide-sm">
-                    {{ $section_count}}
-                </span>
-            </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "about/" }}">
-                About
-            </a>
-        </nav>
-    </div>
-    <div class="position-relative">
-        <div class="mt-4">
-            <div class="js-pinned-items-reorder-container">
-                <h2 class="f4 mb-2 text-normal">
-                    Pinned
-                </h2>
+  <div class="UnderlineNav width-full user-profile-nav js-sticky top-0">
+    <nav class="UnderlineNav-body" aria-label="User profile">
+      <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected " href="{{ .Site.BaseURL }}">
+        Overview
+      </a>
+      <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "posts/" }}">
+        Posts
+        <span class="Counter hide-lg hide-md hide-sm">
+          {{ $section_count}}
+        </span>
+      </a>
+      <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "about/" }}">
+        About
+      </a>
+    </nav>
+  </div>
+  <div class="position-relative">
+    <div class="mt-4">
+      <div class="js-pinned-items-reorder-container">
+        <h2 class="f4 mb-2 text-normal">
+          Pinned
+        </h2>
 
-                <ol class="d-flex flex-wrap list-style-none gutter-condensed mb-4 js-pinned-items-reorder-list">
-                    {{ range (first $n_posts $section) }}
-                    <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
-                        <div
-                            class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source  sortable-button-item">
-                            <div class="pinned-item-list-item-content" name="pinned-post">
-                                <div class="d-flex width-full flex-items-center position-relative">
-                                    <svg class="octicon octicon-repo mr-2 text-gray flex-shrink-0" viewBox="0 0 12 16"
-                                        version="1.1" width="12" height="16" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z" />
-                                    </svg>
-                                    <a href="{{ .Permalink }}" class="text-bold flex-auto min-width-0 ">
-                                        <span class="repo js-pinnable-item" title="{{ .Title }}">{{ .Title }}</span>
-                                    </a>
-                                </div>
-                                <div class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
-                                    {{ .Summary | safeHTML }}
-                                </div>
-                                <div class="f6 text-gray mt-2">
-                                    Updated <time-ago datetime="{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap">
-                                        Mon, 02 Jan 2006 15:04:05 -0700</time-ago>
-                                </div>  
-                            </div>
-                        </div>
-                    </li>
-                    {{ end }}
-                </ol>
+        <ol class="d-flex flex-wrap list-style-none gutter-condensed mb-4 js-pinned-items-reorder-list">
+          {{ range (first $n_posts $section) }}
+          <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
+            <div
+              class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source  sortable-button-item">
+              <div class="pinned-item-list-item-content" name="pinned-post">
+                <div class="d-flex width-full flex-items-center position-relative">
+                  <svg class="octicon octicon-repo mr-2 text-gray flex-shrink-0" viewBox="0 0 12 16" version="1.1"
+                    width="12" height="16">
+                    <path fill-rule="evenodd"
+                      d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z" />
+                  </svg>
+                  <a href="{{ .Permalink }}" class="text-bold flex-auto min-width-0 ">
+                    <span class="repo js-pinnable-item" title="{{ .Title }}">{{ .Title }}</span>
+                  </a>
+                </div>
+                <div class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
+                  {{ .Summary | safeHTML }}
+                </div>
+                <div class="f6 text-gray mt-2">
+                  Updated <time-ago datetime="{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap">
+                    Mon, 02 Jan 2006 15:04:05 -0700</time-ago>
+                </div>
+              </div>
             </div>
-        </div>
-        {{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
-        {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
-        <div id="contributions" data='[{{ range $index, $elem := $section }}
+          </li>
+          {{ end }}
+        </ol>
+      </div>
+    </div>
+    {{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
+    {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
+    <div id="contributions" data='[{{ range $index, $elem := $section }}
 {
     "title": "{{ .Title }}",
     "link": "{{ .Permalink }}",
     "publishDate": "{{ .PublishDate.Format "2006-01-02 15:04:05" }}"
 }{{ if ne $index (sub (len $section) 1) }},{{ end }}
 {{ end }}]'>
-            <div class="mt-4 position-relative">
-                <div class="js-yearly-contributions">
-                    <div class="position-relative">
-                        <h2 class="f4 text-normal mb-2" id="posts-count">
-                        </h2>
-                        <div class="js-profile-timeline-year-list">
-                            <a class="js-year-link selected"></a>
-                        </div>
-                        <div class="border border-gray-dark py-2 graph-before-activity-overview">
-                            <div class="js-calendar-graph mx-3 d-flex flex-column flex-items-end flex-xl-items-center overflow-hidden pt-1 is-graph-loading graph-canvas calendar-graph height-full text-center">
-                                <svg width="828" height="128" class="js-calendar-graph-svg">
-                                    <g transform="translate(10, 20)" id="graph-svg">
-                                    </g>
-                                </svg>
-                            </div>
-                            <div class="contrib-footer clearfix mt-1 mx-3 px-3 pb-1">
-                                <div class="contrib-legend text-gray"
-                                    title="A summary of pull requests, issues opened, and commits to the default and gh-pages branches.">
-                                    Less
-                                    <ul class="legend">
-                                        <li style="background-color: #ebedf0"></li>
-                                        <li style="background-color: #c6e48b"></li>
-                                        <li style="background-color: #7bc96f"></li>
-                                        <li style="background-color: #239a3b"></li>
-                                        <li style="background-color: #196127"></li>
-                                    </ul>
-                                    More
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <div class="mt-4 position-relative">
+        <div class="js-yearly-contributions">
+          <div class="position-relative">
+            <h2 class="f4 text-normal mb-2" id="posts-count">
+            </h2>
+            <div class="js-profile-timeline-year-list">
+              <a class="js-year-link selected"></a>
+            </div>
+            <div class="border border-gray-dark py-2 graph-before-activity-overview">
+              <div
+                class="js-calendar-graph mx-3 d-flex flex-column flex-items-end flex-xl-items-center overflow-hidden pt-1 is-graph-loading graph-canvas calendar-graph height-full text-center">
+                <svg width="828" height="128" class="js-calendar-graph-svg">
+                  <g transform="translate(10, 20)" id="graph-svg">
+                  </g>
+                </svg>
+              </div>
+              <div class="contrib-footer clearfix mt-1 mx-3 px-3 pb-1">
+                <div class="contrib-legend text-gray"
+                  title="A summary of pull requests, issues opened, and commits to the default and gh-pages branches.">
+                  Less
+                  <ul class="legend">
+                    <li style="background-color: #ebedf0"></li>
+                    <li style="background-color: #c6e48b"></li>
+                    <li style="background-color: #7bc96f"></li>
+                    <li style="background-color: #239a3b"></li>
+                    <li style="background-color: #196127"></li>
+                  </ul>
+                  More
                 </div>
-                <div class="activity-listing contribution-activity">
-                    <div class="d-none d-lg-block">
-                        <div class="profile-timeline-year-list js-profile-timeline-year-list bg-white float-right col-2 pl-5 is-placeholder"
-                            style="visibility: hidden; display: none; height: 210px;"></div>
-                        <div class="profile-timeline-year-list js-profile-timeline-year-list bg-white js-sticky float-right col-2 pl-5"
-                            data-original-top="74px" style="position: static;">
-                            <ul class="filter-list small" id="year-list">
-                            </ul>
-                        </div>
-                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="activity-listing contribution-activity">
+          <div class="d-none d-lg-block">
+            <div
+              class="profile-timeline-year-list js-profile-timeline-year-list bg-white float-right col-2 pl-5 is-placeholder"
+              style="visibility: hidden; display: none; height: 210px;"></div>
+            <div
+              class="profile-timeline-year-list js-profile-timeline-year-list bg-white js-sticky float-right col-2 pl-5"
+              data-original-top="74px" style="position: static;">
+              <ul class="filter-list small" id="year-list">
+              </ul>
+            </div>
+          </div>
 
-                    <h2 class="f4 text-normal mb-2">
-                        Post activity
-                    </h2>
+          <h2 class="f4 text-normal mb-2">
+            Post activity
+          </h2>
 
-                    <div id="posts-activity">
-                    </div>
+          <div id="posts-activity">
+          </div>
 
-                    <!-- TODO -->
-                    <!-- 默认只显示最新月的，点击按钮来显示全部数据 -->
-                    <!-- <div class="ajax-pagination-form js-ajax-pagination js-show-more-timeline-form col-lg-10 col-12">
+          <!-- TODO -->
+          <!-- 默认只显示最新月的，点击按钮来显示全部数据 -->
+          <!-- <div class="ajax-pagination-form js-ajax-pagination js-show-more-timeline-form col-lg-10 col-12">
                         <img class="contribution-activity-spinner col-10 next" alt=""
                             src="https://github.githubassets.com/images/spinners/octocat-spinner-128.gif">
                         <button name="button"
@@ -126,10 +129,10 @@
                     </div> -->
 
 
-                </div>
-            </div>
         </div>
-        <div id="pinned-items-modal-wrapper"></div>
+      </div>
     </div>
+    <div id="pinned-items-modal-wrapper"></div>
+  </div>
 </div>
 </div>

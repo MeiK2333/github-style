@@ -7,6 +7,15 @@
 - header 栏（还没有移动端的样式切换）
 - light/dark 模式切换
 
+TODO:
+
+- 根据当前页面切换 `selected` 的菜单项。
+
+已知问题：
+
+- 因为没有服务器，无法在页面加载前就确定 light/dark 模式，因此需要尽早在 JS 中确认 theme。
+- light/dark 切换按钮点击时会出现蓝色边框。
+
 ## Init hugo site
 
 ```bash

@@ -1,116 +1,107 @@
-<div class="h-card col-lg-3 col-md-4 col-12 float-md-left pr-md-3 pr-xl-6" itemscope
-    itemtype="http://schema.org/Person">
-    <div class="user-profile-sticky-bar js-user-profile-sticky-bar">
-    </div>
-    <div class="clearfix mb-2">
-        <div class="float-left col-3 col-md-12 pr-3 pr-md-0">
+{{ partial "menus.html" . }}
+<div class="container-xl px-3 px-md-4 px-lg-5">
+  <div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+    <div class="flex-shrink-0 col-12 col-md-3 mb-4 mb-md-0">
+      <div class="h-card mt-md-n5">
+        <div class="clearfix d-flex d-md-block flex-items-center mb-4 mb-md-0">
+          <div class="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0" style="z-index:4;">
             {{ with $.Site.Params.avatar }}
-            <a itemprop="image" class="u-photo d-block position-relative" aria-hidden="true"
-                href="{{ $.Site.Params.avatar  }}">
-                <img alt="" width="260" height="260"
-                    class="avatar width-full height-full rounded-2" src="{{ $.Site.Params.avatar  }}" />
+            <a href="{{ $.Site.Params.avatar  }}">
+              <img style="height:auto;" alt="Avatar" width="260" height="260"
+                class="avatar avatar-user width-full border bg-white" src="{{ $.Site.Params.avatar  }}">
             </a>
             {{ else }}
-            <a itemprop="image" class="u-photo d-block position-relative" aria-hidden="true"
-                href="{{ "images/avatar.png" | absURL }}">
-
-                <img alt="" width="260" height="260"
-                    class="avatar width-full height-full rounded-2" src="{{ "images/avatar.png" | absURL }}" />
+            <a href="{{ "images/avatar.png" | absURL }}">
+              <img style="height:auto;" alt="Avatar" width="260" height="260"
+                class="avatar avatar-user width-full border bg-white" src="{{ "images/avatar.png" | absURL }}">
             </a>
-           {{ end }}
+            {{ end }}
+          </div>
+
+          <div
+            class="vcard-names-container float-left col-10 col-md-12 pt-1 pt-md-3 pb-1 pb-md-3 js-sticky js-user-profile-sticky-fields"
+            data-original-top="0px" style="position: sticky;">
+            <h1 class="vcard-names pl-2 pl-md-0">
+              <span class="p-name vcard-fullname d-block overflow-hidden">{{ .Site.Params.author }}</span>
+              {{ if .Site.Params.github }}
+              <span class="p-nickname vcard-username d-block">{{ .Site.Params.github }}</span>
+              {{ end }}
+            </h1>
+          </div>
         </div>
-        <div class="float-left col-9 col-md-12 pl-2 pl-md-0">
 
-            <div class="vcard-names-container pt-1 pt-md-3 pb-1 pb-md-3 js-sticky js-user-profile-sticky-fields">
-                <h1 class="vcard-names">
-                    <span class="p-name vcard-fullname d-block overflow-hidden"
-                        itemprop="name">{{ .Site.Params.author }}</span>
-                    <span class="p-nickname vcard-username d-block"
-                        itemprop="additionalName">{{ .Site.Params.github }}</span>
-                </h1>
-            </div>
-
-            <div class="d-none d-md-block">
-                <div class="js-profile-editable-area">
-                    <div class="p-note user-profile-bio js-user-profile-bio">
-                        <div>{{ .Site.Params.Description }}</div>
-                    </div>
-                    <ul class="vcard-details mb-3">
-
-                        {{ if .Site.Params.email }}
-                        <li itemprop="email" aria-label="Email: {{ .Site.Params.Email }}"
-                            class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-mail"
-                                viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z" />
-                            </svg>
-                            <a class="u-email " href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a>
-                        </li>
-                        {{ end }}
-
-                        <li itemprop="url" data-test-selector="profile-website-url"
-                            class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-link"
-                                viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-                                </path>
-                            </svg>
-                            {{ if .Site.Params.url }}
-                            <a rel="nofollow me" href="{{ .Site.Params.url }}">{{ .Site.Params.url }}</a>
-                            {{ else }}
-                            <a rel="nofollow me" href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
-                            {{ end }}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="border-top py-3 clearfix hide-sm hide-md">
-                <h2 class="mb-1 h4">Organizations</h2>
-
-                {{ if .Site.Params.github}}
-                <a class="avatar-group-item" data-hovercard-type="organization"
-                    href="https://github.com/{{ .Site.Params.github }}">
-                    <svg width="35" height="35" class="avatar github-octicon" viewBox="0 0 16 16" version="1.1"
-                        aria-hidden="true">
-                        <path fill-rule="evenodd"
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-                        </path>
-                    </svg>
-                </a>
-                {{ end }}
-                {{ if .Site.Params.misskey}}
-                <a class="avatar-group-item" data-hovercard-type="organization"
-                    href="{{ .Site.Params.misskey }}">
-                    <img src="{{ "images/misskey.png" | absURL }}" class="avatar" width="35" height="35">
-                </a>
-                {{ end }}
-                {{ if .Site.Params.mastodon}}
-                <a class="avatar-group-item" data-hovercard-type="organization"
-                    href="{{ .Site.Params.mastodon }}">
-                    <img src="{{ "images/mastodon.png" | absURL }}" class="avatar" width="35" height="35">
-                </a>
-                {{ end }}
-                {{ if .Site.Params.facebook}}
-                <a class="avatar-group-item" data-hovercard-type="organization"
-                    href="https://facebook.com/{{ .Site.Params.facebook }}">
-                    <img src="{{ "images/facebook.png" | absURL }}" class="avatar" width="35" height="35">
-                </a>
-                {{ end }}
-                {{ if .Site.Params.Twitter}}
-                <a class="avatar-group-item" data-hovercard-type="organization"
-                    href="https://twitter.com/{{ .Site.Params.Twitter }}">
-                    <img src="{{ "images/twitter.png" | absURL }}" class="avatar" width="35" height="35">
-                </a>
-                {{ end }}
-                <a class="avatar-group-item" data-hovercard-type="organization"
-                                             href="{{ "posts/index.xml" | absURL }}">
-                    <img src="{{ "images/rss.png" | absURL }}" class="avatar" width="38" height="38">
-                </a>
-            </div>
-
-            <div data-test-selector="profile-sponsorships">
-            </div>
+        <div class="p-note user-profile-bio mb-3 js-user-profile-bio f4">
+          <div>{{ .Site.Params.Description }}</div>
         </div>
+
+        <div class="d-flex flex-column">
+          <div class="js-profile-editable-area d-flex flex-column d-md-block">
+            <ul class="vcard-details">
+              {{ if .Site.Params.location }}
+              <li class="vcard-detail pt-1 css-truncate css-truncate-target hide-sm hide-md">
+                <svg class="octicon octicon-location" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0l3.535 3.536a1.5 1.5 0 002.122 0l3.535-3.536zM8 9a2 2 0 100-4 2 2 0 000 4z">
+                  </path>
+                </svg>
+                <span class="p-label">{{ .Site.Params.location }}</span>
+              </li>
+              {{ end }}
+
+              {{ if .Site.Params.email }}
+              <li class="vcard-detail pt-1 css-truncate css-truncate-target ">
+                <svg class="octicon octicon-mail" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M1.75 2A1.75 1.75 0 000 3.75v.736a.75.75 0 000 .027v7.737C0 13.216.784 14 1.75 14h12.5A1.75 1.75 0 0016 12.25v-8.5A1.75 1.75 0 0014.25 2H1.75zM14.5 4.07v-.32a.25.25 0 00-.25-.25H1.75a.25.25 0 00-.25.25v.32L8 7.88l6.5-3.81zm-13 1.74v6.441c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.809L8.38 9.397a.75.75 0 01-.76 0L1.5 5.809z">
+                  </path>
+                </svg>
+                <a class="u-email link-gray-dark " href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a>
+              </li>
+              {{ end }}
+
+              <li class="vcard-detail pt-1 css-truncate css-truncate-target ">
+                <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                  </path>
+                </svg>
+                {{ if .Site.Params.url }}
+                <a rel="nofollow me" class="link-gray-dark" href="{{ .Site.Params.url }}">{{ .Site.Params.url }}</a>
+                {{ else }}
+                <a rel="nofollow me" class="link-gray-dark" href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
+                {{ end }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-top color-border-secondary pt-3 mt-3 clearfix hide-sm hide-md">
+          <h2 class="mb-2 h4">Organizations</h2>
+          {{ if .Site.Params.github}}
+          <a class="avatar-group-item" href="https://github.com/{{ .Site.Params.github }}">
+            <img alt="@github" width="32" height="32" src="{{ "images/github.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
+          {{ if .Site.Params.twitter}}
+          <a class="avatar-group-item" href="https://github.com/{{ .Site.Params.twitter }}">
+            <img alt="@twitter" width="32" height="32" src="{{ "images/twitter.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
+          {{ if .Site.Params.facebook}}
+          <a class="avatar-group-item" href="https://github.com/{{ .Site.Params.facebook }}">
+            <img alt="@facebook" width="32" height="32" src="{{ "images/facebook.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
+          {{ if .Site.Params.rss }}
+          <a class="avatar-group-item" href="{{ "posts/index.xml" | absURL }}">
+            <img alt="@rss" width="32" height="32" src="{{ "images/rss.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+        </div>
+      </div>
     </div>
+  </div>
 </div>

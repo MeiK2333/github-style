@@ -1,10 +1,7 @@
-<div class="application-main " data-commit-hovercards-enabled>
+<div class="application-main">
   <main>
-    <div class="container-xl clearfix px-3 mt-4">
+    {{ partial "user-profile.html" . }}
 
-      {{ partial "user-profile.html" . }}
-
-      {{ partial "overview.html" .}}
-
+    <!-- {{ partial "overview.html" .}} -->
   </main>
 </div>

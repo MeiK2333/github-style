@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  background-color: var(--body-background-color);
 }
 
 .Header {
@@ -106,4 +105,13 @@ body {
   border-radius: 50%;
   background-color: var(--color-profile-color-modes-toggle-thumb-bg);
   cursor: pointer;
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
