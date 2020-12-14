@@ -10,7 +10,6 @@ function switchTheme() {
 }
 
 function setTheme(style) {
-  console.log(`set theme ${style}`);
   document.querySelectorAll('.isInitialToggle').forEach(elem => {
     elem.classList.remove('isInitialToggle');
   });

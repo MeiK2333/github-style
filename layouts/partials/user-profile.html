@@ -103,5 +103,10 @@
         </div>
       </div>
     </div>
+    {{ if .IsHome }}
+    {{ block "overview" . }}{{ end }}
+    {{ else }}
+    {{ block "posts" . }}{{ end }}
+    {{ end }}
   </div>
 </div>

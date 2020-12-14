@@ -1,5 +1,4 @@
-{{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
-{{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
+{{ $section := where .Site.RegularPages "Section" "in" (slice "post") }}
 {{ $section_count := len $section }}
 
 <div class="mt-4 position-sticky top-0 d-none d-md-block bg-white width-full border-bottom color-border-secondary"

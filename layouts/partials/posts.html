@@ -1,7 +1,4 @@
-{{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
-{{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
-{{ $section_count := len $section }}
-{{ $n_posts := $.Param "recent_posts_number" | default 6 }}
+{{ define "posts" }}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
   <div class="UnderlineNav width-full user-profile-nav top-0 is-placeholder"
     style="visibility: hidden; display: none; height: 56px;"></div>
@@ -49,3 +46,4 @@
     </div>
   </div>
 </div>
+{{ end }}
