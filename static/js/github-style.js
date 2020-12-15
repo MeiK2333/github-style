@@ -1,4 +1,5 @@
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const monthsFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const now = new Date();
 let contributions;
 
@@ -72,61 +73,65 @@ function monthly(year, month, posts) {
   );
   let liHtml = '';
   for (const post of monthPosts) {
-    liHtml += `<li class="d-flex mt-1 py-1 flex-row flex-nowrap flex-justify-between"><span class="flex-auto css-truncate css-truncate-target">
-  <span class="profile-rollup-icon">
-    <svg class="octicon octicon-repo v-align-middle text-gray-light mr-1" viewBox="0 0 12 16" version="1.1"
-      width="12" height="16" aria-hidden="true">
-      <path fill-rule="evenodd"
-        d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z">
-      </path>
-    </svg>
-  </span>
-  <a class="mr-2 " href="${post.link}">${post.title}</a>
-</span>
-<time title="This post was made on ${months[post.date.getMonth()]} ${post.date.getDate()}" class="f6 text-gray-light pt-1">
-  ${months[post.date.getMonth()]} ${post.date.getDate()}
-</time></li>`;
+    liHtml += `<li class="ml-0 py-1 d-flex">
+    <div
+      class="col-8 css-truncate css-truncate-target lh-condensed width-fit flex-auto min-width-0">
+      <a href="${post.link}">${post.title}</a>
+    </div>
+    <time  title="This post was made on ${months[post.date.getMonth()]} ${post.date.getDate()}"
+      class="col-2 text-right f6 text-gray-light pt-1">
+      ${months[post.date.getMonth()]} ${post.date.getDate()}
+    </time>
+  </li>`;
   }
   let html = `
   <div class="contribution-activity-listing float-left col-12 col-lg-10">
-    <div class="profile-timeline discussion-timeline width-full pb-4">
-      <h3 class="profile-timeline-month-heading bg-white d-inline-block h6 pr-2 py-1">
-        ${months[month]} <span class="text-gray">${monthPosts.length > 0 ? monthPosts[0].date.getFullYear() : year}</span>
+    <div class="width-full pb-4">
+      <h3 class="h6 pr-2 py-1 border-bottom mb-3" style="height: 14px;">
+        <span class="color-bg-canvas pl-2 pr-3">${monthsFull[month]} <span
+            class="text-gray">${monthPosts.length > 0 ? monthPosts[0].date.getFullYear() : year}</span></span>
       </h3>
-      <div class="profile-rollup-wrapper py-4 pl-4 position-relative ml-3 js-details-container Details open">
-        <span class="discussion-item-icon"><svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12"
-            height="16" aria-hidden="true">
+
+      <div class="TimelineItem ">
+        <div class="TimelineItem-badge ">
+          <svg class="octicon octicon-repo-push" viewBox="0 0 16 16" version="1.1" width="16" height="16">
             <path fill-rule="evenodd"
-              d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z">
+              d="M1 2.5A2.5 2.5 0 013.5 0h8.75a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0V1.5h-8a1 1 0 00-1 1v6.708A2.492 2.492 0 013.5 9h3.25a.75.75 0 010 1.5H3.5a1 1 0 100 2h5.75a.75.75 0 010 1.5H3.5A2.5 2.5 0 011 11.5v-9zm13.23 7.79a.75.75 0 001.06-1.06l-2.505-2.505a.75.75 0 00-1.06 0L9.22 9.229a.75.75 0 001.06 1.061l1.225-1.224v6.184a.75.75 0 001.5 0V9.066l1.224 1.224z">
             </path>
-          </svg></span>
-        <button type="button" class="btn-link f4 muted-link no-underline lh-condensed width-full js-details-target "
-          aria-expanded="false">
-          <span class="float-left ws-normal text-left">
-            Created ${monthPosts.length} post${monthPosts.length > 1 ? 's' : ''}
-          </span>
-          <span class="d-inline-block float-right">
-            <span class="profile-rollup-toggle-closed float-right" aria_label="Collapse"><svg class="octicon octicon-fold"
-                viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
-                <path fill-rule="evenodd"
-                  d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z">
-                </path>
-              </svg></span>
-            <span class="profile-rollup-toggle-open float-right" aria_label="Expand"><svg class="octicon octicon-unfold"
-                viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
-                <path fill-rule="evenodd"
-                  d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z">
-                </path>
-              </svg></span>
-          </span>
-        </button>
-        <ul class="profile-rollup-content mt-1" data-repository-hovercards-enabled="" id="posts-activity-ul">
-        ${liHtml}
-        </ul>
+          </svg>
+        </div>
+        <div class="TimelineItem-body ">
+          <details class="Details-element details-reset" open>
+            <summary role="button" class="btn-link f4 muted-link no-underline lh-condensed width-full">
+              <span class="color-text-primary ws-normal text-left">
+                Created ${monthPosts.length} post${monthPosts.length > 1 ? 's' : ''}
+              </span>
+              <span class="d-inline-block float-right color-icon-secondary">
+                <span class="Details-content--open float-right">
+                  <svg class="octicon octicon-fold" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                    <path fill-rule="evenodd"
+                      d="M10.896 2H8.75V.75a.75.75 0 00-1.5 0V2H5.104a.25.25 0 00-.177.427l2.896 2.896a.25.25 0 00.354 0l2.896-2.896A.25.25 0 0010.896 2zM8.75 15.25a.75.75 0 01-1.5 0V14H5.104a.25.25 0 01-.177-.427l2.896-2.896a.25.25 0 01.354 0l2.896 2.896a.25.25 0 01-.177.427H8.75v1.25zm-6.5-6.5a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM6 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 016 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM12 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 0112 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5z">
+                    </path>
+                  </svg></span>
+                <span class="Details-content--closed float-right"><svg class="octicon octicon-unfold"
+                    viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                    <path fill-rule="evenodd"
+                      d="M8.177.677l2.896 2.896a.25.25 0 01-.177.427H8.75v1.25a.75.75 0 01-1.5 0V4H5.104a.25.25 0 01-.177-.427L7.823.677a.25.25 0 01.354 0zM7.25 10.75a.75.75 0 011.5 0V12h2.146a.25.25 0 01.177.427l-2.896 2.896a.25.25 0 01-.354 0l-2.896-2.896A.25.25 0 015.104 12H7.25v-1.25zm-5-2a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM6 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 016 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM12 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 0112 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5z">
+                    </path>
+                  </svg>
+                </span>
+              </span>
+            </summary>
+            <div>
+              <ul class="list-style-none mt-1">
+                ${liHtml}
+              </ul>
+            </div>
+          </details>
+        </div>
       </div>
     </div>
-  </div>
-  `;
+  </div>`;
   return html;
 }
 
@@ -255,6 +260,7 @@ function svgTip(elem, count, dateStr) {
   } else {
     svgElem.innerHTML = `<strong>No posts</strong> on ${dateFmt}`;
   }
+  // TODO: 计算位置
   svgElem.style.top = `${rect.top - 50}px`;
   svgElem.style.left = `${rect.left - 78}px`;
   svgElem.style.display = 'block';

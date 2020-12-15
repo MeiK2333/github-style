@@ -5,6 +5,7 @@
       <div class="h-card mt-md-n5">
         <div class="clearfix d-flex d-md-block flex-items-center mb-4 mb-md-0">
           <div class="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0" style="z-index:4;">
+            <!-- TODO: 页面上移后的样式变化 -->
             {{ with $.Site.Params.avatar }}
             <a href="{{ $.Site.Params.avatar  }}">
               <img style="height:auto;" alt="Avatar" width="260" height="260"
@@ -84,13 +85,13 @@
           {{ end }}
 
           {{ if .Site.Params.twitter}}
-          <a class="avatar-group-item" href="https://github.com/{{ .Site.Params.twitter }}">
+          <a class="avatar-group-item" href="https://twitter.com/{{ .Site.Params.twitter }}">
             <img alt="@twitter" width="32" height="32" src="{{ "images/twitter.png" | absURL }}" class="avatar">
           </a>
           {{ end }}
 
           {{ if .Site.Params.facebook}}
-          <a class="avatar-group-item" href="https://github.com/{{ .Site.Params.facebook }}">
+          <a class="avatar-group-item" href="https://facebook.com/{{ .Site.Params.facebook }}">
             <img alt="@facebook" width="32" height="32" src="{{ "images/facebook.png" | absURL }}" class="avatar">
           </a>
           {{ end }}
