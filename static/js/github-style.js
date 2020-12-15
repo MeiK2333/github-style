@@ -4,6 +4,7 @@ const now = new Date();
 let contributions;
 
 (() => {
+  setRelativeTime();
   const dom = document.querySelector('#contributions');
   if (!dom) {
     return;
@@ -260,7 +261,6 @@ function svgTip(elem, count, dateStr) {
   } else {
     svgElem.innerHTML = `<strong>No posts</strong> on ${dateFmt}`;
   }
-  // TODO: 计算位置
   svgElem.style.top = `${rect.top - 50}px`;
   svgElem.style.left = `${rect.left - 78}px`;
   svgElem.style.display = 'block';
@@ -288,3 +288,46 @@ function getCoords(elem) {
 
   return { top: Math.round(top), left: Math.round(left) };
 }
+
+function relativeTime(dateStr) {
+  const now = new Date();
+  const date = new Date(dateStr);
+  const diff = Math.floor((now.getTime() - date.getTime()) / 1000);
+  const seconds = Math.floor(diff);
+  const minutes = Math.floor(diff / 60);
+  const hours = Math.floor(diff / 60 / 60);
+  const days = Math.floor(diff / 60 / 60 / 24);
+  if (seconds < 60) {
+    return `${seconds} seconds ago`;
+  }
+  if (minutes < 60) {
+    return `${minutes} minutes ago`;
+  }
+  if (hours < 24) {
+    return `${hours} hours ago`;
+  }
+  if (days < 30) {
+    return `${days} days ago`;
+  }
+  if (date.getFullYear() == now.getFullYear()) {
+    return `${date.getDate()} ${months[date.getMonth()]}`;
+  }
+  return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+}
+
+function setRelativeTime() {
+  document.querySelectorAll('relative-time').forEach(elem => {
+    const dateStr = elem.getAttribute('datetime');
+    elem.innerHTML = relativeTime(dateStr);
+    elem.setAttribute('title', new Date(dateStr).toLocaleString());
+  });
+}
+
+window.onscroll = function (e) {
+  const headerImg = document.querySelector('#headerImg');
+  if (headerImg.getBoundingClientRect().bottom <= 0) {
+    document.querySelector('#headerStuck').classList.add('is-stuck');
+  } else {
+    document.querySelector('#headerStuck').classList.remove('is-stuck');
+  }
+};

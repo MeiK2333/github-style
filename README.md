@@ -1,20 +1,13 @@
 # github-style
 
-像素级抄袭 GitHub。
+已知问题
 
-目前完成：
+- 提交热力图的标签显示没有完全对齐
+- 多个可点击元素点击后会出现蓝色的边框
 
-- header 栏（还没有移动端的样式切换）
-- light/dark 模式切换
+TODO
 
-TODO:
-
-- 根据当前页面切换 `selected` 的菜单项。
-
-已知问题：
-
-- 因为没有服务器，无法在页面加载前就确定 light/dark 模式，因此需要尽早在 JS 中确认 theme。
-- light/dark 切换按钮点击时会出现蓝色边框。
+- 移动端适配
 
 ## Init hugo site
 
@@ -36,6 +29,13 @@ If you just installed the theme, it is already in the latest version. If not, yo
 ```bash
 cd themes/github-style
 git pull
+```
+
+## Setup readme
+
+```bash
+hugo new readme.md
+echo '`Hello World!`' > content/readme.md
 ```
 
 ## Setup About page

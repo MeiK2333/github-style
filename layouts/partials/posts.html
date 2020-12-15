@@ -54,11 +54,10 @@
                 {{ end }}
                 {{ end }}
 
-                <!-- TODO: format date -->
-                Updated
-                <relative-time datetime="{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap"
-                  title="{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}">
-                  {{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}
+                Created
+                <relative-time datetime="{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap"
+                  title="{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}">
+                  {{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}
                 </relative-time>
               </div>
             </div>

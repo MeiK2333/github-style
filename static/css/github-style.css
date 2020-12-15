@@ -38,14 +38,13 @@ body {
 
 .Header-search {
   max-width: 272px;
+  width: 100%;
   transition: .2s ease-in-out;
   transition-property: max-width, padding-bottom, padding-top;
 }
 
 .Header-search:focus-within {
   max-width: 544px;
-  transition: .2s ease-in-out;
-  transition-property: max-width, padding-bottom, padding-top;
 }
 
 .Header-search-label {
