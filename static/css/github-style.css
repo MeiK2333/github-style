@@ -112,12 +112,19 @@ body {
 }
 
 @media (max-width: 768px) {
-  .mobile-none {
-    display: none!important;
+  .Header {
+    padding-left: 24px!important;
+    padding-right: 24px!important;
   }
+}
+
+@media (max-width: 480px) {
   .Header {
     padding-left: 16px!important;
     padding-right: 16px!important;
+  }
+  .mobile-none {
+    display: none!important;
   }
   .Header-search {
     max-width: 100%;

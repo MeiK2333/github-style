@@ -117,11 +117,15 @@
         </div>
       </div>
     </div>
-    {{ if .IsHome }}
-    {{ block "overview" . }}{{ end }}
-    {{ else }}
-    {{ block "posts" . }}{{ end }}
-    {{ end }}
+
+    <div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+      {{ partial "mobile-menus.html" . }}
+      {{ if .IsHome }}
+      {{ block "overview" . }}{{ end }}
+      {{ else }}
+      {{ block "posts" . }}{{ end }}
+      {{ end }}
+    </div>
   </div>
 </div>
 <script>
