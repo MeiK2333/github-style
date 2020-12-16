@@ -34,6 +34,13 @@ cd themes/github-style
 git pull
 ```
 
+Then, you need to rename the previous `posts` folder to `post`
+
+```bash
+cd <you-project-folder>
+mv content/posts content/post
+```
+
 ## Setup readme
 
 ```bash
@@ -49,12 +56,12 @@ pin: true
 ---
 ```
 
-## Add new posts
+## Add new post
 
 Hugo will create a post with `draft: true`, change it to false in order for it to show in the website.
 
 ```
-hugo new posts/title_of_the_post.md
+hugo new post/title_of_the_post.md
 ```
 
 ## Limit display content
