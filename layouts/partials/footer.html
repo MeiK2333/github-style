@@ -9,7 +9,11 @@
       </svg>
     </a>
     <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      {{ if .Site.Copyright }}
       <li class="mr-3 mr-lg-0">{{ .Site.Copyright | safeHTML }}</li>
+      {{ else }}
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      {{ end }}
     </ul>
   </div>
   <div class="d-flex flex-justify-center pb-6">

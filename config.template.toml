@@ -16,6 +16,7 @@ googleAnalytics = "UA-123456-789"
   url = "https://meik2333.com"
   keywords = "blog, google analytics"
   rss = true
+  location = "China"
   lastmod = true
 
 [frontmatter]

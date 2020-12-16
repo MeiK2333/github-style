@@ -5,6 +5,7 @@
 - 提交热力图的标签显示没有完全对齐
 - 多个可点击元素点击后会出现蓝色的边框
 - 移动端模式下点击热力图可能会导致样式错乱
+- 未展示的 post 依旧在底部列表中被计算
 
 ## TODO
 
@@ -34,6 +35,13 @@ cd themes/github-style
 git pull
 ```
 
+Then, you need to rename the previous `posts` folder to `post`
+
+```bash
+cd <you-project-folder>
+mv content/posts content/post
+```
+
 ## Setup readme
 
 ```bash
@@ -49,12 +57,12 @@ pin: true
 ---
 ```
 
-## Add new posts
+## Add new post
 
 Hugo will create a post with `draft: true`, change it to false in order for it to show in the website.
 
 ```
-hugo new posts/title_of_the_post.md
+hugo new post/title_of_the_post.md
 ```
 
 ## Limit display content
