@@ -1,4 +1,57 @@
-<!--
-To add an extended head section, please create
-`layouts/partials/extended_head.html` in your Hugo directory.
--->
+<meta name="description"
+  content="{{ if .IsHome }}{{ .Site.Params.tagline }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+<meta name="keywords"
+  content='{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}" />
+<meta name="twitter:description"
+  content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+<meta name="twitter:site" content="{{ $.Site.BaseURL }}" />
+<meta name="twitter:creator" content="{{ .Params.Author }}" />
+<meta name="twitter:image"
+  content="{{ if .IsHome }}{{ $.Site.Params.avatar | absURL }}{{ else }}{{ .Params.Cover | absURL }}{{ end }}">
+
+<!-- OG data -->
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:title" content="{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}">
+<meta property="og:description"
+  content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:site_name" content="{{ .Title }}" />
+<meta property="og:image"
+  content="{{ if .IsHome }}{{ $.Site.Params.avatar | absURL }}{{ else }}{{ .Params.Cover | absURL }}{{ end }}">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+{{ if isset .Params "date" }}
+<meta property="article:published_time" content="{{ time .Date }}" />
+{{ end }}
+
+<!-- RSS -->
+{{ with .OutputFormats.Get "RSS" }}
+<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+{{ end }}
+
+<!-- JSON Feed -->
+{{ with .OutputFormats.Get "json" }}
+<link href="{{ .RelPermalink }}" rel="alternate" type="application/json" title="{{ $.Site.Title }}" />
+{{ end }}
+
+<!-- Google Analytics -->
+{{ if eq (getenv "HUGO_ENV") "production"}}
+{{ with .Site.GoogleAnalytics }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  if (navigator.doNotTrack !== '1') {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', '{{ . }}');
+  }
+</script>
+{{ end }}
+{{ end }}

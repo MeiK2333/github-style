@@ -1,5 +1,17 @@
 # github-style
 
+## 已知问题
+
+- 提交热力图的标签显示没有完全对齐
+- 多个可点击元素点击后会出现蓝色的边框
+- 移动端模式下点击热力图可能会导致样式错乱
+
+## TODO
+
+- 评论
+- 自定义菜单
+- 更多链接平台支持
+
 ## Init hugo site
 
 ```bash
@@ -14,32 +26,33 @@ git submodule add git@github.com:MeiK2333/github-style.git themes/github-style
 ```
 
 ## Update the theme
-If you just installed the theme, it is already in the lattest version. If not, you can update using the below commands
+
+If you just installed the theme, it is already in the latest version. If not, you can update using the below commands
+
 ```bash
 cd themes/github-style
 git pull
 ```
 
-## Setup About page
+## Setup readme
 
 ```bash
-hugo new about.md
+hugo new readme.md
+echo '`Hello World!`' > content/readme.md
 ```
 
-This creates content/about.md file. Then add `layout = "about"` to `content/about.md`, and remove the line `draft:true`
+## Pin post
 
 ```
 ---
-title: "About"
-date: 2019-10-22T18:46:47+08:00
-layout: "about"
+pin: true
 ---
-
-about me
 ```
 
 ## Add new posts
-Hugo will create a post with `draft: true`, change it to false in order for it to show in the website. 
+
+Hugo will create a post with `draft: true`, change it to false in order for it to show in the website.
+
 ```
 hugo new posts/title_of_the_post.md
 ```
@@ -47,6 +60,7 @@ hugo new posts/title_of_the_post.md
 ## Limit display content
 
 ### Approch 1: use summary
+
 ```
 ---
 title: "title"
@@ -57,6 +71,7 @@ summary: "The summary content"
 ```
 
 ### Approch 2: use `<!--more-->`
+
 Use `<!--more-->` to seperate content that will display in the posts page as abstraction and the rest of the content. This is different from summary, as summary will not appear in the post.
 ```
 ---
@@ -70,54 +85,66 @@ other content
 ```
 
 ## add last modified data
-Unfortunately, hugo cannot automaticlly get files' modified date, and it needs to be manually set in page as `lastmode`. 
-```
----
-lastmode: 2019-10-22T18:46:47+08:00
----
+
+add to `config.toml`
+
+```toml
+lastmod = true
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
 ```
 
 ## Support LaTex
-In you post add `katex:true` to [front matter](https://gohugo.io/content-management/front-matter/)
+
+In you post add `math: true` to [front matter](https://gohugo.io/content-management/front-matter/)
+
 ```
 ---
-katex: true
+katex: math
 ---
 ```
-Then the [katex script](https://katex.org/docs/autorender.html) will auto render the string enclosed be delimiters. 
+
+Then the [katex script](https://katex.org/docs/autorender.html) will auto render the string enclosed be delimiters.
+
 ```
 # replace ... with latex formula
 display inline \\( ... \\)
 display block $$ ... $$
 ```
+
 ![latex example](images/latex_example.png)
 
 ## config.toml example
 
 ```toml
-baseURL = "https://example.com/"
-title = "GitHub Style"
-googleAnalytics = "UA-123-456-789"
+baseURL = "https://meik2333.com/"
+languageCode = "zh-cn"
+title = "MeiK's blog"
 theme = "github-style"
-copyright = "© 2019. Theme by <a href=\"https://github.com/MeiK2333/github-style\"><span>github-style</span></a>"
+googleAnalytics = "UA-123456-789"
 
 [params]
-  author = "example"
-  description = "example"
-  github = "example"
-  facebook = "example"
-  twitter = "example"
-  misskey = "user profile url"
-  mastodon = "user profile url"
-  email = "example@domain.com"
-  utterances = "example/example.github.io"
-  avatar = "https://example.com/images/avatar.png"
-  url = "https://example.com"
+  contributions = "post"
+  author = "MeiK"
+  github = "MeiK2333"
+  description = "In solitude, where we are least alone."
+  twitter = "MeiK2333"
+  email = "meik2333@gmail.com"
+  utterances = "MeiK2333/MeiK2333.github.io"
+  facebook = "MeiK2333"
+  url = "https://meik2333.com"
   keywords = "blog, google analytics"
+  rss = true
+  lastmod = true
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
 ```
 
 ## deploy.sh example
-There are various way to deploy to github, here is a link to official [document](https://gohugo.io/hosting-and-deployment/hosting-on-github/). 
+
+There are various way to deploy to github, here is a link to official [document](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
 
 Here is an sample. Note line 22 have `env HUGO_ENV="production"`, makes sure googleAnalysis is loaded during production, but is not loaded when we are testing it in localhost.
 
@@ -151,4 +178,5 @@ cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)
 #echo "Pushing to github"
 #git push --all
 ```
+
 Then you can verify the site is working and use `git push --all` to push the change to github. If you don't want to check again every time, you can uncomment the `#git push --all` in the script.

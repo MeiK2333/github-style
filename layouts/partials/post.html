@@ -1,76 +1,82 @@
-<div class="application-main " data-commit-hovercards-enabled="">
-    <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
-        <main>
-            <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav pt-0 pt-lg-4 ">
-                <div class="repohead-details-container clearfix container-lg p-responsive d-none d-lg-block">
-                    <div class="mb-3 d-flex">
-                        <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
-                            <a class="avatar mr-1" href="{{ absURL "about/" }}">
-                                {{ with $.Site.Params.avatar }}
-                                    <img src="{{  $.Site.Params.avatar  }}" width="26" height="26">
-                                {{ else }}
-                                    <img src="{{ "images/avatar.png" | absURL }}" width="26" height="26">
-                                {{ end }}
-                            </a>
-                            <span class="author"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span>
-                            <span class="path-divider">/</span>
-                            <strong itemprop="name" class="css-truncate-target" style="max-width: 410px"><a
-                                    href="{{ .Permalink }}">{{ .Title }}</a></strong>
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="{{ .Site.BaseURL }}">
+                  <img class=" avatar-user"
+                    src="{{ with $.Site.Params.avatar }}{{ $.Site.Params.avatar }}{{ else }}{{ "images/avatar.png" | absURL }}{{ end }}"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="{{ .Permalink }}">{{ .Title }}</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}"
+                    class="no-wrap">
+                    {{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</relative-time>
 
-                            <div class="d-block text-small text-gray">
-                                Created <time-ago datetime="{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap">
-                                    Mon, 02 Jan 2006 15:04:05 -0700</time-ago>
-                                <span class="file-info-divider"></span>
-                                Modified <time-ago datetime="{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap">
-                                        Mon, 02 Jan 2006 15:04:05 -0700</time-ago>
-                            </div>
-                        </h1>
-                    </div>
+                  {{ if .Site.Params.lastmod }}
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}"
+                    class="no-wrap">
+                    {{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</relative-time>
+                  {{ end }}
                 </div>
+              </div>
             </div>
-            <div class="container-lg clearfix new-discussion-timeline experiment-repo-nav  p-responsive">
-                <div class="repository-content ">
-                    <div class="Box mt-3 position-relative">
-                        <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
-                            <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
-                                {{ countwords .Content }} Words
-                                <!-- <span class="file-info-divider"></span>
-                                {{ .ReadingTime }} min -->
-                            </div>
-                        </div>
-
-                        <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
-                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text">
-                                {{- .Content -}}
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div class="file-header d-flex flex-md-items-center flex-items-start">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    {{ countwords .Content }} Words
+                    <!-- <span class="file-info-divider"></span>
+                                        {{ .ReadingTime }} min -->
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    {{ with .Params.tags }}
+                    {{ range $tag := . }}
+                    <a class="muted-link mr-3" href="{{ relURL (print "/tags/" . | urlize) }}">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      {{ $tag }}
+                    </a>
+                    {{ end }}
+                    {{ end }}
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5">
+                <article class="markdown-body entry-content container-lg">
+                  {{- .Content -}}
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </div>
-{{ if .Site.Params.utterances }}
-<div class="utterances"></div>
-<!-- <script src="https://utteranc.es/client.js"
-        repo="{{ .Site.Params.utterances }}"
-        issue-term="title"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script> -->
-<script>
-    var systemThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    var systemTheme = systemThemeMediaQuery.matches ? 'dark' : 'light';
-    var utterancesTheme = systemTheme === 'dark' ? 'github-dark' : 'github-light';
-    var utterancesScript = document.createElement('script');
-    utterancesScript.src = 'https://utteranc.es/client.js';
-    utterancesScript.setAttribute('repo', '{{ .Site.Params.utterances }}');
-    utterancesScript.setAttribute('issue-term', 'title');
-    utterancesScript.setAttribute('theme', utterancesTheme);
-    utterancesScript.setAttribute('crossorigin', 'anonymous');
-    utterancesScript.setAttribute('async', '');
-    document.querySelector('.utterances').appendChild(utterancesScript);
-</script>
-<noscript>Please enable JavaScript to view the comments</noscript>
-{{ end }}

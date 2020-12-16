@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-left: 32px!important;
+  padding-right: 32px!important;
+  z-index: 32;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-header-text);
+  background-color: var(--color-header-bg);
+}
+
+.Header-link {
+  align-items: center;
+  display: flex;
+  font-weight: 600;
+  color: var(--color-header-logo);
+  white-space: nowrap;
+}
+
+.Header-item {
+  margin-right: 16px;
+}
+
+.octicon {
+  fill: currentColor;
+}
+
+.Header-search {
+  max-width: 272px;
+  width: 100%;
+  transition: .2s ease-in-out;
+  transition-property: max-width, padding-bottom, padding-top;
+}
+
+.Header-search:focus-within {
+  max-width: 544px;
+}
+
+.Header-search-label {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-white);
+  vertical-align: middle;
+  background-color: var(--color-header-search-bg);
+  border: 1px solid var(--color-header-search-border);
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+.Header-search-label:focus-within {
+  background-color: hsla(0, 0%, 100%, .175);
+  border-color: var(--color-state-focus-border);
+  outline: none;
+}
+
+.Header-search-input {
+  min-height: 28px;
+  width: 100%;
+  padding: 5px 12px;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 14px;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.Header-search-input:focus {
+  border: 0;
+  box-shadow: none;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-state-focus-border);
+  outline: none;
+}
+
+::placeholder {
+  color: #c2c3c4;
+  opacity: 1;
+}
+
+.switch-theme {
+  top: -2px;
+  left: -2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-profile-color-modes-toggle-thumb-bg);
+  cursor: pointer;
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .Header {
+    padding-left: 24px!important;
+    padding-right: 24px!important;
+  }
+}
+
+@media (max-width: 480px) {
+  .Header {
+    padding-left: 16px!important;
+    padding-right: 16px!important;
+  }
+  .mobile-none {
+    display: none!important;
+  }
+  .Header-search {
+    max-width: 100%;
+  }
+}

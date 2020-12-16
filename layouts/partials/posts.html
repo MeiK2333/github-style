@@ -1,68 +1,83 @@
-{{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
-{{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
-{{ $section_count := len $section }}
-{{ $n_posts := $.Param "recent_posts_number" | default 6 }}
-<div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
-    <div class="UnderlineNav width-full user-profile-nav top-0 is-placeholder"
-        style="visibility: hidden; display: none; height: 56px;"></div>
-    <div class="UnderlineNav width-full user-profile-nav js-sticky top-0"
-        style="position: static; top: 0px; left: 330.5px; width: 911.5px;">
-        <nav class="UnderlineNav-body" aria-label="User profile">
-            <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ .Site.BaseURL }}">
-                Overview
-            </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ absURL "posts/" }}">
-                Posts
-                <span class="Counter hide-lg hide-md hide-sm">
-                    {{ $section_count}}
-                </span>
-            </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "about/" }}">
-                About
-            </a>
-        </nav>
-    </div>
-
-    <div class="position-relative">
-        <div id="user-repositories-list">
-            <ul data-filterable-for="your-repos-filter" data-filterable-type="substring">
-                {{ range .Paginator.Pages }}
-                <li class="col-12 d-flex width-full py-4 border-bottom public fork">
-                    <div class="col-12 col-lg-12 d-inline-block">
-                        <div class="d-inline-block mb-1">
-                            <h3>
-                                <a href="{{ .Permalink }}">{{ .Title }}</a>
-                            </h3>
-                        </div>
-
-                        <div name="posts-post" class="text-gray mb-2 pr-4">
-                            {{ .Summary | safeHTML }}
-                        </div>
-                        <div class="f6 text-gray mt-2">
-                            Updated <time-ago datetime="{{ .Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap">
-                                Mon, 02 Jan 2006 15:04:05 -0700</time-ago>
-                        </div>  
-                    </div>
-                </li>
-                {{ end }}
-            </ul>
-            {{ if gt .Paginator.TotalPages 1}}
-            <div class="paginate-container">
-                <div class="BtnGroup" data-test-selector="pagination">
-                    {{ if .Paginator.HasPrev }}
-                    <a rel="nofollow" class="btn btn-outline BtnGroup-item"
-                        href="{{ .Paginator.Prev.URL }}">Previous</a>
-                    {{ else }}
-                    <button class="btn btn-outline BtnGroup-item" disabled="disabled">Previous</button>
-                    {{ end }}
-                    {{ if .Paginator.HasNext }}
-                    <a rel="nofollow" class="btn btn-outline BtnGroup-item" href="{{ .Paginator.Next.URL }}">Next</a>
-                    {{ else }}
-                    <button class="btn btn-outline BtnGroup-item" disabled="disabled">Next</button>
-                    {{ end }}
-                </div>
-            </div>
-            {{ end }}
+{{ define "posts" }}
+<div>
+  <div class="position-relative">
+    <div>
+      {{ if eq .Type "tags" }}
+      <div class="TableObject border-bottom border-gray-light py-3">
+        <div class="user-repo-search-results-summary TableObject-item TableObject-item--primary v-align-top">
+          <strong>{{ len .Pages }}</strong>
+          results
+          for <strong>{{ .Params.title }}</strong>
         </div>
+        <div class="TableObject-item text-right v-align-top">
+          <a class="issues-reset-query text-normal d-inline-block ml-3" href="/post/">
+            <svg class="octicon octicon-x issues-reset-query-icon mt-1" viewBox="0 0 16 16" version="1.1" width="16"
+              height="16">
+              <path fill-rule="evenodd"
+                d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z">
+              </path>
+            </svg>
+            Clear filter
+          </a>
+        </div>
+      </div>
+      {{ end }}
+      <ul>
+        {{ range .Paginator.Pages }}
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-10 col-lg-9 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-9 d-inline-block text-gray mb-2 pr-4">
+                {{ .Summary | safeHTML }}
+              </div>
+            </div>
+
+
+            <div class="f6 text-gray mt-2">
+              {{ with .Params.tags }}
+              {{ range $tag := (first 5 .) }}
+              <a class="muted-link mr-3" href="{{ relURL (print "/tags/" . | urlize) }}">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                {{ $tag }}
+              </a>
+              {{ end }}
+              {{ end }}
+
+              Created
+              <relative-time datetime="{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}" class="no-wrap"
+                title="{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}">
+                {{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}
+              </relative-time>
+            </div>
+          </div>
+        </li>
+        {{ end }}
+      </ul>
+      <div class="paginate-container">
+        <div class="BtnGroup">
+          {{ if .Paginator.HasPrev }}
+          <a rel="nofollow" class="btn btn-outline BtnGroup-item" href="{{ .Paginator.Prev.URL }}">Previous</a>
+          {{ else }}
+          <button class="btn btn-outline BtnGroup-item" disabled="disabled">Previous</button>
+          {{ end }}
+          {{ if .Paginator.HasNext }}
+          <a rel="nofollow" class="btn btn-outline BtnGroup-item" href="{{ .Paginator.Next.URL }}">Next</a>
+          {{ else }}
+          <button class="btn btn-outline BtnGroup-item" disabled="disabled">Next</button>
+          {{ end }}
+        </div>
+      </div>
     </div>
+  </div>
 </div>
+{{ end }}
