@@ -8,7 +8,6 @@
 
 ## TODO
 
-- Google Analytics
 - 评论
 - 自定义菜单
 - 更多链接平台支持
