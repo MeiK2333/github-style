@@ -322,12 +322,3 @@ function setRelativeTime() {
     elem.setAttribute('title', new Date(dateStr).toLocaleString());
   });
 }
-
-window.onscroll = function (e) {
-  const headerImg = document.querySelector('#headerImg');
-  if (headerImg.getBoundingClientRect().bottom <= 0) {
-    document.querySelector('#headerStuck').classList.add('is-stuck');
-  } else {
-    document.querySelector('#headerStuck').classList.remove('is-stuck');
-  }
-};

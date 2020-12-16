@@ -28,10 +28,6 @@ body {
   margin-right: 16px;
 }
 
-.Header-item--full {
-  width: 100%;
-}
-
 .octicon {
   fill: currentColor;
 }
@@ -113,4 +109,17 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-none {
+    display: none!important;
+  }
+  .Header {
+    padding-left: 16px!important;
+    padding-right: 16px!important;
+  }
+  .Header-search {
+    max-width: 100%;
+  }
 }
