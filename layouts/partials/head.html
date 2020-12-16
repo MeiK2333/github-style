@@ -1,13 +1,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <script type="application/javascript" src="{{ "js/theme-mode.js" | absURL }}"></script>
-    <link rel="stylesheet" href="{{ "css/frameworks.min.css" | absURL }}" />
-    <link rel="stylesheet" href="{{ "css/github.min.css" | absURL }}" />
-    <link rel="stylesheet" href="{{ "css/github-style.css" | absURL }}" />
-    <link rel="stylesheet" href="{{ "css/light.css" | absURL }}" />
-    <link rel="stylesheet" href="{{ "css/dark.css" | absURL }}" />
+    <script type="application/javascript" src='{{ "js/theme-mode.js" | absURL }}'></script>
+    <link rel="stylesheet" href='{{ "css/frameworks.min.css" | absURL }}' />
+    <link rel="stylesheet" href='{{ "css/github.min.css" | absURL }}' />
+    <link rel="stylesheet" href='{{ "css/github-style.css" | absURL }}' />
+    <link rel="stylesheet" href='{{ "css/light.css" | absURL }}' />
+    <link rel="stylesheet" href='{{ "css/dark.css" | absURL }}' />
     <title>{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
-    <link rel="icon" type="image/x-icon" href="{{ "images/favicon.ico" | absURL }}">
+    <link rel="icon" type="image/x-icon" href='{{ "images/favicon.ico" | absURL }}'>
     <meta name="theme-color" content="#1e2327">
+
+    <!-- Extended head section-->
+    {{ partial "extended_head.html" . }}
 </head>

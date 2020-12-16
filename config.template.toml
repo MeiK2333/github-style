@@ -2,7 +2,6 @@ baseURL = "https://meik2333.com/"
 languageCode = "zh-cn"
 title = "MeiK's blog"
 theme = "github-style"
-pygmentsCodeFences = true
 googleAnalytics = "UA-123456-789"
 
 [params]
