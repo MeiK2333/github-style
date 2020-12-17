@@ -3,6 +3,8 @@ languageCode = "zh-cn"
 title = "MeiK's blog"
 theme = "github-style"
 googleAnalytics = "UA-123456-789"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
 
 [params]
   contributions = "post"

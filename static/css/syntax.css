@@ -1,0 +1,51 @@
+code .k {
+  color: var(--color-prettylights-syntax-keyword);
+}
+
+code .nf {
+  color: var(--color-prettylights-syntax-entity);
+}
+
+code .o {
+  color: var(--color-prettylights-syntax-constant);
+}
+
+code .bp {
+  color: var(--color-prettylights-syntax-constant);
+}
+
+code .ow {
+  color: var(--color-prettylights-syntax-constant);
+}
+
+code .s2 {
+  color: var(--color-prettylights-syntax-string);
+}
+
+code .nb {
+  color: var(--color-prettylights-syntax-entity);
+}
+
+code .kn {
+  color: var(--color-prettylights-syntax-keyword);
+}
+
+code .nc {
+  color: var(--color-prettylights-syntax-variable);
+}
+
+code .c1 {
+  color: var(--color-prettylights-syntax-comment);
+}
+
+code .kr {
+  color: var(--color-prettylights-syntax-keyword);
+}
+
+code .s1 {
+  color: var(--color-prettylights-syntax-string);
+}
+
+code .s {
+  color: var(--color-prettylights-syntax-string);
+}
