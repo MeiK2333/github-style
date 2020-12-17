@@ -131,6 +131,8 @@ languageCode = "zh-cn"
 title = "MeiK's blog"
 theme = "github-style"
 googleAnalytics = "UA-123456-789"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
 
 [params]
   contributions = "post"
@@ -144,10 +146,12 @@ googleAnalytics = "UA-123456-789"
   url = "https://meik2333.com"
   keywords = "blog, google analytics"
   rss = true
+  location = "China"
   lastmod = true
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
+
 ```
 
 ## deploy.sh example
