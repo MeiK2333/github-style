@@ -111,6 +111,10 @@ body {
   user-select: none;
 }
 
+.details-reset>summary {
+  outline: none;
+}
+
 @media (max-width: 768px) {
   .Header {
     padding-left: 24px!important;
