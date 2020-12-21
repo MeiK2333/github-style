@@ -253,6 +253,9 @@ svgElem.classList.add(...["svg-tip", "svg-tip-one-line"]);
 document.body.appendChild(svgElem);
 
 function svgTip(elem, count, dateStr) {
+  if (window.screen.width < 768) {
+    return;
+  }
   const rect = getCoords(elem);
   const date = new Date(dateStr);
   const dateFmt = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;

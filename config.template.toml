@@ -20,6 +20,7 @@ pygmentsUseClasses = true
   rss = true
   location = "China"
   lastmod = true
+  favicon = "/images/github.png"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
