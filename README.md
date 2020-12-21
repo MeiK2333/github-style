@@ -2,7 +2,6 @@
 
 ## 已知问题
 
-- 提交热力图的标签显示没有完全对齐
 - 多个可点击元素点击后会出现蓝色的边框
 - 移动端模式下点击热力图可能会导致样式错乱
 
@@ -148,6 +147,7 @@ pygmentsUseClasses = true
   rss = true
   location = "China"
   lastmod = true
+  favicon = "/images/github.png"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
