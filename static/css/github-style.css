@@ -134,3 +134,7 @@ body {
     max-width: 100%;
   }
 }
+
+.pinned-item-desc img {
+  max-width: 100%;
+}
