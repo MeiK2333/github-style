@@ -109,6 +109,38 @@
           </a>
           {{ end }}
 
+          {{ if .Site.Params.linkedin }}
+          <a class="avatar-group-item" href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">
+            <img alt="@linkedin" width="32" height="32" src="{{ "images/linkedin.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
+          {{ if .Site.Params.instagram }}
+          <a class="avatar-group-item" href="https://instagram.com/{{ .Site.Params.instagram }}">
+            <img alt="@instagram" width="32" height="32" src="{{ "images/instagram.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
+          {{ if .Site.Params.tumblr }}
+          <a class="avatar-group-item" href="https://{{ .Site.Params.tumblr }}.tumblr.com/">
+            <img alt="@tumblr" width="32" height="32" src="{{ "images/tumblr.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
+          {{ if .Site.Params.links }}
+          {{ range .Site.Params.links }}
+          {{ if .icon }}
+          <a class="avatar-group-item" href="{{ .href }}">
+            <img alt="@{{ .title }}" width="32" height="32" src="{{ .icon }}" class="avatar">
+          </a>
+          {{ else }}
+          <a class="avatar-group-item" href="{{ .href }}">
+            <img alt="@{{ .title }}" width="32" height="32" src='{{ "images/link.png" | absURL }}' class="avatar">
+          </a>
+          {{ end }}
+          {{ end }}
+          {{ end }}
+
           {{ if .Site.Params.rss }}
           <a class="avatar-group-item" href="{{ "/index.xml" | absURL }}">
             <img alt="@rss" width="32" height="32" src="{{ "images/rss.png" | absURL }}" class="avatar">
