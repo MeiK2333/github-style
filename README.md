@@ -134,20 +134,29 @@ pygmentsCodeFences = true
 pygmentsUseClasses = true
 
 [params]
-  contributions = "post"
   author = "MeiK"
-  github = "MeiK2333"
   description = "In solitude, where we are least alone."
-  twitter = "MeiK2333"
-  email = "meik2333@gmail.com"
-  utterances = "MeiK2333/MeiK2333.github.io"
+  github = "MeiK2333"
   facebook = "MeiK2333"
+  twitter = "MeiK2333"
+  linkedin = "MeiK2333"
+  instagram = "MeiK2333"
+  tumblr = "MeiK2333"
+  email = "meik2333@gmail.com"
   url = "https://meik2333.com"
   keywords = "blog, google analytics"
   rss = true
-  location = "China"
   lastmod = true
   favicon = "/images/github.png"
+  location = "China"
+
+  [[params.links]]
+    title = "Link"
+    href = "https://github.com/meik2333"
+  [[params.links]]
+    title = "Link2"
+    href = "https://meik2333.com"
+    icon = "https://meik2333.com/images/avatar.png"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
