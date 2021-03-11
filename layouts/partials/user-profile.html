@@ -127,6 +127,12 @@
           </a>
           {{ end }}
 
+          {{ if .Site.Params.stackoverflow }}
+          <a class="avatar-group-item" href="https://stackoverflow.com/u/{{ .Site.Params.stackoverflow }}">
+            <img alt="@stackoverflow" width="32" height="32" src="{{ "images/stackoverflow.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
           {{ if .Site.Params.links }}
           {{ range .Site.Params.links }}
           {{ if .icon }}
