@@ -148,6 +148,7 @@ pygmentsUseClasses = true
   rss = true
   lastmod = true
   favicon = "/images/github.png"
+  headerIcon = "/images/GitHub-Mark-Light-32px.png"
   location = "China"
 
   [[params.links]]
