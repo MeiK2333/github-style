@@ -1,4 +1,23 @@
-
+<!-- TODO Remove these imports -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<!-- TODO Move these to the stylesheets -->
+<style>
+  [data-color-mode=dark] {
+      --color-bg-table-of-contents-container: rgb(28, 33, 40);
+      --color-bg-table-of-contents-option-selected: rgb(31, 111, 235);
+      --color-fg-table-of-contents-option-selected: var(--color-text-primary);
+  }
+  [data-color-mode=light] {
+      --color-bg-table-of-contents-container: rgb(255, 255, 255);
+      --color-bg-table-of-contents-option-selected: rgb(31, 111, 235);
+      --color-fg-table-of-contents-option-selected: rgb(255, 255, 255);
+  }
+  .sticky-header {
+    position: sticky;
+    top: 0;
+  }
+  .tippy-box {
       border-radius: 10px;
   }
   .tippy-content {
