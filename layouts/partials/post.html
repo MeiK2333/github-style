@@ -1,58 +1,5 @@
-<!-- TODO Remove these imports -->
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
-<!-- TODO Move these to the stylesheets -->
-<style>
-  [data-color-mode=dark] {
-      --color-bg-table-of-contents-container: rgb(28, 33, 40);
-      --color-bg-table-of-contents-option-selected: rgb(31, 111, 235);
-      --color-fg-table-of-contents-option-selected: var(--color-text-primary);
-  }
-  [data-color-mode=light] {
-      --color-bg-table-of-contents-container: rgb(255, 255, 255);
-      --color-bg-table-of-contents-option-selected: rgb(31, 111, 235);
-      --color-fg-table-of-contents-option-selected: rgb(255, 255, 255);
-  }
-  .sticky-header {
-    position: sticky;
-    top: 0;
-  }
-  .tippy-box {
-      border-radius: 10px;
-  }
-  .tippy-content {
-      border-radius: 10px;
-      background-color: var(--color-bg-table-of-contents-container);
-      border: 1px solid var(--color-border-primary);
-      overflow-y: hidden;
-      padding: 0;
-  }
-  #table-of-contents {
-      max-height: 30em;
-      overflow-y: scroll;
-  }
-  #table-of-contents > nav ul {
-      list-style-type: none;
-  }
-  #table-of-contents > nav > ul li > a {
-      color: var(--color-text-primary);
-      text-decoration: none;
-      padding: 0.5em;
-      border-radius: 6px;
-      display: block;
-  }
-  #table-of-contents > nav > ul li > a.table-of-contents-option-selected {
-      background-color: var(--color-bg-table-of-contents-option-selected);
-      color: var(--color-fg-table-of-contents-option-selected);
-  }
-  #table-of-contents > nav ul > li {
-      margin-left: 1em;
-      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  }
-  #table-of-contents > nav > ul > li {
-      margin-left: 0;
-  }
-</style>
 <div>
   <main>
     <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
@@ -97,7 +44,7 @@
         <div>
           <div class="js-gist-file-update-container js-task-list-container file-box">
             <div id="file-pytest" class="file my-2">
-              <div class="file-header d-flex flex-md-items-center flex-items-start sticky-header">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header">
                 <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
                   <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
                     <!-- Copied from github -->
@@ -142,6 +89,16 @@
   </main>
 </div>
 <script>
+ // Set up `scroll-padding-top` which is relevant for preventing
+ // fixed headers from covering content
+ // See https://css-tricks.com/fixed-headers-on-page-links-and-overlapping-content-oh-my
+ window.onload = function () {
+   const header = document.getElementById('post-header');
+   const headerHeight = header.offsetHeight;
+   // 10px for a bit of leeway
+   document.documentElement.style.scrollPaddingTop = headerHeight + 10 + "px";
+ }
+
  const tocToggleButton = document.getElementById("toc-toggle");
 
  const tippyInstance = tippy('#toc-toggle', {
