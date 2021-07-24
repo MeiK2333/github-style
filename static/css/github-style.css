@@ -119,7 +119,6 @@ body {
   outline: none;
 }
 
-/* TODO: Fix the fact that the sticky header covers some of the page content */
 .sticky-header {
   position: sticky;
   top: 0;
