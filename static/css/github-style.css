@@ -138,7 +138,7 @@ body {
 
 #table-of-contents {
   max-height: 30em;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 #table-of-contents > nav ul {
   list-style-type: none;
