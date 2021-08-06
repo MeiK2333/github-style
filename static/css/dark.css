@@ -138,6 +138,9 @@
   --color-bg-secondary: #0d1117;
   --color-bg-success: rgba(46, 160, 67, 0.1);
   --color-bg-success-inverse: #2ea043;
+  --color-bg-table-of-contents-container: rgb(28, 33, 40);
+  --color-bg-table-of-contents-option-selected: rgb(31, 111, 235);
+  --color-fg-table-of-contents-option-selected: var(--color-text-primary);
   --color-bg-tertiary: #161b22;
   --color-bg-warning: rgba(187, 128, 9, 0.1);
   --color-bg-warning-inverse: #bb8009;

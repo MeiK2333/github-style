@@ -138,6 +138,9 @@
   --color-bg-secondary: #fafbfc;
   --color-bg-success: #dcffe4;
   --color-bg-success-inverse: #28a745;
+  --color-bg-table-of-contents-container: rgb(255, 255, 255);
+  --color-bg-table-of-contents-option-selected: rgb(31, 111, 235);
+  --color-fg-table-of-contents-option-selected: rgb(255, 255, 255);
   --color-bg-tertiary: #f6f8fa;
   --color-bg-warning: #fff5b1;
   --color-bg-warning-inverse: #ffd33d;
