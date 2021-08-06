@@ -72,6 +72,8 @@ function monthly(year, month, posts) {
   const monthPosts = posts.filter(post =>
     post.date.getFullYear().toString() === year && post.date.getMonth() === month
   );
+  if (monthPosts.length === 0) return '';
+  
   let liHtml = '';
   for (const post of monthPosts) {
     liHtml += `<li class="ml-0 py-1 d-flex">
