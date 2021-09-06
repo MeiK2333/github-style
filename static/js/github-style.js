@@ -173,12 +173,13 @@ function graph(year, posts, startDate, endDate) {
   }
   const monthPos = [];
   let startMonth = -1;
+  const weekday = startDate.getDay();
   for (let i = 0; i < 53; i++) {
     html += `<g transform="translate(${i * 16}, 0)">`;
     for (let j = 0; j < 7; j++) {
-      const date = new Date(startDate.getTime() + (i * 7 + j) * 24 * 60 * 60 * 1000);
+      const date = new Date(startDate.getTime() + (i * 7 + j - weekday) * 24 * 60 * 60 * 1000);
       const dataDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-      if (date > endDate) {
+      if (date < startDate || date > endDate) {
         continue;
       }
 

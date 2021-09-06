@@ -1,15 +1,5 @@
 # github-style
 
-## 已知问题
-
-- 往年热力图起始点错误
-
-## TODO
-
-- 评论
-- 自定义菜单
-- 更多链接平台支持
-
 ## Init hugo site
 
 ```bash
