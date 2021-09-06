@@ -22,6 +22,7 @@ pygmentsUseClasses = true
   lastmod = true
   favicon = "/images/github.png"
   location = "China"
+  userStatusEmoji = "😀"
 
   [[params.links]]
     title = "Link"

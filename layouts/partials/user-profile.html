@@ -30,6 +30,21 @@
                 class="avatar avatar-user width-full border bg-white" src="{{ "images/avatar.png" | absURL }}">
             </a>
             {{ end }}
+            {{ with $.Site.Params.userStatusEmoji }}
+            <div class="user-status-container position-relative hide-sm hide-md">
+              <div class="f5 user-status-circle-badge-container">
+                <div class="user-status-circle-badge d-inline-block lh-condensed-ultra p-2">
+                  <div class="d-flex flex-items-center flex-items-stretch">
+                    <div class="f6 lh-condensed user-status-header d-inline-flex user-status-emoji-only-header circle">
+                      <div class="user-status-emoji-container flex-shrink-0 mr-2 d-flex flex-items-center flex-justify-center ">
+                        <div><g-emoji class="g-emoji">{{ $.Site.Params.userStatusEmoji }}</g-emoji></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{ end }}
           </div>
 
           <div
