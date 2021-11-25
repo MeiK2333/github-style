@@ -1,11 +1,16 @@
 function switchTheme() {
   const currentStyle = currentTheme();
+  var iconElement = document.getElementById('github-icon');
 
   if (currentStyle == 'light') {
     setTheme('dark');
+    iconElement.removeAttribute('fill');
+    iconElement.setAttribute('class', 'octicon Header-link');
   }
   else {
     setTheme('light');
+    iconElement.setAttribute('fill', '#24292e');
+    iconElement.setAttribute('class', 'Header-link');
   }
 }
 
