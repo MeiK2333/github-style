@@ -4,13 +4,13 @@ function switchTheme() {
 
   if (currentStyle == 'light') {
     setTheme('dark');
-    iconElement.removeAttribute('fill');
-    iconElement.setAttribute('class', 'octicon Header-link');
+    iconElement.setAttribute('class', 'octicon');
+    iconElement.setAttribute('color', '#f0f6fc');
   }
   else {
     setTheme('light');
-    iconElement.setAttribute('fill', '#24292e');
-    iconElement.setAttribute('class', 'Header-link');
+    iconElement.removeAttribute('color');
+    iconElement.removeAttribute('class');
   }
 }
 
