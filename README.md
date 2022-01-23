@@ -10,7 +10,7 @@ cd mysite
 ## Install the theme
 
 ```bash
-git submodule add git@github.com:MeiK2333/github-style.git themes/github-style
+git submodule add git@github.com:ventusoon/github-style.git themes/github-style
 ```
 
 ## Update the theme
