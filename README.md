@@ -138,6 +138,20 @@ pygmentsUseClasses = true
   userStatusEmoji = "😀"
   favicon = "/images/github.png"
   location = "China"
+  enableGitalk = true
+
+  [params.gitalk]
+    clientID = "Your client ID" 
+    clientSecret = "Your client secret" 
+    repo = "repo"
+    owner = "MeiK2333"
+    admin = "MeiK2333"
+    id = "location.pathname"
+    labels = "gitalk"
+    perPage = 15
+    pagerDirection = "last"
+    createIssueManually = true
+    distractionFreeMode = false
 
   [[params.links]]
     title = "Link"
