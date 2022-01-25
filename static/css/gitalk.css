@@ -10,709 +10,7 @@
     padding-right: 16px;
 }
 
-/*
-TODO: 暗黑模式与样式更新
-*/
 .gitalk-container .markdown-body {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    line-height: 1.5;
-    color: #24292e;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 16px;
-    line-height: 1.5;
-    word-wrap: break-word;
-}
-
-.gitalk-container .markdown-body .pl-c {
-    color: #6a737d;
-}
-
-.gitalk-container .markdown-body .pl-c1,
-.gitalk-container .markdown-body .pl-s .pl-v {
-    color: #005cc5;
-}
-
-.gitalk-container .markdown-body .pl-e,
-.gitalk-container .markdown-body .pl-en {
-    color: #6f42c1;
-}
-
-.gitalk-container .markdown-body .pl-smi,
-.gitalk-container .markdown-body .pl-s .pl-s1 {
-    color: #24292e;
-}
-
-.gitalk-container .markdown-body .pl-ent {
-    color: #22863a;
-}
-
-.gitalk-container .markdown-body .pl-k {
-    color: #d73a49;
-}
-
-.gitalk-container .markdown-body .pl-s,
-.gitalk-container .markdown-body .pl-pds,
-.gitalk-container .markdown-body .pl-s .pl-pse .pl-s1,
-.gitalk-container .markdown-body .pl-sr,
-.gitalk-container .markdown-body .pl-sr .pl-cce,
-.gitalk-container .markdown-body .pl-sr .pl-sre,
-.gitalk-container .markdown-body .pl-sr .pl-sra {
-    color: #032f62;
-}
-
-.gitalk-container .markdown-body .pl-v,
-.gitalk-container .markdown-body .pl-smw {
-    color: #e36209;
-}
-
-.gitalk-container .markdown-body .pl-bu {
-    color: #b31d28;
-}
-
-.gitalk-container .markdown-body .pl-ii {
-    color: #fafbfc;
-    background-color: #b31d28;
-}
-
-.gitalk-container .markdown-body .pl-c2 {
-    color: #fafbfc;
-    background-color: #d73a49;
-}
-
-.gitalk-container .markdown-body .pl-c2::before {
-    content: "^M";
-}
-
-.gitalk-container .markdown-body .pl-sr .pl-cce {
-    font-weight: bold;
-    color: #22863a;
-}
-
-.gitalk-container .markdown-body .pl-ml {
-    color: #735c0f;
-}
-
-.gitalk-container .markdown-body .pl-mh,
-.gitalk-container .markdown-body .pl-mh .pl-en,
-.gitalk-container .markdown-body .pl-ms {
-    font-weight: bold;
-    color: #005cc5;
-}
-
-.gitalk-container .markdown-body .pl-mi {
-    font-style: italic;
-    color: #24292e;
-}
-
-.gitalk-container .markdown-body .pl-mb {
-    font-weight: bold;
-    color: #24292e;
-}
-
-.gitalk-container .markdown-body .pl-md {
-    color: #b31d28;
-    background-color: #ffeef0;
-}
-
-.gitalk-container .markdown-body .pl-mi1 {
-    color: #22863a;
-    background-color: #f0fff4;
-}
-
-.gitalk-container .markdown-body .pl-mc {
-    color: #e36209;
-    background-color: #ffebda;
-}
-
-.gitalk-container .markdown-body .pl-mi2 {
-    color: #f6f8fa;
-    background-color: #005cc5;
-}
-
-.gitalk-container .markdown-body .pl-mdr {
-    font-weight: bold;
-    color: #6f42c1;
-}
-
-.gitalk-container .markdown-body .pl-ba {
-    color: #586069;
-}
-
-.gitalk-container .markdown-body .pl-sg {
-    color: #959da5;
-}
-
-.gitalk-container .markdown-body .pl-corl {
-    text-decoration: underline;
-    color: #032f62;
-}
-
-.gitalk-container .markdown-body .octicon {
-    display: inline-block;
-    vertical-align: text-top;
-    fill: currentColor;
-}
-
-.gitalk-container .markdown-body a {
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-}
-
-.gitalk-container .markdown-body a:active,
-.gitalk-container .markdown-body a:hover {
-    outline-width: 0;
-}
-
-.gitalk-container .markdown-body strong {
-    font-weight: inherit;
-}
-
-.gitalk-container .markdown-body strong {
-    font-weight: bolder;
-}
-
-.gitalk-container .markdown-body h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-}
-
-.gitalk-container .markdown-body img {
-    border-style: none;
-}
-
-.gitalk-container .markdown-body svg:not(:root) {
-    overflow: hidden;
-}
-
-.gitalk-container .markdown-body code,
-.gitalk-container .markdown-body kbd,
-.gitalk-container .markdown-body pre {
-    font-family: monospace, monospace;
-    font-size: 1em;
-}
-
-.gitalk-container .markdown-body hr {
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible;
-}
-
-.gitalk-container .markdown-body input {
-    font: inherit;
-    margin: 0;
-}
-
-.gitalk-container .markdown-body input {
-    overflow: visible;
-}
-
-.gitalk-container .markdown-body [type="checkbox"] {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0;
-}
-
-.gitalk-container .markdown-body * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.gitalk-container .markdown-body input {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-}
-
-.gitalk-container .markdown-body a {
-    color: #0366d6;
-    text-decoration: none;
-}
-
-.gitalk-container .markdown-body a:hover {
-    text-decoration: underline;
-}
-
-.gitalk-container .markdown-body strong {
-    font-weight: 600;
-}
-
-.gitalk-container .markdown-body hr {
-    height: 0;
-    margin: 15px 0;
-    overflow: hidden;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid #dfe2e5;
-}
-
-.gitalk-container .markdown-body hr::before {
-    display: table;
-    content: "";
-}
-
-.gitalk-container .markdown-body hr::after {
-    display: table;
-    clear: both;
-    content: "";
-}
-
-.gitalk-container .markdown-body table {
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-.gitalk-container .markdown-body td,
-.gitalk-container .markdown-body th {
-    padding: 0;
-}
-
-.gitalk-container .markdown-body h1,
-.gitalk-container .markdown-body h2,
-.gitalk-container .markdown-body h3,
-.gitalk-container .markdown-body h4,
-.gitalk-container .markdown-body h5,
-.gitalk-container .markdown-body h6 {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.gitalk-container .markdown-body h1 {
-    font-size: 32px;
-    font-weight: 600;
-}
-
-.gitalk-container .markdown-body h2 {
-    font-size: 24px;
-    font-weight: 600;
-}
-
-.gitalk-container .markdown-body h3 {
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.gitalk-container .markdown-body h4 {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.gitalk-container .markdown-body h5 {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.gitalk-container .markdown-body h6 {
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.gitalk-container .markdown-body p {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.gitalk-container .markdown-body blockquote {
-    margin: 0;
-}
-
-.gitalk-container .markdown-body ul,
-.gitalk-container .markdown-body ol {
-    padding-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.gitalk-container .markdown-body ol ol,
-.gitalk-container .markdown-body ul ol {
-    list-style-type: lower-roman;
-}
-
-.gitalk-container .markdown-body ul ul ol,
-.gitalk-container .markdown-body ul ol ol,
-.gitalk-container .markdown-body ol ul ol,
-.gitalk-container .markdown-body ol ol ol {
-    list-style-type: lower-alpha;
-}
-
-.gitalk-container .markdown-body dd {
-    margin-left: 0;
-}
-
-.gitalk-container .markdown-body code {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 12px;
-}
-
-.gitalk-container .markdown-body pre {
-    margin-top: 0;
-    margin-bottom: 0;
-    font: 12px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-}
-
-.gitalk-container .markdown-body .octicon {
-    vertical-align: text-bottom;
-}
-
-.gitalk-container .markdown-body .pl-0 {
-    padding-left: 0 !important;
-}
-
-.gitalk-container .markdown-body .pl-1 {
-    padding-left: 4px !important;
-}
-
-.gitalk-container .markdown-body .pl-2 {
-    padding-left: 8px !important;
-}
-
-.gitalk-container .markdown-body .pl-3 {
-    padding-left: 16px !important;
-}
-
-.gitalk-container .markdown-body .pl-4 {
-    padding-left: 24px !important;
-}
-
-.gitalk-container .markdown-body .pl-5 {
-    padding-left: 32px !important;
-}
-
-.gitalk-container .markdown-body .pl-6 {
-    padding-left: 40px !important;
-}
-
-.gitalk-container .markdown-body::before {
-    display: table;
-    content: "";
-}
-
-.gitalk-container .markdown-body::after {
-    display: table;
-    clear: both;
-    content: "";
-}
-
-.gitalk-container .markdown-body > *:first-child {
-    margin-top: 0 !important;
-}
-
-.gitalk-container .markdown-body > *:last-child {
-    margin-bottom: 0 !important;
-}
-
-.gitalk-container .markdown-body a:not([href]) {
-    color: inherit;
-    text-decoration: none;
-}
-
-.gitalk-container .markdown-body .anchor {
-    float: left;
-    padding-right: 4px;
-    margin-left: -20px;
-    line-height: 1;
-}
-
-.gitalk-container .markdown-body .anchor:focus {
-    outline: none;
-}
-
-.gitalk-container .markdown-body p,
-.gitalk-container .markdown-body blockquote,
-.gitalk-container .markdown-body ul,
-.gitalk-container .markdown-body ol,
-.gitalk-container .markdown-body dl,
-.gitalk-container .markdown-body table,
-.gitalk-container .markdown-body pre {
-    margin-top: 0;
-    margin-bottom: 16px;
-}
-
-.gitalk-container .markdown-body hr {
-    height: 0.25em;
-    padding: 0;
-    margin: 24px 0;
-    background-color: #e1e4e8;
-    border: 0;
-}
-
-.gitalk-container .markdown-body blockquote {
-    padding: 0 1em;
-    color: #6a737d;
-    border-left: 0.25em solid #dfe2e5;
-}
-
-.gitalk-container .markdown-body blockquote > :first-child {
-    margin-top: 0;
-}
-
-.gitalk-container .markdown-body blockquote > :last-child {
-    margin-bottom: 0;
-}
-
-.gitalk-container .markdown-body kbd {
-    display: inline-block;
-    padding: 3px 5px;
-    font-size: 11px;
-    line-height: 10px;
-    color: #444d56;
-    vertical-align: middle;
-    background-color: #fafbfc;
-    border: solid 1px #c6cbd1;
-    border-bottom-color: #959da5;
-    border-radius: 3px;
-    -webkit-box-shadow: inset 0 -1px 0 #959da5;
-    box-shadow: inset 0 -1px 0 #959da5;
-}
-
-.gitalk-container .markdown-body h1,
-.gitalk-container .markdown-body h2,
-.gitalk-container .markdown-body h3,
-.gitalk-container .markdown-body h4,
-.gitalk-container .markdown-body h5,
-.gitalk-container .markdown-body h6 {
-    margin-top: 24px;
-    margin-bottom: 16px;
-    font-weight: 600;
-    line-height: 1.25;
-}
-
-.gitalk-container .markdown-body h1 .octicon-link,
-.gitalk-container .markdown-body h2 .octicon-link,
-.gitalk-container .markdown-body h3 .octicon-link,
-.gitalk-container .markdown-body h4 .octicon-link,
-.gitalk-container .markdown-body h5 .octicon-link,
-.gitalk-container .markdown-body h6 .octicon-link {
-    color: #1b1f23;
-    vertical-align: middle;
-    visibility: hidden;
-}
-
-.gitalk-container .markdown-body h1:hover .anchor,
-.gitalk-container .markdown-body h2:hover .anchor,
-.gitalk-container .markdown-body h3:hover .anchor,
-.gitalk-container .markdown-body h4:hover .anchor,
-.gitalk-container .markdown-body h5:hover .anchor,
-.gitalk-container .markdown-body h6:hover .anchor {
-    text-decoration: none;
-}
-
-.gitalk-container .markdown-body h1:hover .anchor .octicon-link,
-.gitalk-container .markdown-body h2:hover .anchor .octicon-link,
-.gitalk-container .markdown-body h3:hover .anchor .octicon-link,
-.gitalk-container .markdown-body h4:hover .anchor .octicon-link,
-.gitalk-container .markdown-body h5:hover .anchor .octicon-link,
-.gitalk-container .markdown-body h6:hover .anchor .octicon-link {
-    visibility: visible;
-}
-
-.gitalk-container .markdown-body h1 {
-    padding-bottom: 0.3em;
-    font-size: 2em;
-    border-bottom: 1px solid #eaecef;
-}
-
-.gitalk-container .markdown-body h2 {
-    padding-bottom: 0.3em;
-    font-size: 1.5em;
-    border-bottom: 1px solid #eaecef;
-}
-
-.gitalk-container .markdown-body h3 {
-    font-size: 1.25em;
-}
-
-.gitalk-container .markdown-body h4 {
-    font-size: 1em;
-}
-
-.gitalk-container .markdown-body h5 {
-    font-size: 0.875em;
-}
-
-.gitalk-container .markdown-body h6 {
-    font-size: 0.85em;
-    color: #6a737d;
-}
-
-.gitalk-container .markdown-body ul,
-.gitalk-container .markdown-body ol {
-    padding-left: 2em;
-}
-
-.gitalk-container .markdown-body ul ul,
-.gitalk-container .markdown-body ul ol,
-.gitalk-container .markdown-body ol ol,
-.gitalk-container .markdown-body ol ul {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.gitalk-container .markdown-body li > p {
-    margin-top: 16px;
-}
-
-.gitalk-container .markdown-body li + li {
-    margin-top: 0.25em;
-}
-
-.gitalk-container .markdown-body dl {
-    padding: 0;
-}
-
-.gitalk-container .markdown-body dl dt {
-    padding: 0;
-    margin-top: 16px;
-    font-size: 1em;
-    font-style: italic;
-    font-weight: 600;
-}
-
-.gitalk-container .markdown-body dl dd {
-    padding: 0 16px;
-    margin-bottom: 16px;
-}
-
-.gitalk-container .markdown-body table {
-    display: block;
-    width: 100%;
-    overflow: auto;
-}
-
-.gitalk-container .markdown-body table th {
-    font-weight: 600;
-}
-
-.gitalk-container .markdown-body table th,
-.gitalk-container .markdown-body table td {
-    padding: 6px 13px;
-    border: 1px solid #dfe2e5;
-}
-
-.gitalk-container .markdown-body table tr {
-    background-color: #fff;
-    border-top: 1px solid #c6cbd1;
-}
-
-.gitalk-container .markdown-body table tr:nth-child(2n) {
-    background-color: #f6f8fa;
-}
-
-.gitalk-container .markdown-body img {
-    max-width: 100%;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    background-color: #fff;
-}
-
-.gitalk-container .markdown-body code {
-    padding: 0;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-    margin: 0;
-    font-size: 85%;
-    background-color: rgba(27, 31, 35, 0.05);
-    border-radius: 3px;
-}
-
-.gitalk-container .markdown-body code::before,
-.gitalk-container .markdown-body code::after {
-    letter-spacing: -0.2em;
-    content: "\A0";
-}
-
-.gitalk-container .markdown-body pre {
-    word-wrap: normal;
-}
-
-.gitalk-container .markdown-body pre > code {
-    padding: 0;
-    margin: 0;
-    font-size: 100%;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0;
-}
-
-.gitalk-container .markdown-body .highlight {
-    margin-bottom: 16px;
-}
-
-.gitalk-container .markdown-body .highlight pre {
-    margin-bottom: 0;
-    word-break: normal;
-}
-
-.gitalk-container .markdown-body .highlight pre,
-.gitalk-container .markdown-body pre {
-    padding: 16px;
-    overflow: auto;
-    font-size: 85%;
-    line-height: 1.45;
-    background-color: #f6f8fa;
-    border-radius: 3px;
-}
-
-.gitalk-container .markdown-body pre code {
-    display: inline;
-    max-width: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    line-height: inherit;
-    word-wrap: normal;
-    background-color: transparent;
-    border: 0;
-}
-
-.gitalk-container .markdown-body pre code::before,
-.gitalk-container .markdown-body pre code::after {
-    content: normal;
-}
-
-.gitalk-container .markdown-body .full-commit .btn-outline:not(:disabled):hover {
-    color: #005cc5;
-    border-color: #005cc5;
-}
-
-.gitalk-container .markdown-body kbd {
-    display: inline-block;
-    padding: 3px 5px;
-    font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    line-height: 10px;
-    color: #444d56;
-    vertical-align: middle;
-    background-color: #fafbfc;
-    border: solid 1px #d1d5da;
-    border-bottom-color: #c6cbd1;
-    border-radius: 3px;
-    -webkit-box-shadow: inset 0 -1px 0 #c6cbd1;
-    box-shadow: inset 0 -1px 0 #c6cbd1;
-}
-
-.gitalk-container .markdown-body :checked + .radio-label {
-    position: relative;
-    z-index: 1;
-    border-color: #0366d6;
-}
-
-.gitalk-container .markdown-body .task-list-item {
-    list-style-type: none;
-}
-
-.gitalk-container .markdown-body .task-list-item + .task-list-item {
-    margin-top: 3px;
-}
-
-.gitalk-container .markdown-body .task-list-item input {
-    margin: 0 0.2em 0.25em -1.6em;
-    vertical-align: middle;
-}
-
-.gitalk-container .markdown-body hr {
-    border-bottom-color: #eee;
 }
 
 /* variables */
@@ -741,21 +39,21 @@ TODO: 暗黑模式与样式更新
 }
 
 .gitalk-container .gt-container a {
-    color: #6190e8;
+    color: var(--color-text-link);
 }
 
 .gitalk-container .gt-container a:hover {
-    color: #81a6ed;
-    border-color: #81a6ed;
+    text-decoration: none;
+    outline-width: 0;
 }
 
 .gitalk-container .gt-container a.is--active {
-    color: #333;
+    color: var(--color-fg-default);
     cursor: default !important;
 }
 
 .gitalk-container .gt-container a.is--active:hover {
-    color: #333;
+    color: var(--color-fg-default);
 }
 
 .gitalk-container .gt-container .hide {
@@ -772,7 +70,7 @@ TODO: 暗黑模式与样式更新
 .gitalk-container .gt-container .gt-svg svg {
     width: 100%;
     height: 100%;
-    fill: #6190e8;
+    fill: var(--color-text-primary);
 }
 
 .gitalk-container .gt-container .gt-ico {
@@ -791,10 +89,6 @@ TODO: 暗黑模式与样式更新
 .gitalk-container .gt-container .gt-ico-github .gt-svg {
     width: 100%;
     height: 100%;
-}
-
-.gitalk-container .gt-container .gt-ico-github svg {
-    fill: inherit;
 }
 
 .gitalk-container .gt-container .gt-spinner {
@@ -851,6 +145,10 @@ TODO: 暗黑模式与样式更新
     height: 3.125em;
 }
 
+.gitalk-container .gt-container .gt-avatar img {
+    border-radius: 50% !important;
+}
+
 @media (max-width: 479px) {
     .gitalk-container .gt-container .gt-avatar {
         width: 2em;
@@ -884,12 +182,14 @@ TODO: 暗黑模式与样式更新
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
-    border: 1px solid #6190e8;
-    border-radius: 5px;
-    background-color: #6190e8;
-    color: #fff;
+    border: 1px solid;
+    border-radius: 6px;
     outline: none;
     font-size: 0.75em;
+    color: var(--color-btn-outline-selected-text);
+    background-color: var(--color-btn-outline-selected-bg);
+    border-color: var(--color-btn-outline-selected-border);
+    box-shadow: var(--color-btn-outline-selected-shadow);
 }
 
 .gitalk-container .gt-container .gt-btn-text {
@@ -911,22 +211,25 @@ TODO: 暗黑模式与样式更新
 }
 
 .gitalk-container .gt-container .gt-btn-login {
-    margin-right: 0;
+    color: var(--color-btn-outline-selected-text);
+    background-color: var(--color-btn-outline-selected-bg);
+    border-color: var(--color-btn-outline-selected-border);
+    box-shadow: var(--color-btn-outline-selected-shadow);
 }
 
 .gitalk-container .gt-container .gt-btn-preview {
-    background-color: #fff;
-    color: #6190e8;
+    color: var(--color-btn-text);
+    background-color: var(--color-btn-bg);
+    border-color: var(--color-btn-border);
+    box-shadow: var(--color-btn-shadow),var(--color-btn-inset-shadow);
+    transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color,background-color,border-color;
 }
 
 .gitalk-container .gt-container .gt-btn-preview:hover {
-    background-color: #f2f2f2;
-    border-color: #81a6ed;
-}
-
-.gitalk-container .gt-container .gt-btn-public:hover {
-    background-color: #81a6ed;
-    border-color: #81a6ed;
+    background-color: var(--color-btn-hover-bg);
+    border-color: var(--color-btn-hover-border);
+    transition-duration: .1s;
 }
 
 .gitalk-container .gt-container .gt-error {
@@ -965,7 +268,6 @@ TODO: 暗黑模式与样式更新
     position: relative;
     border-bottom: 1px solid #e9e9e9;
     font-size: 1em;
-    position: relative;
     z-index: 10;
 }
 
@@ -1005,10 +307,6 @@ TODO: 暗黑模式与样式更新
     margin: 0 0 0 0.3125em;
 }
 
-.gitalk-container .gt-container .gt-user .gt-ico svg {
-    fill: inherit;
-}
-
 .gitalk-container .gt-container .gt-user .is--poping .gt-ico svg {
     fill: #6190e8;
 }
@@ -1028,12 +326,12 @@ TODO: 暗黑模式与样式更新
     position: absolute;
     right: 0;
     top: 2.375em;
-    background: #fff;
+    background-color: var(--color-canvas-overlay);
     display: inline-block;
-    border: 1px solid #e9e9e9;
+    border: 1px solid var(--color-border-muted);
     padding: 0.625em 0;
     font-size: 0.875em;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 .gitalk-container .gt-container .gt-popup .gt-action {
@@ -1042,14 +340,13 @@ TODO: 暗黑模式与样式更新
     margin: 0.5em 0;
     padding: 0 1.125em;
     position: relative;
-    text-decoration: none;
 }
 
 .gitalk-container .gt-container .gt-popup .gt-action.is--active:before {
     content: '';
     width: 0.25em;
     height: 0.25em;
-    background: #6190e8;
+    background: var(--color-fg-default);;
     position: absolute;
     left: 0.5em;
     top: 0.4375em;
@@ -1067,6 +364,9 @@ TODO: 暗黑模式与样式更新
     -ms-flex: 1;
     flex: 1;
     margin-left: 1.25em;
+    border: 1px solid var(--color-border-default);
+    border-radius: 6px;
+    padding: 8px;
 }
 
 @media (max-width: 479px) {
@@ -1088,21 +388,21 @@ TODO: 暗黑模式与样式更新
     font-size: 0.875em;
     word-wrap: break-word;
     resize: vertical;
-    background-color: #f6f6f6;
+    background-color: var(--color-canvas-inset);
     outline: none;
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
 }
 
-.gitalk-container .gt-container .gt-header-textarea:hover {
-    background-color: #fbfbfb;
+.gitalk-container .gt-container .gt-header-textarea:focus {
+    background-color: var(--color-canvas-default);
+    border-color: var(--color-accent-emphasis);
+    outline: none;
+    box-shadow: var(--color-primer-shadow-focus);
 }
 
 .gitalk-container .gt-container .gt-header-preview {
-    padding: 0.75em;
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: #f6f6f6;
+    margin: 8px;
 }
 
 .gitalk-container .gt-container .gt-header-controls {
@@ -1128,7 +428,7 @@ TODO: 暗黑模式与样式更新
 
 .gitalk-container .gt-container .gt-header-controls-tip {
     font-size: 0.875em;
-    color: #6190e8;
+    color: var(--color-accent-fg);
     text-decoration: none;
     vertical-align: sub;
 }
@@ -1169,7 +469,7 @@ TODO: 暗黑模式与样式更新
 .gitalk-container .gt-container.gt-input-focused:after {
     content: '';
     position: fixed;
-    bottom: 0%;
+    bottom: 0;
     left: 0;
     right: 0;
     top: 0;
