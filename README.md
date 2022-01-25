@@ -90,6 +90,27 @@ lastmod = true
   lastmod = ["lastmod", ":fileModTime", ":default"]
 ```
 
+## Use [gitalk](https://github.com/gitalk/gitalk) to support comments
+
+add to `config.toml`
+
+```toml
+enableGitalk = true
+
+  [params.gitalk]
+    clientID = "Your client ID" 
+    clientSecret = "Your client secret" 
+    repo = "repo"
+    owner = "Your Github username"
+    admin = "Your Github username"
+    id = "location.pathname"
+    labels = "gitalk"
+    perPage = 30
+    pagerDirection = "last"
+    createIssueManually = true
+    distractionFreeMode = false
+```
+
 ## Support LaTex
 
 In you post add `math: true` to [front matter](https://gohugo.io/content-management/front-matter/)
@@ -138,6 +159,20 @@ pygmentsUseClasses = true
   userStatusEmoji = "😀"
   favicon = "/images/github.png"
   location = "China"
+  enableGitalk = true
+
+  [params.gitalk]
+    clientID = "Your client ID" 
+    clientSecret = "Your client secret" 
+    repo = "repo"
+    owner = "MeiK2333"
+    admin = "MeiK2333"
+    id = "location.pathname"
+    labels = "gitalk"
+    perPage = 15
+    pagerDirection = "last"
+    createIssueManually = true
+    distractionFreeMode = false
 
   [[params.links]]
     title = "Link"
@@ -190,3 +225,7 @@ cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)
 ```
 
 Then you can verify the site is working and use `git push --all` to push the change to github. If you don't want to check again every time, you can uncomment the `#git push --all` in the script.
+
+## TODO
+
+- 重写标题导航，那玩意儿引入的 JS 在控制台报错。
