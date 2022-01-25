@@ -106,15 +106,12 @@
     margin-top: -0.1875em;
     margin-left: -0.375em;
     border-radius: 50%;
-    border: 1px solid #fff;
-    border-top-color: #6190e8;
     -webkit-animation: gt-kf-rotate 0.6s linear infinite;
     animation: gt-kf-rotate 0.6s linear infinite;
 }
 
 .gitalk-container .gt-container .gt-loader {
     position: relative;
-    border: 1px solid #999;
     -webkit-animation: ease gt-kf-rotate 1.5s infinite;
     animation: ease gt-kf-rotate 1.5s infinite;
     display: inline-block;
@@ -135,14 +132,13 @@
     margin-left: -0.1875em;
     width: 0.375em;
     height: 0.375em;
-    background-color: #999;
     border-radius: 50%;
 }
 
 .gitalk-container .gt-container .gt-avatar {
     display: inline-block;
-    width: 3.125em;
-    height: 3.125em;
+    width: 3em;
+    height: 3em;
 }
 
 .gitalk-container .gt-container .gt-avatar img {
@@ -235,7 +231,7 @@
 .gitalk-container .gt-container .gt-error {
     text-align: center;
     margin: 0.625em;
-    color: #ff3860;
+    color: var(--color-danger-fg);
 }
 
 .gitalk-container .gt-container .gt-initing {
@@ -254,7 +250,7 @@
 }
 
 .gitalk-container .gt-container .gt-link {
-    border-bottom: 1px dotted #6190e8;
+    border-bottom: 1px dotted;
 }
 
 .gitalk-container .gt-container .gt-link-counts,
@@ -266,7 +262,7 @@
     margin: 1.25em 0;
     padding: 1em 0;
     position: relative;
-    border-bottom: 1px solid #e9e9e9;
+    border-bottom: 1px solid var(--color-border-default);
     font-size: 1em;
     z-index: 10;
 }
@@ -308,17 +304,15 @@
 }
 
 .gitalk-container .gt-container .gt-user .is--poping .gt-ico svg {
-    fill: #6190e8;
 }
 
 .gitalk-container .gt-container .gt-version {
-    color: #a1a1a1;
     margin-left: 0.375em;
 }
 
 .gitalk-container .gt-container .gt-copyright {
     margin: 0 0.9375em 0.5em;
-    border-top: 1px solid #e9e9e9;
+    border-top: 1px solid var(--color-border-default);
     padding-top: 0.5em;
 }
 
@@ -473,7 +467,6 @@
     left: 0;
     right: 0;
     top: 0;
-    background: #000;
     opacity: 0.6;
     -webkit-transition: opacity 0.3s, bottom 0s;
     transition: opacity 0.3s, bottom 0s;
@@ -510,61 +503,65 @@
     -ms-flex: 1;
     flex: 1;
     margin-left: 1.25em;
-    padding: 0.75em 1em;
-    background-color: #f9f9f9;
+    background-color: var(--color-border-default);
     overflow: auto;
     -webkit-transition: all ease 0.25s;
     transition: all ease 0.25s;
 }
 
-.gitalk-container .gt-container .gt-comment-content:hover {
-    -webkit-box-shadow: 0 0.625em 3.75em 0 #f4f4f4;
-    box-shadow: 0 0.625em 3.75em 0 #f4f4f4;
-}
-
 @media (max-width: 479px) {
     .gitalk-container .gt-container .gt-comment-content {
         margin-left: 0.875em;
-        padding: 0.625em 0.75em;
     }
 }
 
 .gitalk-container .gt-container .gt-comment-header {
-    margin-bottom: 0.5em;
     font-size: 0.875em;
-    position: relative;
+    display: flex;
+    background-color: var(--color-canvas-subtle);
+    border-bottom: 1px solid var(--color-border-default);
+    padding-right: 16px;
+    padding-left: 16px;
+    height: 40px;
+    align-items: center;
 }
 
 .gitalk-container .gt-container .gt-comment-block-1 {
-    float: right;
-    height: 1.375em;
-    width: 2em;
+    display: none;
 }
 
 .gitalk-container .gt-container .gt-comment-block-2 {
-    float: right;
-    height: 1.375em;
-    width: 4em;
+    display: none;
 }
 
 .gitalk-container .gt-container .gt-comment-username {
     font-weight: 500;
-    color: #6190e8;
     text-decoration: none;
+    color: var(--color-fg-default) !important;
+}
+
+@media (max-width: 479px) {
+    .gitalk-container .gt-container .gt-comment-username {
+        max-width: 80px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 .gitalk-container .gt-container .gt-comment-username:hover {
     text-decoration: underline;
+    color: var(--color-accent-fg) !important;
 }
 
 .gitalk-container .gt-container .gt-comment-text {
     margin-left: 0.5em;
-    color: #a1a1a1;
+    color: var(--color-fg-muted) !important;
 }
 
 .gitalk-container .gt-container .gt-comment-date {
     margin-left: 0.5em;
-    color: #a1a1a1;
+    color: var(--color-fg-muted) !important;
 }
 
 .gitalk-container .gt-container .gt-comment-like,
@@ -581,18 +578,17 @@
 }
 
 .gitalk-container .gt-container .gt-comment-like {
-    top: 0;
-    right: 2em;
+    right: 38px;
 }
 
 .gitalk-container .gt-container .gt-comment-edit,
 .gitalk-container .gt-container .gt-comment-reply {
-    top: 0;
-    right: 0;
+    right: 16px;
 }
 
 .gitalk-container .gt-container .gt-comment-body {
-    color: #333 !important;
+    padding: 16px;
+    font-size: 14px;
 }
 
 .gitalk-container .gt-container .gt-comment-body .email-hidden-toggle a {
@@ -630,7 +626,9 @@
 }
 
 .gitalk-container .gt-container .gt-comment-admin .gt-comment-content {
-    background-color: #f6f9fe;
+    background-color: var(--color-canvas-default);
+    border: 1px solid var(--color-border-default);
+    border-radius: 6px;
 }
 
 @-webkit-keyframes gt-kf-rotate {
