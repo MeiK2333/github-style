@@ -224,7 +224,22 @@ cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)
 #git push --all
 ```
 
+
 Then you can verify the site is working and use `git push --all` to push the change to github. If you don't want to check again every time, you can uncomment the `#git push --all` in the script.
+
+
+
+
+## [Add hugo contact form](https://fabform.io/a/hugo-contact-form)
+
+```
+<form action="https://fabform.io/f/{form-id}" method="post">
+ <label for="email">Your Email</label>
+ <input name="email" type="email">
+ <button type="submit">Submit</button> 
+</form>
+```
+
 
 ## TODO
 
