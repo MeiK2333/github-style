@@ -131,6 +131,12 @@ display block $$ ... $$
 
 ![latex example](images/latex_example.png)
 
+## Support MathJax
+you can add MathJax:true to frontmatter
+
+```
+mathJax: true
+```
 ## config.toml example
 
 ```toml
