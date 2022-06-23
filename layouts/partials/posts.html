@@ -21,6 +21,10 @@
           </a>
         </div>
       </div>
+      {{else}}
+        {{if gt (len .Site.Taxonomies.tags) 0}}
+          {{partial "tags.html" .}}
+        {{end}}
       {{ end }}
       <ul>
         {{ range .Paginator.Pages }}
