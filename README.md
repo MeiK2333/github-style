@@ -54,7 +54,7 @@ hugo new post/title_of_the_post.md
 
 ## Limit display content
 
-### Approch 1: use summary
+### Approach 1: use summary
 
 ```
 ---
@@ -65,7 +65,7 @@ summary: "The summary content"
 ---
 ```
 
-### Approch 2: use `<!--more-->`
+### Approach 2: use `<!--more-->`
 
 Use `<!--more-->` to seperate content that will display in the posts page as abstraction and the rest of the content. This is different from summary, as summary will not appear in the post.
 ```
