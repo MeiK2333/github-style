@@ -9,7 +9,7 @@
               {{ with $.Site.Params.avatar }}
               <img class="rounded-1 avatar-user" height="32" width="32" src="{{ $.Site.Params.avatar }}">
               {{ else }}
-              <img class="rounded-1 avatar-user" height="32" width="32" src="{{ "images/avatar.png" | absURL }}">
+              <img class="rounded-1 avatar-user" height="32" width="32" src="{{ "images/avatar.gif" | absURL }}">
               {{ end }}
             </span>
             <span class="d-table-cell v-align-middle lh-condensed">
@@ -25,9 +25,9 @@
                 class="avatar avatar-user width-full border bg-white" src="{{ $.Site.Params.avatar }}">
             </a>
             {{ else }}
-            <a href="{{ "images/avatar.png" | absURL }}">
+            <a href="{{ "images/avatar.gif" | absURL }}">
               <img style="height:auto;" alt="Avatar" width="260" height="260" id="headerImg"
-                class="avatar avatar-user width-full border bg-white" src="{{ "images/avatar.png" | absURL }}">
+                class="avatar avatar-user width-full border bg-white" src="{{ "images/avatar.gif" | absURL }}">
             </a>
             {{ end }}
             {{ with $.Site.Params.userStatusEmoji }}
