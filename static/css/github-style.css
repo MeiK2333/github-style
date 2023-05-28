@@ -4,6 +4,12 @@ html {
 
 body {
   margin: 0;
+  scroll-behavior: smooth;
+}
+
+div.UnderlineNav {
+  flex: auto;
+  flex-basis: 50px;
 }
 
 .Header {

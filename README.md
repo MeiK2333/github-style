@@ -163,7 +163,7 @@ pygmentsUseClasses = true
   rss = true
   lastmod = true
   userStatusEmoji = "😀"
-  favicon = "/images/github.png"
+  favicon = "/images/github.svg"
   location = "China"
   enableGitalk = true
 
