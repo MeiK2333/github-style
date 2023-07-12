@@ -1,4 +1,55 @@
 {{ if .Site.Params.enableGitalk }}
+<!--<div>
+<video controls="" autoplay="" name="media">
+<source src="https://mino.firsts1.repl.co/api/v1/buckets/bucket1/objects/download?preview=true&amp;prefix=bXVzaWMvQWxvbmUgLSBNYXJzaG1lbGxvIC0g5Y2V5puyIC0g572R5piT5LqR6Z+z5LmQLm1wMw==&amp;version_id=null" type="audio/mpeg">
+</video>
+</div>-->
+{{ partial "music.html" . }}
+<link rel="stylesheet" href='{{ "css/aplayer.css" | absURL }}'>
+<script src='{{ "js/aplayer.js" | absURL }}'></script><!--
+<link rel="stylesheet" href="APlayer.min.css">
+<div id="aplayer"></div>
+<script src="APlayer.min.js"></script>-->
+<div>
+<div id="aplayer1"></div>
+<script>
+    var ap1 = new APlayer
+    ({
+        container: document.getElementById('aplayer1'),
+        fixed: true,
+		mutex: true,
+		listFolded: false,
+		listMaxHeight: 90,
+		autoplay: true,
+		loop: 'all',
+        audio: [
+		{
+            name: 'Dane Street',
+            artist: 'Goldmund',
+            url: 'https://mino.firsts1.repl.co/api/v1/buckets/bucket1/objects/download?preview=true&prefix=bXVzaWMvRGFuZSBTdHJlZXRfR29sZG11bmQubXAz&version_id=null',
+            cover: 'https://mino.firsts1.repl.co/api/v1/buckets/bucket1/objects/download?preview=true&prefix=bXVzaWMvRGFuZSBTdHJlZXRfR29sZG11bmQuanBn&version_id=e493d580-c050-4034-95dc-fd8d7eb3e7bc',
+        },
+		{
+            name: 'Bamboo',
+            artist: 'Piano',
+            url: 'https://mino.firsts1.repl.co/api/v1/buckets/bucket1/objects/download?preview=true&prefix=bXVzaWMvQmFtYm9vX1BpYW5vIE1hc3Rlci5tcDM=&version_id=null',
+            cover: 'https://mino.firsts1.repl.co/api/v1/buckets/bucket1/objects/download?preview=true&prefix=bXVzaWMvYmFtYm9vLmpmaWY=&version_id=26ae111c-021a-466e-8403-1ac32ea8c533',
+        },
+		{
+            name: 'Alone',
+            artist: 'Marshmello',
+            url: 'https://mino.firsts1.repl.co/api/v1/buckets/bucket1/objects/download?preview=true&prefix=bXVzaWMvQWxvbmUgLSBNYXJzaG1lbGxvIC0g5Y2V5puyIC0g572R5piT5LqR6Z+z5LmQLm1wMw==&version_id=null',
+            cover: 'https://mino.firsts1.repl.co/api/v1/buckets/bucket1/objects/download?preview=true&prefix=bXVzaWMvMTA5OTUxMTYzMzExMzc2MDI1LmpwZw==&version_id=c1045c81-287d-4d90-9ea6-d069c68b22b8',
+        },
+		{
+            name: 'awake',
+            artist: 'flica',
+            url: 'https://mino.firsts1.repl.co/api/v1/buckets/bucket1/objects/download?preview=true&prefix=bXVzaWMvYXdha2VfZmxpY2EubXAz&version_id=null',
+            cover: 'https://mino.firsts1.repl.co/api/v1/buckets/bucket1/objects/download?preview=true&prefix=bXVzaWMvMTA5OTUxMTY4MTQ1OTIyNTcwLmpwZw==&version_id=e8747a82-369d-418b-9681-258fc08fbb31',
+        }]
+    });
+</script>
+<div>
 <div id="gitalk-container" class="gitalk-container"></div>
 <link rel="stylesheet" href='{{ "css/gitalk.css" | absURL }}'>
 <script src='{{ "js/gitalk.min.js" | absURL }}'></script>
