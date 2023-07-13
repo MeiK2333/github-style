@@ -1,13 +1,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <script type="application/javascript" src='{{ "js/theme-mode.js" | absURL }}'></script>
+{{ if .Site.Params.enableCDN }}
+    <script type="application/javascript" src="{{ .Site.Params.CDN.theme_mode_js }}"></script>
+    <link rel="stylesheet" href="{{ .Site.Params.CDN.frameworks_min_css }}" />
+    <link rel="stylesheet" href="{{ .Site.Params.CDN.github_min_css }}" />
+    <link rel="stylesheet" href="{{ .Site.Params.CDN.github_style_css }}" />
+    <link rel="stylesheet" href="{{ .Site.Params.CDN.light_css }}" />
+    <link rel="stylesheet" href="{{ .Site.Params.CDN.dark_css }}" />
+    <link rel="stylesheet" href="{{ .Site.Params.CDN.syntax_css }}" />
+{{ else }}
+	<script type="application/javascript" src='{{ "js/theme-mode.js" | absURL }}'></script>
     <link rel="stylesheet" href='{{ "css/frameworks.min.css" | absURL }}' />
     <link rel="stylesheet" href='{{ "css/github.min.css" | absURL }}' />
     <link rel="stylesheet" href='{{ "css/github-style.css" | absURL }}' />
     <link rel="stylesheet" href='{{ "css/light.css" | absURL }}' />
     <link rel="stylesheet" href='{{ "css/dark.css" | absURL }}' />
     <link rel="stylesheet" href='{{ "css/syntax.css" | absURL }}' />
+{{ end }}
     <title>{{ if .IsHome }}{{ else }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
     {{ if .Site.Params.favicon }}
     <link rel="icon" type="image/x-icon" href='{{ .Site.Params.favicon  }}'>
@@ -17,6 +27,6 @@
     <meta name="theme-color" content="#1e2327">
 
     <!-- Extended head section-->
-	<!--{{ partial "mathjx.html" . }}-->
+	<!--{{ partial "mathjx.html" . }}--><!--禁用以使用更新版本-->
     {{ partial "extended_head.html" . }}
 </head>

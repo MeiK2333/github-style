@@ -92,5 +92,10 @@
     </div>
   </main>
 </div>
+{{ if .Site.Params.enableCDN }}
+<script type="application/javascript" src='{{ .Site.Params.CDN.toc_js }}'></script>
+<link rel="stylesheet" href='{{ .Site.Params.CDN.toc_css }}' />
+{{ else }}
 <script type="application/javascript" src='{{ "js/toc.js" | absURL }}'></script>
 <link rel="stylesheet" href='{{ "css/toc.css" | absURL }}' />
+{{ end }}

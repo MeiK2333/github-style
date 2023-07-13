@@ -1,0 +1,64 @@
+{{ if .Site.Params.enableVssue }}
+  <!-- Vssue 的样式文件 -->
+  <link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+  <div id="vssue"></div>
+  <!-- 先引入 Vue -->
+  <!-- Vue 运行时版 (runtime only)  -->
+  <script src="https://unpkg.com/vue/dist/vue.runtime.min.js"></script>
+  <!-- 或： Vue 完整版 (runtime + compiler) -->
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <!-- 在 Vue 之后引入 Vssue -->
+  <!-- Vssue Github 版  -->
+  <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+  <!-- 或： Vssue Gitlab 版  -->
+  <script src="https://unpkg.com/vssue/dist/vssue.gitlab.min.js"></script>
+  <!-- 或： Vssue Bitbucket 版  -->
+  <script src="https://unpkg.com/vssue/dist/vssue.bitbucket.min.js"></script>
+  <!-- 或： Vssue Gitee 版  -->
+  <script src="https://unpkg.com/vssue/dist/vssue.gitee.min.js"></script>
+  <!-- 或： Vssue Gitea 版  -->
+  <script src="https://unpkg.com/vssue/dist/vssue.gitea.min.js"></script>
+  <!-- 将 Vssue 作为 Vue 组件使用 -->
+  <!-- 对于 Vue 运行时版，使用渲染函数（render function） -->
+  <script>
+    new Vue({
+      el: '#vssue',
+
+      render: h => h('Vssue', {
+        props: {
+          // 在这里设置当前页面对应的 Issue 标题
+          title: 'Vssue Dev',
+
+          // 在这里设置你使用的平台的 OAuth App 配置
+          options: {
+            owner: '{{ .Site.Params.Vssue.owner }}',
+            repo: '{{ .Site.Params.Vssue.repo }}',
+            clientId: '{{ .Site.Params.Vssue.clientID }}',
+            clientSecret: '{{ .Site.Params.Vssue.clientSecret }}', // 只有在使用某些平台时需要
+          },
+        }
+      })
+    })
+  </script>
+  <!-- 或：对于 Vue 完整版，可以使用模板（template） -->
+  <!--
+  <script>
+    new Vue({
+      el: '#vssue',
+
+      data: {
+        title: 'Vssue Dev',
+
+        options: {
+          owner: '{{ .Site.Params.Vssue.owner }}',
+            repo: '{{ .Site.Params.Vssue.repo }}',
+            clientId: '{{ .Site.Params.Vssue.clientID }}',
+            clientSecret: '{{ .Site.Params.Vssue.clientSecret }}', // 只有在使用某些平台时需要
+        },
+      },
+
+      template: `<vssue :title="title" :options="options"></vssue>`,
+    })
+  </script>
+  -->
+{{ end }}

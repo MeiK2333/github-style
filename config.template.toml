@@ -24,7 +24,23 @@ pygmentsUseClasses = true
   location = "China"
   userStatusEmoji = "😀"
   enableGitalk = true
-    
+  enableAplyer = false
+  enableVssue = false
+  enableCDN = false
+
+  [params.CDN]
+    gitalk-css = ''
+    gitalk-min-js = ''
+    theme-mode-js = ''
+    frameworks-min-css = ''
+    github-min-css = ''
+    github-style-css = '
+    light-css = ''
+    dark-css = ''
+    syntax-css = ''
+    toc-js = ''
+    toc-css = ''
+
   [params.gitalk]
     clientID = "Your client ID" # Your client ID
     clientSecret = "Your client secret" # Your client secret
@@ -38,13 +54,45 @@ pygmentsUseClasses = true
     createIssueManually = true # 设置为true，如果是管理员登录，会自动创建issue，如果是false，需要管理员手动添加第一个评论(issue)
     distractionFreeMode = false # Enable hot key (cmd|ctrl + enter) submit comment.    
     proxy = "https://broken-wind-958e.29847163406422.workers.dev/https://github.com/login/oauth/access_token" # 可以自行添加反向代理
+
+  [params.Vssue]
+    clientID = "Your client ID" # Your client ID
+    clientSecret = "Your client secret" # Your client secret
+    repo = "LuvSia" # 您的博客的github地址Repository name，例如：xxxx.github.io
+    owner = "ventusoon" # 您的GitHub ID
+
   [[params.links]]
     title = "Link"
     href = "https://github.com/meik2333"
+
   [[params.links]]
     title = "Link2"
     href = "https://meik2333.com"
     icon = "https://meik2333.com/images/avatar.png"
 
+  [params.Aplayer]
+    Audio1 = ''
+    Artist1 = ''
+    Url1 = ''
+    Cover1 = ''
+    Audio2 = ''
+    Artist2 = ''
+    Url2 = ''
+    Cover2 = ''
+    Audio3 = ''
+    Artist3 = ''
+    Url3 = ''
+    Cover3 = ''
+    Audio4 = ''
+    Artist4 = ''
+    Url4 = ''
+    Cover4 = ''
+
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+
+

@@ -1,22 +1,44 @@
-{{ define "music" }}
-<link rel="stylesheet" href='{{ "css/aplayer.css" | absURL }}'>
-<script src='{{ "js/aplayer.js" | absURL }}'></script>
+{{ if .Site.Params.enableAplayer }}
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js" integrity="sha256-6Y7CJDaltoeNgk+ZftgCD9jLgmGv4xKUo8nQ0HgAwVo=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" integrity="sha256-uqQQGnDcmRKvhKwc5Vm4XT1GQ2oV6t1U0NR2N9tV+BQ=" crossorigin="anonymous">
+<div>
+<div id="APlayer-c"></div>
 <div>
 <script>
-    var ap = new APlayer
+    var ap1 = new APlayer
     ({
-        element: document.getElementById('aplayer'),
-        showlrc: false,
+        container: document.getElementById('APlayer-c'),
         fixed: true,
-        mini: true,
-        audio: {
-            title: '半岛铁盒',
-            author: '周杰伦',
-            url: 'https://echeverra.cn/wp-content/uploads/2022/05/周杰伦-半岛铁盒.mp3',
-            pic: 'https://echeverra.cn/wp-content/uploads/2022/05/周杰伦-半岛铁盒-mp3-image.png'
-        }
+		mutex: true,
+		listFolded: false,
+		listMaxHeight: 90,
+		autoplay: false,
+		loop: 'all',
+        audio: [
+		{
+            name: '{{ .Site.Params.Aplayer.Name1 }}',
+            artist: '{{ .Site.Params.Aplayer.Artist1 }}',
+            url: '{{ .Site.Params.Aplayer.Url1 }}',
+            cover: '{{ .Site.Params.Aplayer.Cover1 }}',
+        },
+		{
+            name: '{{ .Site.Params.Aplayer.Name2 }}',
+            artist: '{{ .Site.Params.Aplayer.Artist2 }}',
+            url: '{{ .Site.Params.Aplayer.Url2 }}',
+            cover: '{{ .Site.Params.Aplayer.Cover2 }}',
+        },
+		{
+            name: '{{ .Site.Params.Aplayer.Name3 }}',
+            artist: '{{ .Site.Params.Aplayer.Artist3 }}',
+            url: '{{ .Site.Params.Aplayer.Url3 }}',
+            cover: '{{ .Site.Params.Aplayer.Cover3 }}',
+        },
+		{
+            name: '{{ .Site.Params.Aplayer.Name4 }}',
+            artist: '{{ .Site.Params.Aplayer.Artist4 }}',
+            url: '{{ .Site.Params.Aplayer.Url4 }}',
+            cover: '{{ .Site.Params.Aplayer.Cover4 }}',
+        }]
     });
-    ap.init();
 </script>
-<div>
 {{ end }}
