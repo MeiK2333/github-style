@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
-{{ partial "head.html" . }}
+  {{ partial "head.html" . }}
 
-<body class="env-production emoji-size-boost page-responsive page-profile">
+  <body class="env-production emoji-size-boost page-responsive page-profile">
     {{ partial "header" . }}
-    <div class="application-main d-flex flex-auto flex-column" data-commit-hovercards-enabled="" data-color-mode="light">
-        <main>
-            <div class="bg-gray-dark text-white py-5 text-center">
-                <div class="pt-5 text-bold mx-2 mt-0" style="font-size: 100px; margin-bottom: 20px; line-height: 0">
-                    4<span class="not-found-octocat-wrapper d-inline-block mx-2 bg-gray-dark position-relative">
-                        <svg class="not-found-lightbulb-ani position-relative" xmlns="http://www.w3.org/2000/svg"
-                            x="0px" y="0px" viewBox="0 0 132.1 129.8" enable-background="new 0 0 132.1 129.8" width="72"
-                            xml:space="preserve">
-                            <path fill="#fff" d="M110.8,19c12.2,12.2,18.5,27.5,18.9,45.9c-0.3,14.5-4.4,27.3-12.5,38.3c-8.1,11-18.7,18.8-31.8,23.3
+    <div
+      class="application-main d-flex flex-auto flex-column"
+      data-commit-hovercards-enabled=""
+      data-color-mode="light"
+    >
+      <main>
+        <div class="bg-gray-dark text-white py-5 text-center">
+          <div
+            class="pt-5 text-bold mx-2 mt-0"
+            style="font-size: 100px; margin-bottom: 20px; line-height: 0"
+          >
+            4<span
+              class="not-found-octocat-wrapper d-inline-block mx-2 bg-gray-dark position-relative"
+            >
+              <svg
+                class="not-found-lightbulb-ani position-relative"
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                viewBox="0 0 132.1 129.8"
+                enable-background="new 0 0 132.1 129.8"
+                width="72"
+                xml:space="preserve"
+              >
+                <path
+                  fill="#fff"
+                  d="M110.8,19c12.2,12.2,18.5,27.5,18.9,45.9c-0.3,14.5-4.4,27.3-12.5,38.3c-8.1,11-18.7,18.8-31.8,23.3
             c-1.6,0.3-2.7,0-3.4-0.7c-0.7-0.7-1-1.5-1-2.5l0.1-17.7c-0.1-3-0.6-5.6-1.4-7.5c-0.8-2-1.9-3.5-3-4.5c7.5-0.5,14.3-2.9,20.2-7.3
             c6-4.3,9.1-12.6,9.4-24.8c-0.1-3.5-0.7-6.8-1.8-9.6c-1.1-2.9-2.8-5.4-4.9-7.7c0.5-0.8,0.9-2.8,1.3-5.8c0.3-3-0.3-6.8-1.9-11.4
             c0-0.3-1.4-0.2-4.3,0.2c-2.9,0.4-7.4,2.6-13.6,6.5c-5.2-1.4-10.6-2.2-16.2-2.2s-11,0.7-16.2,2.2c-6.2-4-10.7-6.1-13.6-6.5
@@ -21,20 +39,246 @@
             c-3.7,0-7.1-2.4-10.3-7c0-0.3-0.8-1.3-2.5-3.2c-1.7-1.9-4.1-3-7.3-3.5c-0.4-0.1-1.2,0.1-2.5,0.5c-1.2,0.4-0.6,1.6,2,3.5
             c0.1-0.1,0.9,0.6,2.5,1.9c1.6,1.4,3.1,3.8,4.8,7.5c-0.3,0.6,1.1,2.4,4.1,5.3c3,3,8.9,3.8,17.7,2.4l0.1,12c0,0.9-0.3,1.8-1,2.5
             c-0.7,0.7-1.8,1-3.4,0.7c-13.1-4.6-23.7-12.3-31.8-23.3C4.4,92.2,0.3,79.5,0,64.9C0.4,46.5,6.7,31.2,18.9,19
-            C31.1,6.8,46.5,0.5,64.9,0.1C83.3,0.5,98.6,6.8,110.8,19z">
-                            </path>
-                        </svg>
-                    </span>4
-                </div>
-                <div class="pb-5">
-                    <h4 class="mb-0">Didn’t find anything here!</h4>
-                </div>
-            </div>
-        </main>
-
+            C31.1,6.8,46.5,0.5,64.9,0.1C83.3,0.5,98.6,6.8,110.8,19z"
+                ></path>
+              </svg> </span
+            >4
+          </div>
+          <div class="pb-5">
+            <h4 class="mb-0">Didn’t find anything here!</h4>
+          </div>
+        </div>
+      </main>
     </div>
-    {{ partial "footer.html" . }}
-    {{ template "_internal/google_analytics_async.html" . }}
-</body>
+    {{ partial "footer.html" . }} {{ template
+    "_internal/google_analytics_async.html" . }} {{ if and
+    .Site.Params.EnableLocalSearch .Site.Params.Rss }}
+    <script type="text/javascript">
+      const host = window.location.host;
+      const keyword = localStorage.getItem("keyword");
+      localStorage.removeItem("keyword");
 
+      if (keyword) {
+        const markInstance = new Mark(document.body);
+        markInstance.unmark({
+          done: function () {
+            markInstance.mark(keyword);
+          },
+        });
+      }
+
+      const primaryColor = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("--color-bg-primary");
+      const mutedColor = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("--color-fg-muted");
+      const hoverColor = "#216EEB";
+
+      let originalStyle;
+      let svgOriginalStyle;
+      let titleOriginalStyle;
+
+      const onMouseOver = (node) => {
+        originalStyle = Object.assign({}, node.style);
+        node.style.backgroundColor = hoverColor;
+
+        const child = node.querySelector(".js-jump");
+        child.classList.remove("d-on-nav-focus");
+
+        const title = node.querySelector(".title");
+        if (title && primaryColor === " #fff") {
+          titleOriginalStyle = title.style;
+          title.style.color = "#fff";
+        }
+
+        const svg = node.querySelector(".octicon");
+        if (svg) {
+          svgOriginalStyle = svg.style;
+          svg.style.color = "#fff";
+        }
+      };
+
+      const onMouseLeave = (node) => {
+        node.style = originalStyle;
+        const child = node.querySelector(".js-jump");
+        child.classList.add("d-on-nav-focus");
+
+        const title = node.querySelector(".title");
+        title.style = titleOriginalStyle;
+
+        const svg = node.querySelector(".octicon");
+        svg.style = svgOriginalStyle;
+      };
+
+      const createSearchItem = (title, link, index) => {
+        return `
+    <li class="color-bg-primary search-item d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-scoped-search"
+        role="option" aria-selected="false" tabindex="${index}">
+        <a onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)"
+          class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2"
+          href="${link}" data-item-type="scoped_search">
+          <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center ">
+            <svg title="Repository" aria-label="Repository" role="img" height="16" viewBox="0 0 16 16"
+              version="1.1" width="16" data-view-component="true"
+              class="octicon octicon-repo js-jump-to-octicon-repo  flex-shrink-0">
+              <path fill-rule="evenodd"
+                d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
+              </path>
+            </svg>
+          </div>    
+
+          <div
+            class="title jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+            ${title}
+          </div>
+
+          <div aria-hidden="true" style="color: var(--color-fg-muted);"
+            class="color-bg-primary js-jump border rounded-2 flex-shrink-0 color-bg-subtle px-1 ml-1 f6 d-on-nav-focus js-jump-to-badge-jump">
+            Jump to
+            <span class="d-inline-block ml-1 v-align-middle">↵</span>
+          </div>
+        </a>
+      </li>
+    `;
+      };
+
+      const createGoogleSearchItem = (keyword) => {
+        return `
+    <li class="color-bg-primary search-item d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-scoped-search"
+        role="option" aria-selected="false" tabindex="0">
+        <a onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)"
+          class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2"
+          href="https://www.google.com/search?q=${keyword}" target="_blank" data-item-type="scoped_search">
+          <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center ">
+            <svg title="Search" aria-label="Search" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-search js-jump-to-octicon-search flex-shrink-0">
+                <path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path>
+            </svg>
+          </div>    
+
+          <div
+            class="title jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+            ${keyword}
+          </div>
+
+          <div aria-hidden="true" style="color: var(--color-fg-muted);"
+            class="color-bg-primary js-jump border rounded-2 flex-shrink-0 color-bg-subtle px-1 ml-1 f6 d-on-nav-focus js-jump-to-badge-jump">
+            Google search
+            <span class="d-inline-block ml-1 v-align-middle">↵</span>
+          </div>
+        </a>
+      </li>
+    `;
+      };
+
+      const stripHtml = (html) => {
+        let tmp = document.createElement("div");
+        tmp.innerHTML = html;
+
+        // remove style tags and content
+        const styles = tmp.getElementsByTagName("style");
+        while (styles[0]) {
+          styles[0].parentNode.removeChild(styles[0]);
+        }
+
+        // remove script tags and content
+        const scripts = tmp.getElementsByTagName("script");
+        while (scripts[0]) {
+          scripts[0].parentNode.removeChild(scripts[0]);
+        }
+
+        return tmp.textContent || tmp.innerText || "";
+      };
+
+      const inputDom = document.querySelector(".Header-search-input");
+      const resultDom = document.getElementById("jump-to-results");
+      let debounceTimer;
+      let parser;
+      let xmlDoc;
+
+      const search = (_keyword) => {
+        resultDom.innerHTML = "";
+
+        const keyword = _keyword;
+
+        if (!keyword) return;
+
+        const progressDom = document.getElementById("search-progress");
+        if (progressDom && progressDom.classList.contains("d-none")) {
+          progressDom.classList.remove("d-none");
+        }
+
+        localStorage.setItem("keyword", keyword);
+        fetch(
+          `${
+            host.indexOf("localhost") > -1 ? "http://" : "https://"
+          }${host}/index.xml`
+        )
+          .then((resp) => resp.text())
+          .then(async (res) => {
+            parser = new DOMParser();
+            xmlDoc = parser.parseFromString(res, "text/xml");
+            const linkResult = xmlDoc.getElementsByTagName("link");
+            const titleResult = xmlDoc.getElementsByTagName("title");
+            const arr = [];
+
+            const matched = [];
+            await (async function searchLink() {
+              for (let i = 0; i < linkResult.length; i++) {
+                await fetch(linkResult[i].textContent).then((resp) =>
+                  resp.text().then((res) => {
+                    const pureText = stripHtml(res);
+                    if (pureText.indexOf(keyword) >= 0) {
+                      matched.push(i);
+                    }
+                  })
+                );
+              }
+            })();
+
+            const googleSearchItem = createGoogleSearchItem(keyword);
+            const node = document
+              .createRange()
+              .createContextualFragment(googleSearchItem);
+            resultDom.appendChild(node);
+
+            matched.map((itemIndex, index) => {
+              const r = createSearchItem(
+                titleResult[itemIndex].textContent,
+                linkResult[itemIndex].textContent,
+                index + 1
+              );
+              const node = document.createRange().createContextualFragment(r);
+              resultDom.appendChild(node);
+            });
+
+            if (progressDom && !progressDom.classList.contains("d-none")) {
+              progressDom.classList.add("d-none");
+            }
+          });
+      };
+
+      const debounce = (callback, time) => {
+        window.clearTimeout(debounceTimer);
+        debounceTimer = window.setTimeout(callback, time);
+      };
+
+      ["focus", "input"].forEach((event) => {
+        inputDom.addEventListener(
+          event,
+          (e) => {
+            debounce(() => search(e.target.value), 500);
+          },
+          false
+        );
+      });
+
+      inputDom.addEventListener("blur", () => {
+        setTimeout(() => {
+          resultDom.innerHTML = "";
+        }, 100);
+      });
+    </script>
+    {{ end }}
+  </body>
 </html>

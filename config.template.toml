@@ -19,6 +19,7 @@ pygmentsUseClasses = true
   url = "https://meik2333.com"
   keywords = "blog, google analytics"
   rss = true
+  stackoverflow="10389571"
   lastmod = true
   favicon = "/images/github.svg"
   location = "China"
@@ -41,6 +42,12 @@ pygmentsUseClasses = true
     toc-js = ''
     toc-css = ''
 
+  userStatusEmoji = "😉"
+  rss = true
+  enableLocalSearch = true # Set to true if you want to have keyword search locally(params.rss true is required)
+  sponsorLink = "Your external sponsor link; For me, I use buymeacoffee link" # Set the link if you want to have a sponsor button and let audience know the your donation link
+  customStyleFile = "your css file name"
+  gtmId = "your gtm id"
   [params.gitalk]
     clientID = "Your client ID" # Your client ID
     clientSecret = "Your client secret" # Your client secret
