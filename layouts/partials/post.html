@@ -58,8 +58,8 @@
                       </div>
                     </details-menu>
                       {{ countwords .Content }} Words
-                    <!-- <span class="file-info-divider"></span>
-                                        {{ .ReadingTime }} min -->
+                    <span class="file-info-divider"></span>
+                                        {{ math.Round (div (countwords .Content) 220.0) }} min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
