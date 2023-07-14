@@ -24,7 +24,7 @@ pygmentsUseClasses = true
   favicon = "/images/github.svg"
   location = "China"
   userStatusEmoji = "😀"
-  enableGitalk = true
+  enableGitalk = false
   enableAplyer = false
   enableVssue = false
   enableCDN = false
@@ -69,12 +69,16 @@ pygmentsUseClasses = true
      #install app first
      #https://github.com/apps/giscus
      #motified in Giscus.html
+     repo = ""
+     repoid = ""
+     category = ""
+     categoryid = ""
+     mapping = ""
     [params.gitalk]
     clientID = "Your client ID" # Your client ID
     clientSecret = "Your client secret" # Your client secret
     repo = "your Repository name" # 您的博客的github地址Repository name，例如：xxxx.github.io
     owner = "your GitHub ID" # 您的GitHub ID
-
   [params.Vssue]
     clientID = "Your client ID" # Your client ID
     clientSecret = "Your client secret" # Your client secret
