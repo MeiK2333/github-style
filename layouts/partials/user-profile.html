@@ -59,6 +59,18 @@
           </div>
         </div>
 
+        {{ with $.Site.Params.sponsorLink }}
+        <div class="flex-1 ml-md-0 mb-0 mb-md-3 mb-2">
+          <a id="sponsor-profile-button" aria-label="Sponsor @ljharb" data-hydro-click="{&quot;event_type&quot;:&quot;sponsors.button_click&quot;,&quot;payload&quot;:{&quot;button&quot;:&quot;PROFILE_SPONSOR&quot;,&quot;sponsorable_login&quot;:&quot;ljharb&quot;,&quot;originating_url&quot;:&quot;https://github.com/ljharb&quot;,&quot;user_id&quot;:32745146}}" data-hydro-click-hmac="604a61c55ec5ff78d31e99aa0079236fdfee7870ed60cb4e926c56c405ff61ec" href="{{ $.Site.Params.sponsorLink }}" target="_blank" data-view-component="true" class="btn btn-block">
+            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-heart icon-sponsor mr-1 v-align-middle color-fg-sponsors anim-pulse-in">
+              <path fill-rule="evenodd" d="M4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.565 20.565 0 008 13.393a20.561 20.561 0 003.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.75.75 0 01-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5zM8 14.25l-.345.666-.002-.001-.006-.003-.018-.01a7.643 7.643 0 01-.31-.17 22.075 22.075 0 01-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.08 22.08 0 01-3.744 2.584l-.018.01-.006.003h-.002L8 14.25zm0 0l.345.666a.752.752 0 01-.69 0L8 14.25z"></path>
+            </svg>
+            <span class="v-align-middle">Sponsor</span>
+          </a>
+        </div>
+        {{ end }}
+        
+
         <div class="p-note user-profile-bio mb-3 js-user-profile-bio f4">
           <div>{{ .Site.Params.Description }}</div>
         </div>
@@ -66,6 +78,12 @@
         <div class="d-flex flex-column">
           <div class="js-profile-editable-area d-flex flex-column d-md-block">
             <ul class="vcard-details">
+
+              {{ if .Site.Params.enableGithubFollowers }}
+              <li class="vcard-detail pt-1 css-truncate css-truncate-target " id="github-follow-stat" data="{{ .Site.Params.Github }}">
+              </li>
+              {{ end }}
+
               {{ if .Site.Params.location }}
               <li class="vcard-detail pt-1 css-truncate css-truncate-target hide-sm hide-md">
                 <svg class="octicon octicon-location" viewBox="0 0 16 16" version="1.1" width="16" height="16">
@@ -108,7 +126,7 @@
           <h2 class="mb-2 h4">Organizations</h2>
           <div style="display:flex;justify-content:flex-start;flex-wrap:wrap;margin-bottom:3px;">
           {{ if .Site.Params.github}}
-          <a style="margin: 0 10px 10px 0;" href="https://github.com/{{ .Site.Params.github }}">
+          <a style="margin: 0 10px 10px 0;" target="_blank" href="https://github.com/{{ .Site.Params.github }}" aria-label="Github">
             <svg id="github-icon" viewBox="0 0 16 16" version="1.1" width="32" height="32" fill="#24292e">
               <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
               </path>
@@ -117,49 +135,56 @@
           {{ end }}
 
           {{ if .Site.Params.twitter}}
-          <a style="margin: 0 10px 10px 0;" href="https://twitter.com/{{ .Site.Params.twitter }}">
+          <a style="margin: 0 10px 10px 0;" target="_blank" href="https://twitter.com/{{ .Site.Params.twitter }}">
             <img alt="@twitter" width="32" height="32" src="{{ "images/twitter.png" | absURL }}" class="avatar">
           </a>
           {{ end }}
 
           {{ if .Site.Params.facebook}}
-          <a style="margin: 0 10px 10px 0;" href="https://facebook.com/{{ .Site.Params.facebook }}">
+          <a style="margin: 0 10px 10px 0;" target="_blank" href="https://facebook.com/{{ .Site.Params.facebook }}">
             <img alt="@facebook" width="32" height="32" src="{{ "images/facebook.png" | absURL }}" class="avatar">
           </a>
           {{ end }}
 
           {{ if .Site.Params.linkedin }}
-          <a style="margin: 0 10px 10px 0;" href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">
+          <a style="margin: 0 10px 10px 0;" target="_blank" href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">
             <img alt="@linkedin" width="32" height="32" src="{{ "images/linkedin.png" | absURL }}" class="avatar">
           </a>
           {{ end }}
 
           {{ if .Site.Params.instagram }}
-          <a style="margin: 0 10px 10px 0;" href="https://instagram.com/{{ .Site.Params.instagram }}">
+          <a style="margin: 0 10px 10px 0;" target="_blank" href="https://instagram.com/{{ .Site.Params.instagram }}">
             <img alt="@instagram" width="32" height="32" src="{{ "images/instagram.png" | absURL }}" class="avatar">
           </a>
           {{ end }}
 
           {{ if .Site.Params.tumblr }}
-          <a style="margin: 0 10px 10px 0;" href="https://{{ .Site.Params.tumblr }}.tumblr.com/">
+          <a style="margin: 0 10px 10px 0;" target="_blank" href="https://{{ .Site.Params.tumblr }}.tumblr.com/">
             <img alt="@tumblr" width="32" height="32" src="{{ "images/tumblr.png" | absURL }}" class="avatar">
           </a>
           {{ end }}
 
           {{ if .Site.Params.stackoverflow }}
-          <a style="margin: 0 10px 10px 0;" href="https://stackoverflow.com/u/{{ .Site.Params.stackoverflow }}">
+          <a style="margin: 0 10px 10px 0;" target="_blank" href="https://stackoverflow.com/u/{{ .Site.Params.stackoverflow }}">
             <img alt="@stackoverflow" width="32" height="32" src="{{ "images/stackoverflow.png" | absURL }}" class="avatar">
           </a>
+          {{ end }}
+
+          {{ $custom_orgs := .Site.Params.customOrgs }}
+          {{ range $org_index, $org := $custom_orgs }}
+            <a style="margin: 0 10px 10px 0;" target="_blank" href="{{ $org.link }}">
+              <img alt="{{ $org.name }}" width="32" height="32" src="{{ $org.img | absURL }}" class="avatar">
+            </a>
           {{ end }}
 
           {{ if .Site.Params.links }}
           {{ range .Site.Params.links }}
           {{ if .icon }}
-          <a style="margin: 0 10px 10px 0;" href="{{ .href }}">
+          <a style="margin: 0 10px 10px 0;" target="_blank" href="{{ .href }}">
             <img alt="@{{ .title }}" width="32" height="32" src="{{ .icon }}" class="avatar">
           </a>
           {{ else }}
-          <a style="margin: 0 10px 10px 0;" href="{{ .href }}">
+          <a style="margin: 0 10px 10px 0;" target="_blank" href="{{ .href }}">
             <img alt="@{{ .title }}" width="32" height="32" src='{{ "images/link.png" | absURL }}' class="avatar">
           </a>
           {{ end }}
@@ -167,7 +192,7 @@
           {{ end }}
 
           {{ if .Site.Params.rss }}
-          <a style="margin: 0 10px 10px 0;" href="{{ "index.xml" | absURL }}">
+          <a style="margin: 0 10px 10px 0;" target="_blank" href="{{ "index.xml" | absURL }}">
             <img alt="@rss" width="32" height="32" src="{{ "images/rss.png" | absURL }}" class="avatar">
           </a>
           {{ end }}

@@ -58,8 +58,8 @@
                       </div>
                     </details-menu>
                       {{ countwords .Content }} Words
-                    <!-- <span class="file-info-divider"></span>
-                                        {{ .ReadingTime }} min -->
+                    <span class="file-info-divider"></span>
+                                        {{ math.Round (div (countwords .Content) 220.0) }} min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -87,6 +87,20 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="pagination-nav">
+        <div class="pagination-button next-post">
+          {{ if .NextPage }}
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="{{ .NextPage.Permalink }}"> {{ .NextPage.Title | truncate 50 "..." }}</a>
+          {{ end }}
+        </div>
+        
+        <div class="pagination-button previous-post">
+          {{ if .PrevPage }}
+          <a class="pagination-link link-reverse" href="{{ .PrevPage.Permalink }}">{{ .PrevPage.Title | truncate 50 "..."}}&nbsp;</a><div> »</div>
+          {{ end }}
         </div>
       </div>
     </div>

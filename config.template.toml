@@ -19,6 +19,7 @@ pygmentsUseClasses = true
   url = "https://meik2333.com"
   keywords = "blog, google analytics"
   rss = true
+  stackoverflow="10389571"
   lastmod = true
   favicon = "/images/github.svg"
   location = "China"
@@ -27,6 +28,8 @@ pygmentsUseClasses = true
   enableAplyer = false
   enableVssue = false
   enableCDN = false
+  enableGithubFollowers = false
+  enableGiscus = false
 
   [params.CDN]
     gitalk-css = ''
@@ -40,7 +43,14 @@ pygmentsUseClasses = true
     syntax-css = ''
     toc-js = ''
     toc-css = ''
+    #tip: you should enter full url 
 
+  userStatusEmoji = "😉"
+  rss = true
+  enableLocalSearch = true # Set to true if you want to have keyword search locally(params.rss true is required)
+  sponsorLink = "false" 
+  customStyleFile = "your css file name"
+  gtmId = "your gtm id"
   [params.gitalk]
     clientID = "Your client ID" # Your client ID
     clientSecret = "Your client secret" # Your client secret
@@ -54,12 +64,22 @@ pygmentsUseClasses = true
     createIssueManually = true # 设置为true，如果是管理员登录，会自动创建issue，如果是false，需要管理员手动添加第一个评论(issue)
     distractionFreeMode = false # Enable hot key (cmd|ctrl + enter) submit comment.    
     proxy = "https://broken-wind-958e.29847163406422.workers.dev/https://github.com/login/oauth/access_token" # 可以自行添加反向代理
+    #more than gitalk
+    [params.giscus]
+     #install app first
+     #https://github.com/apps/giscus
+     #motified in Giscus.html
+    [params.gitalk]
+    clientID = "Your client ID" # Your client ID
+    clientSecret = "Your client secret" # Your client secret
+    repo = "your Repository name" # 您的博客的github地址Repository name，例如：xxxx.github.io
+    owner = "your GitHub ID" # 您的GitHub ID
 
   [params.Vssue]
     clientID = "Your client ID" # Your client ID
     clientSecret = "Your client secret" # Your client secret
-    repo = "LuvSia" # 您的博客的github地址Repository name，例如：xxxx.github.io
-    owner = "ventusoon" # 您的GitHub ID
+    repo = "Repository name" # 您的博客的github地址Repository name，例如：xxxx.github.io
+    owner = "GitHub ID" # 您的GitHub ID
 
   [[params.links]]
     title = "Link"
@@ -69,6 +89,10 @@ pygmentsUseClasses = true
     title = "Link2"
     href = "https://meik2333.com"
     icon = "https://meik2333.com/images/avatar.png"
+  [[params.customOrgs]]
+    link = "Custom link"
+    img = "Custom img" 
+    name = "Custom name"
 
   [params.Aplayer]
     Audio1 = ''
