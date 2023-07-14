@@ -76,6 +76,10 @@ pygmentsUseClasses = true
     title = "Link2"
     href = "https://meik2333.com"
     icon = "https://meik2333.com/images/avatar.png"
+  [[params.customOrgs]]
+    link = "https://github.com/kurt-project"
+    img = "kurt-project.png" #Put your assets in static folder
+    name = "kurt-project"
 
   [params.Aplayer]
     Audio1 = ''
