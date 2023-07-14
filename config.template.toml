@@ -42,6 +42,7 @@ pygmentsUseClasses = true
     syntax-css = ''
     toc-js = ''
     toc-css = ''
+    #tip: you should enter full url 
 
   userStatusEmoji = "😉"
   rss = true
