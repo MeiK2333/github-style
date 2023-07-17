@@ -1,3 +1,6 @@
+{{ if .Site.Params.Comment }}
+<!--上级 globalscript.html-->
+{{ end }}
 {{ if .Site.Params.enableGitalk }}
 <div id="gitalk-container" class="gitalk-container"></div>
 {{ if .Site.Params.enableCDN }}
@@ -21,5 +24,4 @@
   })();
 </script>
 {{ end }}
-{{ partial "giscus.html" . }}
-{{ partial "vssue.html" . }}
+

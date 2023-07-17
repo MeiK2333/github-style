@@ -1,12 +1,18 @@
+{{ if .Site.Params.Comment }}
+<!--上级 globalscript.html-->
+{{ end }}
 {{ if .Site.Params.enableVssue }}
   <!-- Vssue 的样式文件 -->
   <link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
   <div id="vssue"></div>
   <!-- 先引入 Vue -->
+  {{ if true }}
   <!-- Vue 运行时版 (runtime only)  -->
-  <script src="https://unpkg.com/vue/dist/vue.runtime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.esm-browser.js"></script>
+  {{ else }}
   <!-- 或： Vue 完整版 (runtime + compiler) -->
-  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.prod.js"></script>
+  {{ end }}
   <!-- 在 Vue 之后引入 Vssue -->
   <!-- Vssue Github 版  -->
   <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>

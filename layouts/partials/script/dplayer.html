@@ -1,0 +1,47 @@
+{{ if .Site.Params.Comment }}
+<!--上级 globalscript.html-->
+{{ end }}
+{{ if .Site.Params.enableDplayer }}
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js" integrity="sha256-6Y7CJDaltoeNgk+ZftgCD9jLgmGv4xKUo8nQ0HgAwVo=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" integrity="sha256-uqQQGnDcmRKvhKwc5Vm4XT1GQ2oV6t1U0NR2N9tV+BQ=" crossorigin="anonymous">
+<div>
+<div id="APlayer-c"></div>
+<div>
+<script>
+    var ap1 = new APlayer
+    ({
+        container: document.getElementById('APlayer-c'),
+        fixed: true,
+		mutex: true,
+		listFolded: false,
+		listMaxHeight: 90,
+		autoplay: false,
+		loop: 'all',
+        audio: [
+		{
+            name: '{{ .Site.Params.Aplayer.Name1 }}',
+            artist: '{{ .Site.Params.Aplayer.Artist1 }}',
+            url: '{{ .Site.Params.Aplayer.Url1 }}',
+            cover: '{{ .Site.Params.Aplayer.Cover1 }}',
+        },
+		{
+            name: '{{ .Site.Params.Aplayer.Name2 }}',
+            artist: '{{ .Site.Params.Aplayer.Artist2 }}',
+            url: '{{ .Site.Params.Aplayer.Url2 }}',
+            cover: '{{ .Site.Params.Aplayer.Cover2 }}',
+        },
+		{
+            name: '{{ .Site.Params.Aplayer.Name3 }}',
+            artist: '{{ .Site.Params.Aplayer.Artist3 }}',
+            url: '{{ .Site.Params.Aplayer.Url3 }}',
+            cover: '{{ .Site.Params.Aplayer.Cover3 }}',
+        },
+		{
+            name: '{{ .Site.Params.Aplayer.Name4 }}',
+            artist: '{{ .Site.Params.Aplayer.Artist4 }}',
+            url: '{{ .Site.Params.Aplayer.Url4 }}',
+            cover: '{{ .Site.Params.Aplayer.Cover4 }}',
+        }]
+    });
+</script>
+{{ end }}

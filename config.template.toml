@@ -26,7 +26,7 @@ pygmentsUseClasses = true
   userStatusEmoji = "😀"
   enableGitalk = false
   enableAplyer = false
-  enableVssue = false
+  enableDplyer = false
   enableCDN = false
   enableGithubFollowers = false
   enableGiscus = false
@@ -79,11 +79,6 @@ pygmentsUseClasses = true
     clientSecret = "Your client secret" # Your client secret
     repo = "your Repository name" # 您的博客的github地址Repository name，例如：xxxx.github.io
     owner = "your GitHub ID" # 您的GitHub ID
-  [params.Vssue]
-    clientID = "Your client ID" # Your client ID
-    clientSecret = "Your client secret" # Your client secret
-    repo = "Repository name" # 您的博客的github地址Repository name，例如：xxxx.github.io
-    owner = "GitHub ID" # 您的GitHub ID
 
   [[params.links]]
     title = "Link"
@@ -93,6 +88,7 @@ pygmentsUseClasses = true
     title = "Link2"
     href = "https://meik2333.com"
     icon = "https://meik2333.com/images/avatar.png"
+
   [[params.customOrgs]]
     link = "Custom link"
     img = "Custom img" 

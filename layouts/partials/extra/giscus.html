@@ -1,3 +1,6 @@
+{{ if .Site.Params.Comment }}
+<!--上级 globalscript.html-->
+{{ end }}
 {{ if .Site.Params.enableGiscus }}
 <script src="https://giscus.app/client.js"
         data-repo="{{ .Site.Params.Giscus.repo }}"
