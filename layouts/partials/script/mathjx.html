@@ -1,3 +1,6 @@
+{{ if .Site.Params.Comment }}
+<!--上级 single.html-->
+{{ end }}
 {{ if or .Params.MathJax .Site.Params.MathJax}}
 {{ if .Site.Params.mathjxCDN }}
 <script type="text/javascript" async src="{{ .Site.Params.mathjxCDN }}"></script>

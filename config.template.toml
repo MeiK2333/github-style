@@ -24,7 +24,12 @@ pygmentsUseClasses = true
   favicon = "/images/github.svg"
   location = "China"
   userStatusEmoji = "😀"
+  enableLocalSearch = true # Set to true if you want to have keyword search locally(params.rss true is required)
+  sponsorLink = "false" 
+  customStyleFile = "your css file name"
+  gtmId = "your gtm id"
   enableGitalk = false
+  enableVssue = false
   enableAplyer = false
   enableDplyer = false
   enableCDN = false
@@ -45,27 +50,21 @@ pygmentsUseClasses = true
     toc-css = ''
     #tip: you should enter full url 
 
-  userStatusEmoji = "😉"
-  rss = true
-  enableLocalSearch = true # Set to true if you want to have keyword search locally(params.rss true is required)
-  sponsorLink = "false" 
-  customStyleFile = "your css file name"
-  gtmId = "your gtm id"
-  [params.gitalk]
-    clientID = "Your client ID" # Your client ID
-    clientSecret = "Your client secret" # Your client secret
-    repo = "LuvSia" # 您的博客的github地址Repository name，例如：xxxx.github.io
-    owner = "ventusoon" # 您的GitHub ID
-    admin = "ventusoon" # 您的GitHub ID
-    id = "location.pathname" # 文章页面的链接地址就是ID
-    labels = "gitalk" # Github issue labels. If you used to use Gitment, you can change it
-    perPage = 15 # Pagination size, with maximum 100.
-    pagerDirection = "last" # Comment sorting direction, available values are 'last' and 'first'.
-    createIssueManually = true # 设置为true，如果是管理员登录，会自动创建issue，如果是false，需要管理员手动添加第一个评论(issue)
-    distractionFreeMode = false # Enable hot key (cmd|ctrl + enter) submit comment.    
-    proxy = "https://broken-wind-958e.29847163406422.workers.dev/https://github.com/login/oauth/access_token" # 可以自行添加反向代理
-    #more than gitalk
-    [params.giscus]
+   [params.gitalk]
+     clientID = "Your client ID" # Your client ID
+     clientSecret = "Your client secret" # Your client secret
+     repo = "LuvSia" # 您的博客的github地址Repository name，例如：xxxx.github.io
+     owner = "ventusoon" # 您的GitHub ID
+     admin = "ventusoon" # 您的GitHub ID
+     id = "location.pathname" # 文章页面的链接地址就是ID
+     labels = "gitalk" # Github issue labels. If you used to use Gitment, you can change it
+     perPage = 15 # Pagination size, with maximum 100.
+     pagerDirection = "last" # Comment sorting direction, available values are 'last' and 'first'.
+     createIssueManually = true # 设置为true，如果是管理员登录，会自动创建issue，如果是false，需要管理员手动添加第一个评论(issue)
+     distractionFreeMode = false # Enable hot key (cmd|ctrl + enter) submit comment.    
+     proxy = "https://broken-wind-958e.29847163406422.workers.dev/https://github.com/login/oauth/access_token" # 可以自行添加反向代理
+     #more than gitalk
+   [params.giscus]
      #install app first
      #https://github.com/apps/giscus
      #motified in Giscus.html
@@ -74,11 +73,22 @@ pygmentsUseClasses = true
      category = ""
      categoryid = ""
      mapping = ""
-    [params.gitalk]
-    clientID = "Your client ID" # Your client ID
-    clientSecret = "Your client secret" # Your client secret
-    repo = "your Repository name" # 您的博客的github地址Repository name，例如：xxxx.github.io
-    owner = "your GitHub ID" # 您的GitHub ID
+   [params.gitalk]
+     clientID = "Your client ID" # Your client ID
+     clientSecret = "Your client secret" # Your client secret
+     repo = "your Repository name" # 您的博客的github地址Repository name，例如：xxxx.github.io
+     owner = "your GitHub ID" # 您的GitHub ID
+   [params.Vssue]
+	provider = ""  # set your OAuth peovider , now support "Github" "Gitlab" "Bitbucket" "Gitea" "Gitee"
+	title = "" # set issue title
+     clientID = "Your client ID" # Your client ID
+     clientSecret = "Your client secret" # Your client secret
+     repo = "Repository name" # 您的博客的github地址Repository name，例如：xxxx.github.io
+     owner = "GitHub ID" # 您的GitHud ID
+	VueCDN = "jsdelivr" # "jsdelivr" or "unpkg" version:vue@2.7.14
+     VueType = "full" # "full" or "runtime"
+     template = false
+
 
   [[params.links]]
     title = "Link"
