@@ -4,9 +4,9 @@
 {{ if or .Params.MathJax .Site.Params.MathJax}}
 {{ if .Site.Params.mathjxCDN }}
 <script type="text/javascript" async src="{{ .Site.Params.mathjxCDN }}"></script>
-{{else}}
+{{  else  }}
 <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-{{end}}
+{{  end  }}
 {{ if false }}
 <script>
     MathJax.Hub.Config({
