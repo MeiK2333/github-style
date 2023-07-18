@@ -4,8 +4,16 @@
 {{ if .Site.Params.enableGitalk }}
 <div id="gitalk-container" class="gitalk-container"></div>
 {{ if .Site.Params.enableCDN }}
-<link rel="stylesheet" href='{{ .Site.Params.CDN.gitalk_css }}'>
-<script src='{{ .Site.Params.CDN.gitalk_min_js }}'></script>
+  {{ if .Site.Params.CDN.gitalk_css }}
+  <link rel="stylesheet" href='{{ .Site.Params.CDN.gitalk_css }}'>
+    {{ else }}
+    <link rel="stylesheet" href='{{ "css/gitalk.css" | absURL }}'>
+  {{ end }}
+  {{ if .Site.Params.CDN.gitalk_min_js }}
+  <script src='{{ .Site.Params.CDN.gitalk_min_js }}'></script>
+    {{ else }}
+    <script src='{{ "js/gitalk.min.js" | absURL }}'></script>
+  {{ end }}
 {{ else }}
 <link rel="stylesheet" href='{{ "css/gitalk.css" | absURL }}'>
 <script src='{{ "js/gitalk.min.js" | absURL }}'></script>

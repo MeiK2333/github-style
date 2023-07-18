@@ -35,10 +35,11 @@ pygmentsUseClasses = true
   enableCDN = false
   enableGithubFollowers = false
   enableGiscus = false
+  enableWaline = false
 
   [params.CDN]
-    gitalk-css = ''
-    gitalk-min-js = ''
+    gitalk-css = 'https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css'
+    gitalk-min-js = 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js'
     theme-mode-js = ''
     frameworks-min-css = ''
     github-min-css = ''
@@ -48,7 +49,8 @@ pygmentsUseClasses = true
     syntax-css = ''
     toc-js = ''
     toc-css = ''
-    #tip: you should enter full url 
+    mark-es6-min-js = 'https://cdn.jsdelivr.net/npm/mark.js@8/dist/mark.es6.min.js'
+    #tip: you should enter full url and if you set one it will use one
 
    [params.gitalk]
      clientID = "Your client ID" # Your client ID
@@ -73,6 +75,10 @@ pygmentsUseClasses = true
      category = ""
      categoryid = ""
      mapping = ""
+     position = "" # top or buttom
+     theme = ""
+     lang = ""
+     
    [params.gitalk]
      clientID = "Your client ID" # Your client ID
      clientSecret = "Your client secret" # Your client secret

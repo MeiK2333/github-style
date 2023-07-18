@@ -1,9 +1,18 @@
 {{ if .Site.Params.enableCDN }}
-<script type="application/javascript" src="{{ .Site.Params.CDN.github_style_js }}"></script>
+  {{ if .Site.Params.CDN.github_style_js }}
+      <script type="application/javascript" src="{{ .Site.Params.CDN.github_style_js }}"></script>
+    {{ else }}
+      <script type="application/javascript" src="{{ "js/github-style.js" | absURL }}"></script>
+  {{ end }}
+  {{ if .Site.Params.CDN.mark_es6_min_js }}
+      <script src="{{ .Site.Params.CDN.mark_es6_min_js }}"></script>
+    {{ else }}
+      <script src="{{ "js/mark.es6.min.js" | absURL }}"></script>
+      {{ end }}
 {{ else }}
 <script type="application/javascript" src="{{ "js/github-style.js" | absURL }}"></script>
 <script src="{{ "js/mark.es6.min.js" | absURL }}"></script>
-{{end}}
+{{ end }}
 {{ if and .Site.Params.EnableLocalSearch .Site.Params.Rss }}
 <script type="text/javascript">
 

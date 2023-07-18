@@ -9,7 +9,7 @@
   {{ if eq .Params.Vssue.VueCDN "jsdelivr" }}
 		{{ if eq .Params.Vssue.VueType "full" }}
 				<script src="https://cdn.jsdelivr.neit/npm/vue@2.7.14/dist/vue.runtime.min.js"></script><!-- Vue2 运行时版 (runtime only)  -->
-			{{ else if eq ..Params.Vssue.Type "runtime" }}
+			{{ else if eq .Params.Vssue.Type "runtime" }}
 				<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script><!-- Vue2 完整版 (runtime + compiler) -->
 			{{ else }}
 				{{ erroridf "Params.Vssue.VueType unset" "You should consider set Params.Vssue.VueType in config." }}
@@ -27,7 +27,7 @@
   {{ end }}
   
    <!-- 在 Vue 之后引入 Vssue -->
-  {{ if eq .Params.Vssue.Provider "Github }}
+  {{ if eq .Params.Vssue.Provider "Github" }}
 		<!-- Vssue Github 版  -->
 		<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
 	{{ else if eq .Params.Vssue.Provider "Gitlab" }}

@@ -107,9 +107,17 @@
   </main>
 </div>
 {{ if .Site.Params.enableCDN }}
-<script type="application/javascript" src='{{ .Site.Params.CDN.toc_js }}'></script>
-<link rel="stylesheet" href='{{ .Site.Params.CDN.toc_css }}' />
-{{ else }}
+  {{ if .Site.Params.CDN.toc_js }}
+      <script type="application/javascript" src='{{ .Site.Params.CDN.toc_js }}'></script>
+    {{ else }}
+      <script type="application/javascript" src='{{ "js/toc.js" | absURL }}'></script>
+  {{ end }}
+  {{ if .Site.Params.CDN.toc_css }}
+      <link rel="stylesheet" href='{{ .Site.Params.CDN.toc_css }}' />
+    {{ else }}
+      <link rel="stylesheet" href='{{ "css/toc.css" | absURL }}' />
+  {{ end }}
+  {{ else }}
 <script type="application/javascript" src='{{ "js/toc.js" | absURL }}'></script>
 <link rel="stylesheet" href='{{ "css/toc.css" | absURL }}' />
 {{ end }}

@@ -1,0 +1,45 @@
+{{ if .Site.Params.enableCDN }}
+	{{ if .Site.Params.CDN.theme_mode_js }}
+            <script type="application/javascript" src="{{ .Site.Params.CDN.theme_mode_js }}"></script>
+		{{ else }}
+            <script type="application/javascript" src='{{ "js/theme-mode.js" | absURL }}'></script>
+	{{ end }}
+    {{ if .Site.Params.CDN.frameworks_min_css }}
+        <link rel="stylesheet" href="{{ .Site.Params.CDN.frameworks_min_css }}" />
+		{{ else }}
+        <link rel="stylesheet" href='{{ "css/frameworks.min.css" | absURL }}' />
+	{{ end }}
+    {{ if .Site.Params.CDN.github_min_css }}
+        <link rel="stylesheet" href="{{ .Site.Params.CDN.github_min_css }}" />
+		{{ else }}
+        <link rel="stylesheet" href='{{ "css/github.min.css" | absURL }}' />
+	{{ end }}
+    {{ if .Site.Params.CDN.github_style_css }}
+      <link rel="stylesheet" href="{{ .Site.Params.CDN.github_style_css }}" />
+		{{ else }}
+      <link rel="stylesheet" href='{{ "css/github-style.css" | absURL }}' />
+	{{ end }}
+    {{ if .Site.Params.CDN.light_css }}
+      <link rel="stylesheet" href="{{ .Site.Params.CDN.light_css }}" />
+		{{ else }}
+      <link rel="stylesheet" href='{{ "css/light.css" | absURL }}' />
+	{{ end }}
+    {{ if .Site.Params.CDN.dark_css }}
+      <link rel="stylesheet" href="{{ .Site.Params.CDN.dark_css }}" />
+		{{ else }}
+      <link rel="stylesheet" href='{{ "css/dark.css" | absURL }}' />
+	{{ end }}
+    {{ if .Site.Params.CDN.syntax_css }}
+      <link rel="stylesheet" href="{{ .Site.Params.CDN.syntax_css }}" />
+		{{ else }}
+      <link rel="stylesheet" href='{{ "css/syntax.css" | absURL }}' />
+	{{ end }}
+    {{ else }}
+	<script type="application/javascript" src='{{ "js/theme-mode.js" | absURL }}'></script>
+    <link rel="stylesheet" href='{{ "css/frameworks.min.css" | absURL }}' />
+    <link rel="stylesheet" href='{{ "css/github.min.css" | absURL }}' />
+    <link rel="stylesheet" href='{{ "css/github-style.css" | absURL }}' />
+    <link rel="stylesheet" href='{{ "css/light.css" | absURL }}' />
+    <link rel="stylesheet" href='{{ "css/dark.css" | absURL }}' />
+    <link rel="stylesheet" href='{{ "css/syntax.css" | absURL }}' />
+{{ end }}
