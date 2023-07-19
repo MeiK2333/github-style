@@ -1,0 +1,33 @@
+{{ if .Site.Params.Comment }}
+<!--上级 extra.html-->
+{{ end }}
+{{ if .Site.Params.enableSodesu }}
+<!-- 样式文件 -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@waline/client@v2/dist/waline.css"
+/>
+<!-- 脚本文件 -->
+<script type="module">
+  import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@v2/dist/waline.mjs';
+
+  init({
+    // options
+  });
+</script>
+<script type="module">
+    import { pageviewCount } from 'https://cdn.jsdelivr.net/npm/@waline/client@v2/dist/pageview.mjs';
+  
+    pageviewCount({
+      // options
+    });
+  </script>
+<script type="module">
+    import { commentCount } from 'https://cdn.jsdelivr.net/npm/@waline/client@v2/dist/comment.mjs';
+  
+    commentCount({
+      // options
+    });
+  </script>
+    
+{{ end }}

@@ -1,0 +1,26 @@
+{{ if .Site.Params.Comment }}
+<!--上级 extra.html-->
+{{ end }}
+
+{{ if .Site.Params.enableSodesu }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sodesu-comment/dist/sodesu.css" />
+<div id="sodesu"></div>
+  <script src="https://cdn.jsdelivr.net/npm/sodesu-comment/dist/sodesu.aio.umd.js"></script>
+  <script>
+    Sodesu.init({
+      el: '#sodesu',
+      serverURL: {{ .Site.Params.Sodesu.backendurl }},
+
+      {{ if .Site.Params.Sodesu.dark }}
+        dark: {{ .Site.Params.Sodesu.dark }},
+      {{ end }}
+      {{ if .Site.Params.Sodesu.pageview}}
+      pageview: {{ .Site.Params.Sodesu.pageview }},
+      {{ end }}
+      {{ if .Site.Params.Sodesu.commentClassName}}
+      pageview: {{ .Site.Params.Sodesu.commentClassName }},
+      {{ end }}
+
+    });
+  </script>
+{{ end }}

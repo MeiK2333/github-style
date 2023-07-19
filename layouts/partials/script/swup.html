@@ -1,4 +1,4 @@
-
+{{ if .Site.Params.enableSwup }}
 <script src="https://unpkg.com/swup@3"></script>
 <script>const swup = new Swup();</script>
 <style>.transition-fade {
@@ -10,3 +10,5 @@ html.is-animating .transition-fade {
   opacity: 0;
 }
 </style>
+<!-- not available , need more edit -->
+{{ end }}

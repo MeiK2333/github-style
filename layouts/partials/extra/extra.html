@@ -1,4 +1,8 @@
-Waline
+{{ if .Site.Params.Comment }}
+<!--上级 single.html-->
+{{ end }}
 {{ partial "extra/gitalk.html" . }}
 {{ partial "extra/giscus.html" . }}
 {{ partial "extra/vssue.html" . }}
+{{ partial "extra/waline.html" . }}
+{{ partial "extra/sodesu.html" . }}

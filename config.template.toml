@@ -36,6 +36,7 @@ pygmentsUseClasses = true
   enableGithubFollowers = false
   enableGiscus = false
   enableWaline = false
+  enableSodesu = false
 
   [params.CDN]
     gitalk-css = 'https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css'
@@ -78,7 +79,6 @@ pygmentsUseClasses = true
      position = "" # top or buttom
      theme = ""
      lang = ""
-     
    [params.gitalk]
      clientID = "Your client ID" # Your client ID
      clientSecret = "Your client secret" # Your client secret
@@ -91,10 +91,16 @@ pygmentsUseClasses = true
      clientSecret = "Your client secret" # Your client secret
      repo = "Repository name" # 您的博客的github地址Repository name，例如：xxxx.github.io
      owner = "GitHub ID" # 您的GitHud ID
-	VueCDN = "jsdelivr" # "jsdelivr" or "unpkg" version:vue@2.7.14
+	  VueCDN = "jsdelivr" # "jsdelivr" or "unpkg" version:vue@2.7.14
      VueType = "full" # "full" or "runtime"
      template = false
-
+    [Params.waline]
+    #It is version 2.
+    [Params.sodesu]
+    backendurl = '' #your Wline url
+    dark = '' # dark css selector
+    pageview = '' # true or false
+    commentClassName = ''
 
   [[params.links]]
     title = "Link"
