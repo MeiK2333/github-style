@@ -193,6 +193,25 @@ pygmentsUseClasses = true
 
 ```
 
+## Support collapsible block
+
+You can create a collapsible block like this:
+
+```
+{{<details "summary title">}}
+
+block content
+
+{{</details>}}
+```
+
+And it will show like this:
+
+<details>
+  <summary>summary title</summary>
+  <p>block content</p>
+</details>
+
 ## deploy.sh example
 
 There are various way to deploy to github, here is a link to official [document](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
