@@ -189,12 +189,19 @@
 <script>
 window.onscroll = function (e) {
   const headerImg = document.querySelector('#headerImg');
+  const headerStuck = document.querySelector('#headerStuck');
   if (headerImg.getBoundingClientRect().bottom <= 0) {
-    document.querySelector('#headerStuck').classList.add('is-stuck');
+    headerStuck.classList.add('is-stuck');
+    if (window.innerWidth >= 1280) {
+      headerStuck.setAttribute('style', 'top: 15px;')
+    } else {
+      headerStuck.setAttribute('style', 'top: 0;')
+    }
   } else {
-    document.querySelector('#headerStuck').classList.remove('is-stuck');
+    headerStuck.classList.remove('is-stuck');
   }
 };
+
 var style = localStorage.getItem('data-color-mode');
 iconElement = document.getElementById('github-icon');
 if (style == 'light') {
