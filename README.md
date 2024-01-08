@@ -79,7 +79,7 @@ abstraction show in the post page
 other content
 ```
 
-## add last modified data
+## Add last modified date
 
 add to `config.toml`
 
