@@ -17,14 +17,14 @@ cd <name>
 git submodule add git@github.com:m-c-frank/theme-hugo.git themes/theme-hugo
 ```
 
-## Update the theme
+## update the theme
 
 ```bash
 cd themes/github-style
 git pull
 ```
 
-Then, you need to rename the previous `posts` folder to `post`
+then, you need to rename the previous `posts` folder to `post`
 
 ```bash
 cd <your-project-folder>
