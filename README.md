@@ -1,21 +1,23 @@
-# github-style
+# theme-hugo
 
-## Init hugo site
+theme for my hugo projects
+
+based originally on github-style
+
+## init hugo site
 
 ```bash
-hugo new site mysite
-cd mysite
+hugo new site <name>
+cd <name>
 ```
 
-## Install the theme
+## install the theme
 
 ```bash
-git submodule add git@github.com:MeiK2333/github-style.git themes/github-style
+git submodule add git@github.com:m-c-frank/theme-hugo.git themes/theme-hugo
 ```
 
 ## Update the theme
-
-If you just installed the theme, it is already in the latest version. If not, you can update using the below commands
 
 ```bash
 cd themes/github-style
@@ -29,14 +31,13 @@ cd <your-project-folder>
 mv content/posts content/post
 ```
 
-## Setup readme
+## setup readme
 
 ```bash
-hugo new readme.md
-echo '`Hello World!`' > content/readme.md
+cp README.md content/readme.md
 ```
 
-## Pin post
+## pin post
 
 ```
 ---
@@ -44,34 +45,34 @@ pin: true
 ---
 ```
 
-## Add new post
+## add new post
 
-Hugo will create a post with `draft: true`, change it to false in order for it to show in the website.
+hugo will create a post with `draft: true`, change it to false in order for it to show in the website.
 
 ```
-hugo new post/title_of_the_post.md
+hugo new post/20240112.md
 ```
 
-## Limit display content
+## limit display content
 
-### Approach 1: use summary
+### approach 1: use summary
 
 ```
 ---
-title: "title"
-date: 2019-10-22T18:46:47+08:00
+title: "levels of abstraction"
+date: 2024-01-12 20:34
 draft: false
-summary: "The summary content"
+summary: "summary content about levels of abstraction"
 ---
 ```
 
-### Approach 2: use `<!--more-->`
+### approach 2: use `<!--more-->`
 
-Use `<!--more-->` to separate content that will display in the posts page as abstraction and the rest of the content. This is different from summary, as summary will not appear in the post.
+use `<!--more-->` to separate content that will display in the posts page as abstraction and the rest of the content. this is different from summary, as summary will not appear in the post.
 ```
 ---
 title: "title"
-date: 2019-10-22T18:46:47+08:00
+date: 2024-01-12 20:34
 draft: false
 ---
 abstraction show in the post page
@@ -79,41 +80,13 @@ abstraction show in the post page
 other content
 ```
 
-## Add last modified date
+### todo: customizable abstraction
 
-add to `config.toml`
+let the user enter their preferred prompt to prepare the data in a way that is useful for them
 
-```toml
-lastmod = true
+## support LaTeX
 
-[frontmatter]
-  lastmod = ["lastmod", ":fileModTime", ":default"]
-```
-
-## Use [gitalk](https://github.com/gitalk/gitalk) to support comments
-
-add to `config.toml`
-
-```toml
-enableGitalk = true
-
-  [params.gitalk]
-    clientID = "Your client ID" 
-    clientSecret = "Your client secret" 
-    repo = "repo"
-    owner = "Your Github username"
-    admin = "Your Github username"
-    id = "location.pathname"
-    labels = "gitalk"
-    perPage = 30
-    pagerDirection = "last"
-    createIssueManually = true
-    distractionFreeMode = false
-```
-
-## Support LaTeX
-
-In you post add `math: true` to [front matter](https://gohugo.io/content-management/front-matter/)
+in the post add `math: true` to [front matter](https://gohugo.io/content-management/front-matter/)
 
 ```
 ---
@@ -121,7 +94,7 @@ katex: math
 ---
 ```
 
-Then the [katex script](https://katex.org/docs/autorender.html) will auto render the string enclosed by delimiters.
+then the [katex script](https://katex.org/docs/autorender.html) will auto render the string enclosed by delimiters.
 
 ```
 # replace ... with latex formula
@@ -129,74 +102,9 @@ display inline \\( ... \\)
 display block $$ ... $$
 ```
 
-![latex example](images/latex_example.png)
+## support collapsible block
 
-## Support MathJax
-you can add MathJax:true to frontmatter
-
-```
-mathJax: true
-```
-## config.toml example
-
-```toml
-baseURL = "https://meik2333.com/"
-languageCode = "zh-cn"
-title = "MeiK's blog"
-theme = "github-style"
-googleAnalytics = "UA-123456-789"
-pygmentsCodeFences = true
-pygmentsUseClasses = true
-
-[params]
-  author = "MeiK"
-  description = "In solitude, where we are least alone."
-  github = "MeiK2333"
-  facebook = "MeiK2333"
-  twitter = "MeiK2333"
-  linkedin = "MeiK2333"
-  instagram = "MeiK2333"
-  tumblr = "MeiK2333"
-  email = "meik2333@gmail.com"
-  url = "https://meik2333.com"
-  keywords = "blog, google analytics"
-  rss = true
-  lastmod = true
-  userStatusEmoji = "😀"
-  favicon = "/images/github.png"
-  avatar = "/images/avatar.png"
-  location = "China"
-  enableGitalk = true
-
-  [params.gitalk]
-    clientID = "Your client ID" 
-    clientSecret = "Your client secret" 
-    repo = "repo"
-    owner = "MeiK2333"
-    admin = "MeiK2333"
-    id = "location.pathname"
-    labels = "gitalk"
-    perPage = 15
-    pagerDirection = "last"
-    createIssueManually = true
-    distractionFreeMode = false
-
-  [[params.links]]
-    title = "Link"
-    href = "https://github.com/meik2333"
-  [[params.links]]
-    title = "Link2"
-    href = "https://meik2333.com"
-    icon = "https://meik2333.com/images/avatar.png"
-
-[frontmatter]
-  lastmod = ["lastmod", ":fileModTime", ":default"]
-
-```
-
-## Support collapsible block
-
-You can create a collapsible block like this:
+you can create a collapsible block like this:
 
 ```
 {{<details "summary title">}}
@@ -206,7 +114,7 @@ block content
 {{</details>}}
 ```
 
-And it will show like this:
+and it will show like this:
 
 <details>
   <summary>summary title</summary>
@@ -215,43 +123,8 @@ And it will show like this:
 
 ## deploy.sh example
 
-There are various way to deploy to github, here is a link to official [document](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
+there are various way to deploy to github, here is a link to official [document](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
 
-Here is an sample. Note line 22 have `env HUGO_ENV="production"`, makes sure googleAnalysis is loaded during production, but is not loaded when we are testing it in localhost.
-
-```bash
-#!/bin/sh
-
-if [ "`git status -s`" ]
-then
-    echo "The working directory is dirty. Please commit any pending changes."
-    exit 1;
-fi
-
-echo "Deleting old publication"
-rm -rf public
-mkdir public
-git worktree prune
-rm -rf .git/worktrees/public/
-
-echo "Checking out gh-pages branch into public"
-git worktree add -B gh-pages public origin/gh-pages
-
-echo "Removing existing files"
-rm -rf public/*
-
-echo "Generating site"
-env HUGO_ENV="production" hugo -t github-style
-
-echo "Updating gh-pages branch"
-cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
-
-#echo "Pushing to github"
-#git push --all
-```
-
-Then you can verify the site is working and use `git push --all` to push the change to github. If you don't want to check again every time, you can uncomment the `#git push --all` in the script.
-
-## TODO
-
-- 重写标题导航，那玩意儿引入的 JS 在控制台报错。
+## todo
+- [ ] add setup scrip for configuration
+- [ ] secret handling instructions
