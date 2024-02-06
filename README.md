@@ -129,7 +129,7 @@ display inline \\( ... \\)
 display block $$ ... $$
 ```
 
-![latex example](images/latex_example.png)
+![latex example](https://raw.githubusercontent.com/MeiK2333/github-style/master/images/latex_example.png)
 
 ## Support MathJax
 you can add MathJax:true to frontmatter
