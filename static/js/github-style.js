@@ -150,7 +150,7 @@ function yearList() {
   for (let i = 0; i < years.length; i++) {
     const year = years[i];
     const node = document.createElement('li');
-    node.innerHTML = `<li><a class="js-year-link filter-item px-3 mb-2 py-2" onclick="switchYear('${year}')">${year}</a></li>`;
+    node.innerHTML = `<a class="js-year-link filter-item px-3 mb-2 py-2" onclick="switchYear('${year}')">${year}</a>`;
     document.querySelector('#year-list').appendChild(node);
   }
 }
