@@ -144,7 +144,6 @@ baseURL = "https://meik2333.com/"
 languageCode = "zh-cn"
 title = "MeiK's blog"
 theme = "github-style"
-googleAnalytics = "UA-123456-789"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
@@ -192,6 +191,10 @@ pygmentsUseClasses = true
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
+
+[services]
+  [services.googleAnalytics]
+    ID = "UA-123456-789"
 
 ```
 
