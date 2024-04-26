@@ -261,4 +261,5 @@ Then you can verify the site is working and use `git push --all` to push the cha
 
 ## TODO
 
-- 重写标题导航，那玩意儿引入的 JS 在控制台报错。
+- [ ] integrate `algolia` to search.
+- [ ] support `utterances` to comment.
