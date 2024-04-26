@@ -10,7 +10,7 @@ cd mysite
 ## Install the theme
 
 ```bash
-git submodule add git@github.com:MeiK2333/github-style.git themes/github-style
+git submodule add https://github.com/ayamir/github-style-pro.git themes/github-style-pro
 ```
 
 ## Update the theme
@@ -18,7 +18,7 @@ git submodule add git@github.com:MeiK2333/github-style.git themes/github-style
 If you just installed the theme, it is already in the latest version. If not, you can update using the below commands
 
 ```bash
-cd themes/github-style
+cd themes/github-style-pro
 git pull
 ```
 
@@ -68,6 +68,7 @@ summary: "The summary content"
 ### Approach 2: use `<!--more-->`
 
 Use `<!--more-->` to separate content that will display in the posts page as abstraction and the rest of the content. This is different from summary, as summary will not appear in the post.
+
 ```
 ---
 title: "title"
@@ -132,18 +133,20 @@ display block $$ ... $$
 ![latex example](https://raw.githubusercontent.com/MeiK2333/github-style/master/images/latex_example.png)
 
 ## Support MathJax
+
 you can add MathJax:true to frontmatter
 
 ```
 mathJax: true
 ```
+
 ## config.toml example
 
 ```toml
 baseURL = "https://meik2333.com/"
 languageCode = "zh-cn"
 title = "MeiK's blog"
-theme = "github-style"
+theme = "github-style-pro"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 

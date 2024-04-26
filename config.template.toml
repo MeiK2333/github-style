@@ -1,21 +1,16 @@
-baseURL = "https://meik2333.com/"
+baseURL = "https://ayamir.github.io"
 languageCode = "zh-cn"
-title = "MeiK's blog"
-theme = "github-style"
+title = "ayamir's blog"
+theme = "github-style-pro"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
 [params]
-  author = "MeiK"
-  description = "In solitude, where we are least alone."
-  github = "MeiK2333"
-  facebook = "MeiK2333"
-  twitter = "MeiK2333"
-  linkedin = "MeiK2333"
-  instagram = "MeiK2333"
-  tumblr = "MeiK2333"
-  email = "meik2333@gmail.com"
-  url = "https://meik2333.com"
+  author = "ayamir"
+  description = "Imagine Everything."
+  github = "ayamir"
+  email = "lgt986452565@gmail.com"
+  url = "https://ayamir.github.io"
   keywords = "blog, google analytics"
   rss = true
   lastmod = true
