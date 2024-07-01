@@ -208,13 +208,15 @@ var style = localStorage.getItem('data-color-mode');
 iconElement = document.getElementById('github-icon');
 twitterIconElement = document.getElementById('twitter-icon');
 if (style == 'light') {
-  iconElement.setAttribute('fill', '#24292e');
-  twitterIconElement.setAttribute("fill","black")
+  if (iconElement) iconElement.setAttribute('fill', '#24292e');
+  if (twitterIconElement) twitterIconElement.setAttribute("fill","black")
 }
 else {
-  iconElement.removeAttribute('fill');
-  iconElement.setAttribute('class', 'octicon');
-  iconElement.setAttribute('color', '#f0f6fc');
-  twitterIconElement.setAttribute("fill","white")
+  if (iconElement) {
+    iconElement.removeAttribute('fill');
+    iconElement.setAttribute('class', 'octicon');
+    iconElement.setAttribute('color', '#f0f6fc');
+  }
+  if (twitterIconElement) twitterIconElement.setAttribute("fill","white")
 }
 </script>
