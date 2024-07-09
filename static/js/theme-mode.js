@@ -1,22 +1,12 @@
 function switchTheme() {
-  const currentStyle = currentTheme();
-  const iconElement = document.getElementById('github-icon');
-
+  const currentStyle = currentTheme()
   if (currentStyle === 'light') {
-    setTheme('dark');
+    setTheme('dark')
     setIconTheme('dark')
-    if (iconElement) {
-      iconElement.setAttribute('class', 'octicon');
-      iconElement.setAttribute('color', '#f0f6fc');
-    }
   }
   else {
-    setTheme('light');
+    setTheme('light')
     setIconTheme('light')
-    if (iconElement) {
-      iconElement.removeAttribute('color');
-      iconElement.removeAttribute('class');
-    }
   }
 }
 
@@ -29,11 +19,24 @@ function setTheme(style) {
 }
 
 function setIconTheme(theme) {
-  twitterIconElement = document.getElementById('twitter-icon');
-  if (theme === 'light') {
-    twitterIconElement.setAttribute("fill", "black")
-  } else if (theme === 'dark') {
-    twitterIconElement.setAttribute("fill", "white")
+  const twitterIconElement = document.getElementById('twitter-icon')
+  const githubIconElement = document.getElementById('github-icon')
+  if (twitterIconElement) {
+    if (theme === 'light') {
+      twitterIconElement.setAttribute("fill", "black")
+    } else if (theme === 'dark') {
+      twitterIconElement.setAttribute("fill", "white")
+    }
+  }
+
+  if (githubIconElement) {
+    if (theme === 'light') {
+      githubIconElement.removeAttribute('color')
+      githubIconElement.removeAttribute('class')
+    } else if (theme === 'dark') {
+      githubIconElement.setAttribute('class', 'octicon')
+      githubIconElement.setAttribute('color', '#f0f6fc')
+    }
   }
 }
 

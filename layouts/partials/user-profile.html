@@ -204,19 +204,19 @@ window.onscroll = function (e) {
   }
 };
 
-var style = localStorage.getItem('data-color-mode');
-iconElement = document.getElementById('github-icon');
-twitterIconElement = document.getElementById('twitter-icon');
+var style = localStorage.getItem('data-color-mode')
+githubIconElement = document.getElementById('github-icon')
+twitterIconElement = document.getElementById('twitter-icon')
 if (style == 'light') {
-  if (iconElement) iconElement.setAttribute('fill', '#24292e');
-  if (twitterIconElement) twitterIconElement.setAttribute("fill","black")
+  if (githubIconElement) githubIconElement.setAttribute('fill', '#24292e')
+  if (twitterIconElement) twitterIconElement.setAttribute('fill', 'black')
 }
 else {
-  if (iconElement) {
-    iconElement.removeAttribute('fill');
-    iconElement.setAttribute('class', 'octicon');
-    iconElement.setAttribute('color', '#f0f6fc');
+  if (githubIconElement) {
+    githubIconElement.removeAttribute('fill')
+    githubIconElement.setAttribute('class', 'octicon')
+    githubIconElement.setAttribute('color', '#f0f6fc')
   }
-  if (twitterIconElement) twitterIconElement.setAttribute("fill","white")
+  if (twitterIconElement)  twitterIconElement.setAttribute('fill', 'white') 
 }
 </script>
