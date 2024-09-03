@@ -47,3 +47,8 @@
   }
 </style>
 {{ end }}
+
+{{ if .Site.Params.enableSearch }}
+<script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+<script type="application/javascript" src='{{ "js/search.js" | absURL }}'></script>
+{{ end }}

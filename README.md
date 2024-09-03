@@ -217,6 +217,25 @@ And it will show like this:
   <p>block content</p>
 </details>
 
+## Support local search
+
+add to `config.toml`
+
+```toml
+[params]
+  enableSearch = true
+
+[outputs]
+  home = ["html", "json"]
+
+[outputFormats.json]
+  mediaType = "application/json"
+  baseName = "index"
+  isPlainText = false
+```
+
+We can do local search now, it is implemented by `fuse.js`.
+
 ## deploy.sh example
 
 There are various way to deploy to github, here is a link to official [document](https://gohugo.io/hosting-and-deployment/hosting-on-github/).

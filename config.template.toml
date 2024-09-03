@@ -25,6 +25,7 @@ pygmentsUseClasses = true
   location = "China"
   userStatusEmoji = "😀"
   enableGitalk = true
+  enableSearch = true
 
   [params.gitalk]
     clientID = "Your client ID" # Your client ID
