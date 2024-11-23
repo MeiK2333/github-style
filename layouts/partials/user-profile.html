@@ -154,6 +154,12 @@
           </a>
           {{ end }}
 
+          {{ if .Site.Params.bluesky}}
+          <a style="margin: 0 10px 10px 0;" href="https://bsky.app/profile/{{ .Site.Params.bluesky }}">
+            <img alt="@bluesky" width="32" height="32" src="{{ "images/bluesky.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
           {{ if .Site.Params.links }}
           {{ range .Site.Params.links }}
           {{ if .icon }}
