@@ -137,6 +137,19 @@ you can add MathJax:true to frontmatter
 ```
 mathJax: true
 ```
+
+## Custom CSS and JS
+
+Add your files in the static folder and list them in the custom_css and custom_js parameters
+
+For example, with static/css/custom.css and static/js/custom.js, add to `config.toml`
+
+```toml
+[params]
+  custom_css = ["css/custom.css"]
+  custom_js = ["js/custom.js"]
+```
+
 ## config.toml example
 
 ```toml
@@ -167,6 +180,8 @@ pygmentsUseClasses = true
   headerIcon = "/images/GitHub-Mark-Light-32px.png"
   location = "China"
   enableGitalk = true
+  custom_css = ["css/custom.css"]
+  custom_js = ["js/custom.js"]
 
   [params.gitalk]
     clientID = "Your client ID"

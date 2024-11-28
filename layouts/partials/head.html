@@ -16,6 +16,13 @@
     {{ end }}
     <meta name="theme-color" content="#1e2327">
 
+    {{ range .Site.Params.custom_css -}}
+    <link rel="stylesheet" href="{{ . | absURL }}">
+    {{- end }}
+    {{ range .Site.Params.custom_js -}}
+    <script type="text/javascript" src="{{ . | absURL }}"></script>
+    {{- end }}
+
     <!-- Extended head section-->
     {{ partial "extended_head.html" . }}
 </head>
