@@ -164,6 +164,7 @@ pygmentsUseClasses = true
 
 [params]
   author = "MeiK"
+  pronouns = 'They/Them'
   description = "In solitude, where we are least alone."
   github = "MeiK2333"
   facebook = "MeiK2333"

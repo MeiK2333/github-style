@@ -53,12 +53,17 @@
             <h1 class="vcard-names pl-2 pl-md-0">
               <span class="p-name vcard-fullname d-block overflow-hidden">{{ .Site.Params.author }}</span>
               {{ if .Site.Params.github }}
-              <span class="p-nickname vcard-username d-block">{{ .Site.Params.github }}</span>
+              <span class="p-nickname vcard-username d-block font-weight-light">
+                {{ .Site.Params.github }}
+                {{ if .Site.Params.pronouns }}
+                  <span class="text-gray-light"> · {{ .Site.Params.pronouns }}</span>
+                {{ end }}
+              </span>
               {{ end }}
             </h1>
           </div>
+      
         </div>
-
         <div class="p-note user-profile-bio mb-3 js-user-profile-bio f4">
           <div>{{ .Site.Params.Description }}</div>
         </div>
